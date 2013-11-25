@@ -1,0 +1,35 @@
+<div id="content">
+  <div class="content-title">Listing Testimonials</div>
+  <div class="admin-content-layer">
+    <%= raw msg_flash(flash) %>
+    <%= link_to "Add new testimonial", new_admin_testimonial_path %><br /><br /><br />
+    <div class="admin-row border">
+      <div class="no">No</div>
+      <div class="image">Image</div>
+      <div class="from">From</div>
+      <div class="comment">Comment</div>
+      <div class="action" style="width:140px!important;">action</div>
+    </div>
+    <% @testimonials.each_with_index do |testimonial, x| %>
+      <div class="admin-testimonial admin-row border">
+        <div class="admin-testimonial no"><%= @no+x+1 %></div>
+        <div class="admin-testimonial image">
+          <%= image_tag testimonial.picture.url(:thumb) %>
+        </div>
+        <div class="admin-testimonial from">
+          <%= testimonial.from %>
+        </div>
+        <div class="admin-testimonial comment">
+          <%= truncate(testimonial.comment, :length => 200) %>
+        </div>
+        <div class="admin-testimonial action" style="width:140px!important;">
+          <%= link_to "Show", admin_testimonial_path(testimonial) %>&nbsp;&nbsp;|&nbsp;
+          <%= link_to "Edit", edit_admin_testimonial_path(testimonial) %>&nbsp;|&nbsp;&nbsp;
+          <%= link_to "Delete", admin_testimonial_path(testimonial.id ), :method => :delete,
+                                :confirm => "Are you sure?" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>

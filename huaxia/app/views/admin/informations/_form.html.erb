@@ -1,0 +1,18 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "ckeditor/ckeditor" %>
+<% end %>
+
+<div class="field">
+  <div class="input-title left"><%= f.label :title %></div>
+  <div class="input-box left">:&nbsp;&nbsp;<%= @information.title.humanize %></div>
+</div>
+<div class="field">
+  <div class="input-title left"><%= f.label :content %></div>
+  <div class="input-box left">:&nbsp;</div>
+</div>
+<div class="field" style="height: 475px;">
+    <%= f.cktext_area :content, :ckeditor => {:uiColor => "#F5CDFA", :toolbar => "Basic",
+                                              :width=>'850px', :height=>'250px'}  %>
+</div>
+<div class="clear"></div>
+<br />

@@ -1,0 +1,14 @@
+<div id="content">
+  <div class="content-title">New Banner</div>
+  <div class="admin-content-layer">
+    <%= form_for([:admin, @banner], :html => { :multipart => true}) do |f| %>
+      <%= f.error_messages %>
+      <%= render :partial => 'form', :locals => { :f => f} %>
+      <div class="field">
+        <%= f.submit 'Create Image' %>&nbsp;&nbsp;
+        <%= link_to 'Back', admin_banners_path %>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>

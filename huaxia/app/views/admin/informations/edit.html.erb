@@ -1,0 +1,17 @@
+<div id="content">
+  <div class="content-title">Edit Informations</div>
+  <div class="admin-content-layer">
+    <%= form_for([:admin, @information], :url => admin_information_path(@information.title),
+                  :html => { :multipart => true, :method => :put }) do |f| %>
+      <%= f.error_messages %>
+      <%= render :partial => 'form', :locals => { :f => f} %>
+      <div class="field">
+        <%= f.submit 'Update Information' %>&nbsp;&nbsp;
+        <%= link_to 'Back', admin_informations_path %>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>
+
+

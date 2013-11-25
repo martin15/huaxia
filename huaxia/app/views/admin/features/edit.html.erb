@@ -1,0 +1,15 @@
+<div id="content">
+  <div class="content-title">Edit Feature</div>
+  <div class="admin-content-layer">
+    <%= form_for([:admin, @feature], :html => { :method => :put }) do |f| %>
+      <%= f.error_messages %>
+      <%= render :partial => 'form', :locals => { :f => f} %>
+      <div class="field">
+        <%= f.submit 'Update Feature' %>&nbsp;&nbsp;
+        <%= link_to 'Back', admin_features_path %>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>
+

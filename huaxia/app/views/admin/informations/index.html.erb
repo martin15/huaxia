@@ -1,0 +1,23 @@
+<div id="content">
+  <div class="content-title">Listing Informations</div>
+  <div class="admin-content-layer">
+    <%= raw msg_flash(flash) %>
+    <div class="admin-row border">
+      <div class="no">No</div>
+      <div class="title">Title</div>
+      <div class="action">&nbsp;</div>
+    </div>
+    <% @informations.each_with_index do |information, x| %>
+      <div class="admin-row">
+        <div class="no"><%= x+1 %></div>
+        <div class="title text-left"><%= information.title.humanize %></div>
+        <div class="action">
+          <%= link_to 'Edit', edit_admin_information_path(information.title) %>
+        </div>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>
+
+

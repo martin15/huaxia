@@ -1,0 +1,2 @@
+module InfoStudyHelper
+end

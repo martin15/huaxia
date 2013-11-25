@@ -1,0 +1,24 @@
+<div id="content">
+  <div class="content-title">Listing Banners</div>
+  <div class="admin-content-layer">
+    <%= raw msg_flash(flash) %>
+    <%= link_to "Add new banner", new_admin_banner_path %><br /><br /><br />
+    <div class="admin-row border">
+      <div class="no">No</div>
+      <div class="banner-image">Image</div>
+      <div class="action">action</div>
+    </div>
+    <% @banners.each_with_index do |banner, x| %>
+      <div class="admin-row">
+        <div class="admin-banner no"><%= x+1 %></div>
+        <div class="admin-banner banner-image"><%= image_tag  banner.banner_image.url(:medium) %></div>
+        <div class="admin-banner action">
+          <%= link_to "Edit", edit_admin_banner_path(banner) %>&nbsp;&nbsp;|&nbsp;&nbsp;
+          <%= link_to "Delete", admin_banner_path(banner.id ), :method => :delete,
+                                :confirm => "Are you sure?" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>

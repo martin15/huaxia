@@ -1,0 +1,18 @@
+<div class="field">
+  <div class="input-title left"><%= f.label :gallery_image, "Image" %></div>
+  <div class="input-box left">:&nbsp;&nbsp;<%= f.file_field :gallery_image %></div>
+</div>
+<div class="field">
+  <div class="input-title left">&nbsp;</div>
+  <div class="input-box left">
+    <span>please input image with size 800x600 (width x height)</span>
+  </div>
+</div>
+<div class="field">
+  <div class="input-title left"><%= f.label :title %></div>
+  <div class="input-box left">:&nbsp;&nbsp;<%= f.text_field :title %></div>
+</div>
+<div class="field" style="height: 200px;">
+  <div class="input-title left"><%= f.label :description %></div>
+  <div class="input-box left">:&nbsp;&nbsp;<%= f.text_area :description, :rows => 10 %></div>
+</div>

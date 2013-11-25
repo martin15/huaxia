@@ -1,0 +1,63 @@
+  <script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider({
+          effect: 'fade',
+          pauseTime: 3000,
+          animSpeed: 400,
+          directionNav: false
+        });
+    });
+  </script>
+
+<div id="content-home">
+  <div id="wrapper" style="margin:0px 0 25px 0;padding:0 65px;">
+    <div class="slider-wrapper theme-light">
+      <div id="slider" class="nivoSlider">
+        <% @banners.each do |banner| %>
+          <%= image_tag banner.banner_image.url(:big) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-left">
+    <% @features.each do |feature| %>
+      <div class="mini-table" style="float:left">
+        <div class="mini-table-main mini-table-head" style="background-color:#<%= feature.color %>">
+          <%= feature.title %>
+        </div>
+        <div class="mini-table-mid">
+          <span>
+            <%= feature.short_description %>
+          </span>
+        </div>
+        <div class="mini-table-main mini-table-low" style="background-color:#<%= feature.color %>">
+          <%= link_to "Read more", feature.destination, :style => "background-color:##{feature.color}" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="content-right">
+    <%= link_to raw("<div class='facebook'>#{
+                       image_tag "facebook_logo.jpg"}<span>icec HuaXia</span>
+                     </div>"), "#" %>
+    <%= link_to raw("<div class='twitter'>#{
+                       image_tag "twitter_logo.jpg"}<span>HuaXia ICEC</span>
+                     </div>"), "#" %>
+
+    <div class="graduated-student">
+      <div class="graduated-student-up-down">
+        <span>GXNU GRADUATED STUDENT</span>
+      </div>
+      <div class="graduated-student-mid">
+        bbb
+      </div>
+      <div class="graduated-student-up-down text-right">
+        <%= link_to "READ MORE", "#" %>
+      </div>
+    </div>
+  </div>
+
+    <div class="clear"></div>
+</div>
+

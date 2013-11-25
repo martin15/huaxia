@@ -1,0 +1,183 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+/*************** CONTENT ************/
+
+#content-home{
+  clear: both;
+  padding:10px 20px;
+}
+
+#content{
+  font-size: 14px;
+  clear: both;
+  padding:30px 0 20px 0;
+  background-color:#f5cdfa;
+  min-height:700px;
+}
+
+.admin-content-layer{
+  font-size: 14px;
+  background-color:#fbe5fc;
+  margin:60px 50px 20px 50px;
+  padding:20px;
+  border:solid 1px #fbe5fc;
+  border-radius:10px;
+  min-height:550px;
+}
+
+.admin-content-layer a{
+  text-decoration: underline;
+}
+
+.admin-row{
+  float: left;
+  width: 880px;
+}
+
+.border {
+  border-bottom: 1px black solid;
+  height:25px;
+  margin-bottom:5px;
+}
+
+.admin-row .no, .admin-row .title, .admin-row .image,
+.admin-row .description, .admin-row .image-title, .admin-row .action,
+.admin-row .banner-image, .admin-row .from, .admin-row .comment,
+.admin-row .feature-title, .admin-row .sort-desc, .admin-row .destination,
+.admin-row .color{
+  text-align: center;
+  float: left;
+  height: 15px;
+  padding:5px;
+  word-wrap: break-word;
+}
+
+.admin-galery, .admin-feature{
+  height: 90px!important;
+}
+
+.admin-banner, .admin-testimonial{
+  height: 200px!important;
+}
+
+.admin-row .no, .admin-row .color{
+  width: 50px;
+}
+
+.admin-row .color .display{
+  width: 30px;
+  height: 15x;
+  float: left;
+  margin-left:10px;
+}
+
+.admin-row .title, .admin-row .description, .admin-row .banner-image{
+  width: 500px;
+}
+
+.admin-row .image-title, .admin-row .destination{
+  width: 150px;
+}
+
+.admin-row .sort-desc{
+  width: 250px;
+}
+
+.admin-row .from, .admin-row .feature-title{
+  width: 200px;
+}
+
+.admin-row .image{
+  width: 130px;
+}
+
+.admin-row .comment{
+  width: 310px;
+}
+
+.admin-row .action{
+  width: 100px;
+}
+
+.admin-category-gallery{
+  float: left;
+  width: 270px;
+  height: 250px;
+  margin-right: 20px;
+}
+
+.admin-category-gallery .pic{
+  float: left;
+  width: 270px;
+  height: 190px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.admin-category-gallery .pic img{
+    display: block;
+    margin: auto;
+}
+
+.admin-category-gallery .title{
+  float: left;
+  width: 220px;
+  height: 50px;
+  padding-right: 20px;
+  font-size: 14px;
+}
+
+.admin-category-gallery .action{
+  float: left;
+  width: 30px;
+  height: 50px;
+  text-decoration: underline;
+}
+
+.admin-gallery{
+  float: left;
+  width: 270px;
+  height: 250px;
+  margin-right: 20px;
+}
+
+.admin-menu{
+  width: 80px!important;
+  font-size: 13px!important;
+}
+
+.field_with_errors{
+  float: left;
+}
+
+.field_with_errors label {
+  padding: 2px;
+  background-color: red;
+}
+
+.field_with_errors input[type="text"] {
+  padding: 3px 2px;
+  border: 2px solid red;
+}
+
+#picker {
+	margin:0;
+	padding:0;
+	border:0;
+	width:70px;
+	height:20px;
+	border-right:20px solid green;
+	line-height:20px;
+}
+

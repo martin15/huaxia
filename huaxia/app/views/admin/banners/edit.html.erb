@@ -1,0 +1,18 @@
+<div id="content">
+  <div class="content-title">Edit Banner</div>
+  <div class="admin-content-layer">
+    <%= form_for([:admin, @banner], :html => { :multipart => true, :method => :put }) do |f| %>
+      <%= f.error_messages %>
+      <div class="admin-category-banner" style="height: 210px;">
+        <%= image_tag @banner.banner_image.url(:medium) %>
+      </div><br /><br />
+      <%= render :partial => 'form', :locals => { :f => f} %>
+      <div class="field">
+        <%= f.submit 'Update Banner' %>&nbsp;&nbsp;
+        <%= link_to 'Back', admin_banners_path %>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>
+

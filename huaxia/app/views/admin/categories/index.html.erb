@@ -1,0 +1,23 @@
+<div id="content">
+  <div class="content-title">Listing Gallery Categories</div>
+  <div class="admin-content-layer">
+    <%= raw msg_flash(flash) %>
+    <% @categories.each do |category| %>
+      <div class="admin-category-gallery">
+        <div class="pic">
+          <%= link_to (image_tag category.icon_image.url(:big)), 
+                      admin_galleries_path(category.id) %>
+        </div>
+        <div class="title">
+          <%= link_to category.title.humanize, admin_galleries_path(category.id) %>
+          <%= "(#{category.galleries.count})" %>
+        </div>
+        <div class="action">
+          <%= link_to "Edit", admin_edit_gallery_categories_path(category.id) %>
+        </div>
+      </div>
+    <% end %>
+    
+    <div class="clear"></div>
+  </div>
+</div>

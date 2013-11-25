@@ -1,0 +1,20 @@
+<div id="content">
+  <div class="content-title">Edit Image for '<%= @category.title.humanize %>'</div>
+  <div class="admin-content-layer">
+    <%= form_for([:admin, @gallery],
+                  :url => admin_gallery_path(:category_id => @category.id, :id => @gallery.id),
+                  :html => { :multipart => true, :method => :put }) do |f| %>
+      <%= f.error_messages %>
+      <div class="admin-category-gallery" style="height: 210px;">
+        <%= image_tag @gallery.gallery_image.url(:thumb) %>
+      </div><br /><br />
+      <%= render :partial => 'form', :locals => { :f => f} %>
+      <div class="field">
+        <%= f.submit 'Update Image' %>&nbsp;&nbsp;
+        <%= link_to 'Back', admin_galleries_path %>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>
+

@@ -1,0 +1,18 @@
+<div class="field">
+  <div class="input-title left"><%= f.label :from, "From *" %><span>:</span></div>
+  <div class="input-box left"><%= f.text_field :from %></div>
+</div>
+<div class="field">
+  <div class="input-title left"><%= f.label :email, "Email *" %><span>:</span></div>
+  <div class="input-box left"><%= f.text_field :email %></div>
+</div>
+<div class="field clear-margin">
+  <div class="input-title left"><%= f.label :picture, "Image *" %><span>:</span></div>
+  <div class="input-box left"><%= f.file_field :picture %></div>
+</div>
+<div class="field" style="height: 200px;">
+  <div class="input-title left"><%= f.label :comment, "comment *" %><span>:</span></div>
+  <div class="input-box left" style="width: 700px;">
+    <%= f.text_area :comment,  size: "80x10" %>
+  </div>
+</div>

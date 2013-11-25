@@ -1,0 +1,28 @@
+<div id="content">
+  <div class="content-title">New Testimonial</div>
+  <div class="admin-content-layer">
+    <div class="admin-category-testimonial" style="height: 330px;">
+      <%= image_tag @testimonial.picture.url(:medium) %>
+    </div><br /><br />
+    <div class="field">
+      <div class="input-title left">From<span>:</span></div>
+      <div class="input-box left"><%= @testimonial.from %></div>
+    </div>
+    <div class="field">
+      <div class="input-title left">Email<span>:</span></div>
+      <div class="input-box left"><%= @testimonial.email %></div>
+    </div>
+    <div class="field" style="height: 200px;">
+      <div class="input-title left">Comment<span>:</span></div>
+      <div class="input-box left" style="width: 700px;">
+        <%= @testimonial.comment %>
+      </div>
+    </div>
+    <div class="field">
+      <%= link_to 'Edit', edit_admin_testimonial_path(@testimonial) %>&nbsp;&nbsp;
+      <%= link_to 'Back', admin_testimonials_path %>
+    </div>
+
+    <div class="clear"></div>
+  </div>
+</div>

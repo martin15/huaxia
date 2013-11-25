@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Huaxia</title>
+  <%= stylesheet_link_tag "light/light.css", "nivo-slider.css", "application" %>
+  <%= javascript_include_tag "jquery-1.7.1.min.js", "application.js", "jquery.nivo.slider.js" %>
+  <%= yield :javascript_includes %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+  <div class="container">
+    <div id="header">
+      <%= link_to (image_tag "gxnu_logo.png", :style => "margin-left:50px"), 
+                   "http://www.gxnu.edu.cn", :target => "blank" %>
+      <div class="header-logo">
+        <%= link_to (image_tag "gnxu_text_logo.png"),
+                   "http://www.gxnu.edu.cn", :target => "blank" %>
+        <%= link_to (image_tag "huaxia_logo.png", :style => "float:right"), root_path %>
+      </div>
+      <div id="nav-menu">
+        <ul class='down-menu'>
+          <%= link_to raw("<li>About Us</li>"), about_us_path %>
+          <%= link_to raw("<li style='width:70px;'>Info</li>"), info_study_path %>
+          <li>Gallery
+            <ul>
+              <%= link_to raw("<li class='sub-menu'><span>Guilin</span></li>"),
+                          category_path('guilin') %>
+              <%= link_to raw("<li class='sub-menu'><span>Summer Camp</span></li>"),
+                          category_path('summer_camp') %>
+              <%= link_to raw("<li class='sub-menu'><span>Winter Camp</span></li>"),
+                          category_path('winter_camp') %>
+            </ul>
+          </li>
+          <%= link_to raw("<li style='width:130px;'>Testimonial</li>"),
+                      "#" %>
+          <%= link_to raw("<li style='width:80px;'>HSK</li>"),
+                      "#" %>
+          <%= link_to raw("<li style='width:180px;'>Learning Mandarin</li>"),
+                      learning_mandarin_path %>
+        </ul>
+      </div>
+    </div>
+
+    <%= yield %>
+    <div class="clear"></div>
+    <div id="footer">
+      <em></em>
+      <div class="nav-footer">
+        <ul>
+          <%= link_to raw("<li>Home</li>"), root_path %>
+          <%= link_to raw("<li>About Us</li>"), about_us_path %>
+          <%= link_to raw("<li>Info</li>"), info_study_path %>
+          <%#*<li>Gallery%>
+            <%#*<ul>%>
+              <%#= link_to raw("<li class='sub-menu'><span>Guilin</span></li>"),
+                          category_path('guilin') %>
+              <%#= link_to raw("<li class='sub-menu'><span>Summer Camp</span></li>"),
+                          category_path('summer_camp') %>
+              <%#= link_to raw("<li class='sub-menu'><span>Winter Camp</span></li>"),
+                          category_path('winter_camp') %>
+            <%#*</ul>%>
+          <%#*</li>%>
+          <%= link_to raw("<li>Testimonial</li>"),
+                      "#" %>
+          <%= link_to raw("<li>HSK</li>"),
+                      "#" %>
+          <%= link_to raw("<li class='none-border'>Learning Mandarin</li>"),
+                      learning_mandarin_path %>
+        </ul><br />
+        <p>Copyright © 2013, huaxia.com - all rights reserved</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

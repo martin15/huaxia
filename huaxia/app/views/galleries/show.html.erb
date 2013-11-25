@@ -1,0 +1,41 @@
+<% content_for :javascript_includes do %>
+  <%= stylesheet_link_tag "jquery.ad-gallery.css" %>
+  <%= javascript_include_tag "jquery.ad-gallery.js" %>
+<% end %>
+
+<script type="text/javascript">
+  $(function() {
+    <%#*$('img.image1').data('ad-desc', 'Whoa! This description is set through elm.data("ad-desc") instead of using the longdesc attribute.<br>And it contains <strong>H</strong>ow <strong>T</strong>o <strong>M</strong>eet <strong>L</strong>adies... <em>What?</em> That aint what HTML stands for? Man...');%>
+    <%#*$('img.image1').data('ad-title', 'Title through $.data');%>
+    <%#*$('img.image4').data('ad-desc', 'This image is wider than the wrapper, so it has been scaled down');%>
+    <%#*$('img.image5').data('ad-desc', 'This image is higher than the wrapper, so it has been scaled down');%>
+    var galleries = $('.ad-gallery').adGallery();
+  });
+  </script>
+
+<div id="content">
+  <div class="content-title">About <%= @category.title.humanize %></div>
+  <div class="content-layer">
+    <div id="gallery" class="ad-gallery">
+      <div class="ad-image-wrapper"></div>
+      <div class="ad-controls"></div>
+      <div class="ad-nav">
+        <div class="ad-thumbs">
+          <ul class="ad-thumb-list">
+            <% @images.each do |image| %>
+              <li>
+                <%= link_to (image_tag image.gallery_image.url(:thumb),
+                              :title => image.title.humanize, :alt => image.description),
+                            image.gallery_image.url(:big) %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="category-gallery-description">
+      <%= raw(@category.description) %>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
