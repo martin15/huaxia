@@ -61,7 +61,7 @@
 <div class="field" style="height: 200px;">
   <div class="input-title left"><%= f.label :short_description, "Description *" %><span>:</span></div>
   <div class="input-box left" style="width: 700px;">
-    <%= f.text_area :short_description,  size: "80x10",
+    <%= f.text_area :short_description,  :size => "80x10",
                     :onKeyUp => "return taCount(this,'myCounter')" %><br />
     <p style="float:left;">You have <b><span id=myCounter>
       <%= 300- @feature.short_description.try(:size).to_i %>

@@ -16,7 +16,7 @@
         <div class="admin-feature no"><%= x+1 %></div>
         <div class="admin-feature feature-title"><%= feature.title %></div>
         <div class="admin-feature sort-desc">
-          <%= truncate(feature.short_description, length: 150) %>
+          <%= truncate(feature.short_description, :length => 150) %>
         </div>
         <div class="admin-feature destination"><%= feature.destination %></div>
         <div class="admin-feature color">
