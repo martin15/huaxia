@@ -3,6 +3,7 @@ class Gallery < ActiveRecord::Base
 
   belongs_to :category
 
-  has_attached_file :gallery_image, :styles => { :thumb => "100x100>", :big => "800x800>" }
+  has_attached_file :gallery_image, 
+                    :styles => { :thumb => "100x100>", :medium => "200x200>", :big => "800x800>" }
   validates_attachment_presence :gallery_image
 end

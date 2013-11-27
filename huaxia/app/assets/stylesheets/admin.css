@@ -55,7 +55,7 @@
 .admin-row .description, .admin-row .image-title, .admin-row .action,
 .admin-row .banner-image, .admin-row .from, .admin-row .comment,
 .admin-row .feature-title, .admin-row .sort-desc, .admin-row .destination,
-.admin-row .color{
+.admin-row .color, .admin-row .image-description{
   text-align: center;
   float: left;
   height: 15px;
@@ -100,6 +100,10 @@
 
 .admin-row .image{
   width: 130px;
+}
+
+.admin-row .image-description{
+  width: 400px;
 }
 
 .admin-row .comment{

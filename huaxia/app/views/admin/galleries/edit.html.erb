@@ -6,7 +6,7 @@
                   :html => { :multipart => true, :method => :put }) do |f| %>
       <%= f.error_messages %>
       <div class="admin-category-gallery" style="height: 210px;">
-        <%= image_tag @gallery.gallery_image.url(:thumb) %>
+        <%= image_tag @gallery.gallery_image.url(:medium) %>
       </div><br /><br />
       <%= render :partial => 'form', :locals => { :f => f} %>
       <div class="field">
