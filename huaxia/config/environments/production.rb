@@ -61,6 +61,22 @@ Huaxia::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
+  config.middleware.use ExceptionNotifier,
+      :email_prefix => "[Error]",
+      :sender_address => %{"notifier" <notifier@example.com>},
+      :exception_recipients => %w{martin.me15@yahoo.com}
+  config.action_mailer.default_url_options = { :host => 'localhost:80' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "sandbox1457.mailgun.org",
+    :user_name => "postmaster@sandbox1457.mailgun.org",
+    :password => "9yv7w5v115s2"
+  }
+
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
