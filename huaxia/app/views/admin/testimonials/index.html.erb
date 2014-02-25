@@ -30,6 +30,12 @@
         </div>
       </div>
     <% end %>
+    <div class="admin-row">
+      <%= will_paginate @testimonials, :link_separator => " | ",
+                                 :previous_label => "&laquo; previous",
+                                 :next_label => "next &raquo;" %>
+
+    </div>
     <div class="clear"></div>
   </div>
 </div>

@@ -4,7 +4,7 @@ class GalleriesController < ApplicationController
     @category = Category.find_by_title(params[:title])
     if @category.nil?
       @category = Category.first
-      flash[:error] = "Cannot find gallery with type '#{params[:title].humanize}'"
+      flash[:error] = "Cannot find gallery with type '#{params[:title].titleize}'"
     end
     @images = @category.galleries
   end

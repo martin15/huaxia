@@ -299,6 +299,21 @@ ul.down-menu a{
   padding:10px;
 }
 
+.testi-pic{
+  width: 120px;
+  float: left;
+}
+
+.testi{
+  display: inline;
+  width: 250px;
+}
+
+.testi-from{
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
 .field{
   float: left;
   width: 900px;
@@ -341,10 +356,63 @@ p.ad-info{
   width: 800px;
 }
 
+.testimonial-row{
+  width: 880px;
+  margin-bottom: 15px;
+  float: left;
+}
 
+.testimonial-row a{
+  text-decoration: underline;
+}
 
+.testimonial-photo{
+  width: 250px;
+  height: 165px;
+  float: left;
+  margin-right: 20px;
+}
 
+.testimonial-content{
+  width: 600px;
+  height: 165px;
+  float: left;
+}
 
+.testimonial-content .name, .testimonial-content .email,
+.testimonial-content .testimonial{
+  width: 600px;
+  float: left;
+  word-wrap: break-word;
+}
+
+.testimonial-content .name{
+  font-size: 23px;
+  height: 40px;
+}
+.testimonial-content .testimonial{
+  height: 190px;
+}
+
+.testimonial-photo-detail{
+  float: left;
+  width: 420px;
+  height: 310px;
+}
+
+.testimonial-detail{
+  display: inline;
+}
+
+.testimonial-detail .testimonial-from-detail{
+  font-size: 24px;
+  height: 40px;
+}
+
+.testimonial-detail .testimonial-content-detail p{
+  margin-bottom: 5px;
+  line-height: 1.5em;
+}
 
 .error{
   background-color:lightpink;border:1px solid red;

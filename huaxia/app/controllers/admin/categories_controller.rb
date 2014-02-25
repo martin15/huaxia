@@ -11,7 +11,7 @@ class Admin::CategoriesController < Admin::ApplicationController
   def update
     if @category.update_attributes(params[:category])
       flash[:notice] = "Image successfully updated"
-      redirect_to admin_gallery_categories_path(:category)
+      redirect_to admin_gallery_categories_path
     else
       flash[:error] = "Image failed to update<br />Pleace choose the Image"
       render :action => "edit"

@@ -4,7 +4,9 @@ Huaxia::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :about_us, :only => [:index]
+  resources :testimonials, :only => [:index, :show]
   get "info_study" => "info_study#index", :as => "info_study"
+  get "hsk" => "hsk#index", :as => "hsk"
   get "learning_mandarin" => "learning_mandarin#index", :as => "learning_mandarin"
   get "gallery/:title" => "galleries#show", :as => "category"
 

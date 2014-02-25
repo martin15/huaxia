@@ -2,8 +2,9 @@ class Admin::TestimonialsController < Admin::ApplicationController
   before_filter :find_testimonial, :only => [:show, :destroy, :edit, :update]
 
   def index
-    @testimonials = Testimonial.paginate(:page => params[:page], :per_page => 2)
-    @no = params[:page].to_i * 2
+    @testimonials = Testimonial.paginate(:page => params[:page], :per_page => 5,
+                                         :order => "created_at DESC" )
+    @no = params[:page].to_i * 5
   end
 
   def new

@@ -1,0 +1,17 @@
+<div id="content">
+  <div class="content-title">TESTIMONIAL</div>
+  <div class="content-layer">
+    <div class="testimonial-photo-detail">
+      <%= image_tag @testimonial.picture.url(:big) %>
+    </div>
+    <div class="testimonial-detail">
+      <div class="testimonial-from-detail">
+        <%= @testimonial.from %>
+      </div>
+      <div class="testimonial-content-detail">
+        <%= raw(@testimonial.comment) %>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>

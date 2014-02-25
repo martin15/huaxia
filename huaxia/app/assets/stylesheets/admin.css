@@ -68,7 +68,7 @@
 }
 
 .admin-banner, .admin-testimonial{
-  height: 200px!important;
+  height: 125px!important;
 }
 
 .admin-row .no, .admin-row .color{
@@ -159,6 +159,10 @@
 .admin-menu{
   width: 80px!important;
   font-size: 13px!important;
+}
+
+.small-font{
+  font-size: 12px;
 }
 
 .field_with_errors{
