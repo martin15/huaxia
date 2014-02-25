@@ -50,10 +50,20 @@
         <span>GXNU GRADUATED STUDENT</span>
       </div>
       <div class="graduated-student-mid">
-        coming soon!
+        <div class="testi-pic">
+          <%= image_tag @testimonial.picture.url(:thumb) %>
+        </div>
+        <div class="testi">
+          <div class="testi-from">
+            <%= @testimonial.from %>
+          </div>
+          <div class="testi-content">
+            <%= truncate(@testimonial.comment, :length => 500) %>
+          </div>
+        </div>
       </div>
       <div class="graduated-student-up-down text-right">
-        <%= link_to "READ MORE", "#" %>
+        <%= link_to "READ MORE", testimonial_path(@testimonial.id) %>
       </div>
     </div>
   </div>

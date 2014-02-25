@@ -1,0 +1,26 @@
+<div id="content">
+  <div class="content-title">TESTIMONIAL</div>
+  <div class="content-layer">
+    <%= raw msg_flash(flash) %>
+    <% @testimonials.each do |testimonial| %>
+      <div class="testimonial-row">
+        <div class="testimonial-photo">
+          <%= image_tag testimonial.picture.url(:medium) %>
+        </div>
+        <div class="testimonial-content">
+          <div class="name"><%= testimonial.from %></div>
+          <div class="testimonial">
+            <%= truncate(testimonial.comment, :length => 300) %>&nbsp;
+            <%= link_to "Read More", testimonial_path(testimonial.id) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="testimonial-row">
+      <%= will_paginate @testimonials, :link_separator => " | ",
+                                 :previous_label => "&laquo; previous",
+                                 :next_label => "next &raquo;" %>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>

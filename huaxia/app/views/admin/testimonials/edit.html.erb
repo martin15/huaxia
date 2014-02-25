@@ -3,7 +3,7 @@
   <div class="admin-content-layer">
     <%= form_for([:admin, @testimonial], :html => { :multipart => true, :method => :put }) do |f| %>
       <%= f.error_messages %>
-      <div class="admin-category-testimonial" style="height: 330px;">
+      <div class="admin-category-testimonial" style="height: 150px;">
         <%= image_tag @testimonial.picture.url(:medium) %>
       </div><br /><br />
       <%= render :partial => 'form', :locals => { :f => f} %>
