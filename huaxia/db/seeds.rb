@@ -25,10 +25,13 @@ puts hsk.inspect
 guilin = Category.find_or_create_by_title(:title => "guilin")
 puts guilin.inspect
 
-summer_camp = Category.find_or_create_by_title(:title => "summer_camp")
-puts summer_camp.inspect
+gxnu = Category.find_or_create_by_title(:title => "GXNU")
+puts gxnu.inspect
 
-winter_camp = Category.find_or_create_by_title(:title => "winter_camp")
-puts winter_camp.inspect
+student_activity = Category.find_or_create_by_title(:title => "student_activity")
+puts student_activity.inspect
+
+summer_winter_camp = Category.find_or_create_by_title(:title => "summer_winter_camp")
+puts summer_winter_camp.inspect
 
 

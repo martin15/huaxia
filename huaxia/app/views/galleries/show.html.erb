@@ -14,7 +14,8 @@
   </script>
 
 <div id="content">
-  <div class="content-title">About <%= @category.title.humanize %></div>
+  <% title = @category.title == "summer_winter_camp" ? "summer/winter camp" : @category.title %>
+  <div class="content-title">About <%= title.titleize %></div>
   <div class="content-layer">
     <div id="gallery" class="ad-gallery">
       <div class="ad-image-wrapper"></div>
