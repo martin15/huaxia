@@ -11,11 +11,12 @@
     <%#*$('img.image5').data('ad-desc', 'This image is higher than the wrapper, so it has been scaled down');%>
     var galleries = $('.ad-gallery').adGallery();
   });
-  </script>
+ </script>
 
 <div id="content">
   <% title = @category.title == "summer_winter_camp" ? "summer/winter camp" : @category.title %>
-  <div class="content-title">About <%= title.titleize %></div>
+  <div class="content-title">About 
+     <%= title == "GXNU" ? title : title.titleize %></div>
   <div class="content-layer">
     <div id="gallery" class="ad-gallery">
       <div class="ad-image-wrapper"></div>
