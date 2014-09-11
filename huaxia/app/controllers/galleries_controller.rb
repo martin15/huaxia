@@ -1,10 +1,14 @@
 class GalleriesController < ApplicationController
 
+  def index
+    @categories = Category.all
+  end
+
   def show
-    @category = Category.find_by_title(params[:title])
+    @category = Category.find_by_permalink(params[:permalink])
     if @category.nil?
       @category = Category.first
-      flash[:error] = "Cannot find gallery with type '#{params[:title].titleize}'"
+      flash[:error] = "Cannot find gallery with type '#{params[:permalink].titleize}'"
     end
     @images = @category.galleries
   end

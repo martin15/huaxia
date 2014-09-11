@@ -1,0 +1,37 @@
+<div id="content">
+  <div class="content-title">Listing Books</div>
+  <div class="admin-content-layer">
+    <%= raw msg_flash(flash) %>
+    <%= link_to "Add new book", new_admin_book_path %><br /><br /><br />
+    <div class="admin-row border">
+      <div class="no">No</div>
+      <div class="book-image">Image</div>
+      <div class="book-name">Name</div>
+      <div class="book-price">Price</div>
+      <div class="book-available">Available?</div>
+      <div class="action" style="width:140px!important;">action</div>
+    </div>
+    <% @books.each_with_index do |book, x| %>
+      <div class="admin-book admin-row border" style="height:115px;">
+        <div class="admin-book no"><%= @no+x+1 %></div>
+        <div class="admin-book book-image"><%= image_tag book.book_image.url(:thumb) %></div>
+        <div class="admin-book book-name"><%= book.name %></div>
+        <div class="admin-book book-price"><%= book.price %></div>
+        <div class="admin-book book-available"><%= book.available %></div>
+        <div class="admin-book action" style="width:140px!important;">
+          <%= link_to "Show", admin_book_path(book) %>&nbsp;&nbsp;|&nbsp;
+          <%= link_to "Edit", edit_admin_book_path(book) %>&nbsp;|&nbsp;&nbsp;
+          <%= link_to "Delete", admin_book_path(book.id ), :method => :delete,
+                                :confirm => "Are you sure?" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="admin-row">
+      <%= will_paginate @books, :link_separator => " | ",
+                                 :previous_label => "&laquo; previous",
+                                 :next_label => "next &raquo;" %>
+
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

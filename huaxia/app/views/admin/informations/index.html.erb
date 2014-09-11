@@ -9,13 +9,19 @@
     </div>
     <% @informations.each_with_index do |information, x| %>
       <div class="admin-row">
-        <div class="no"><%= x+1 %></div>
+        <div class="no"><%= @no+x+1 %></div>
         <div class="title text-left"><%= information.title.humanize %></div>
         <div class="action">
           <%= link_to 'Edit', edit_admin_information_path(information.title) %>
         </div>
       </div>
     <% end %>
+    <div class="admin-row">
+      <%= will_paginate @informations, :link_separator => " | ",
+                                 :previous_label => "&laquo; previous",
+                                 :next_label => "next &raquo;" %>
+
+    </div>
     <div class="clear"></div>
   </div>
 </div>

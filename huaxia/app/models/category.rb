@@ -1,5 +1,6 @@
 class Category < ActiveRecord::Base
-  attr_accessible :title, :description, :icon_image
+  attr_accessible :title, :description, :icon_image, :permalink
+  has_permalink :title, :update => true
 
   has_many :galleries
 

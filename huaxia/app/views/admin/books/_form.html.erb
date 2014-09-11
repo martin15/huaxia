@@ -1,0 +1,41 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "/assets/ckeditor/ckeditor" %>
+<% end %>
+
+<div class="field">
+  <div class="input-title left"><%= f.label :name, "Name *" %><span>:</span></div>
+  <div class="input-box left"><%= f.text_field :name %></div>
+</div>
+<div class="field">
+  <div class="input-title left"><%= f.label :price, "Price *" %><span>:</span></div>
+  <div class="input-box left"><%= f.text_field :price %></div>
+</div>
+<div class="field clear-margin">
+  <div class="input-title left"><%= f.label :book_image, "Image *" %><span>:</span></div>
+  <div class="input-box left"><%= f.file_field :book_image %></div>
+</div>
+<div class="field clear-margin">
+  <div class="input-title left">&nbsp;</div>
+  <div class="input-box left small-font">
+    Input image with size 300x400 (width x height)
+  </div>
+</div>
+<div class="field clear-margin">
+  <div class="input-title left">
+    <%= f.label :available, "Available *" %><span>:</span>
+  </div>
+  <div class="input-box left small-font">
+    <%= f.radio_button :available, true %>Yes&nbsp;&nbsp;&nbsp;
+    <%= f.radio_button :available, false %>No
+  </div>
+</div>
+<div class="field">
+  <div class="input-title left">
+    <%= f.label :description, "Description *" %><span>:</span>
+  </div>
+  <div class="input-box left">&nbsp;</div>
+</div>
+<div class="field" style="height: 460px;">
+  <%= f.cktext_area :description, :ckeditor => {:uiColor => "#F5CDFA", :toolbar => "Basic",
+                                              :width=>'755px', :height=>'250px'}  %>
+</div>

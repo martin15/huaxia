@@ -2,7 +2,9 @@ class Admin::InformationsController < Admin::ApplicationController
   before_filter :find_information, :only => [:edit, :update]
 
   def index
-    @informations = Information.all
+    @informations = Information.paginate(:page => params[:page], :per_page => 10,
+                                         :order => "created_at DESC" )
+    @no = params[:page].to_i * 10
   end
 
   def edit

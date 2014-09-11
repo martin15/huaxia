@@ -1,0 +1,19 @@
+<div id="content">
+  <div class="content-title">BOOK DETAIL</div>
+  <div class="content-layer">
+    <div class="book-detail-pic">
+      <%= image_tag @book.book_image.url(:big) %>
+    </div>
+    <div class="book-detail-title">
+      <b>Title&nbsp;:&nbsp;</b><%= @book.name.humanize %>
+    </div>
+    <div class="book-detail-price">
+      <b>Price&nbsp;:&nbsp;</b>
+      <%= number_to_currency(@book.price, :unit => "IDR", :format => "%n %u") %>
+    </div>
+    <div class="book-detail-description">
+      <b>Description&nbsp;:&nbsp;</b><%= raw @book.description %>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>

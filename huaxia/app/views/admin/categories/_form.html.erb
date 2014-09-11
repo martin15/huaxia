@@ -2,9 +2,10 @@
   <%= javascript_include_tag "/assets/ckeditor/ckeditor" %>
 <% end %>
 
-<div class="admin-category-gallery" style="height: 210px;">
-  <%= image_tag @category.icon_image.url(:big) %>
-</div><br /><br />
+<div class="field">
+  <div class="input-title left"><%= f.label :title, "Title" %></div>
+  <div class="input-box left">:&nbsp;&nbsp;<%= f.text_field :title %></div>
+</div>
 <div class="field">
   <div class="input-title left"><%= f.label :icon_image, "Image" %></div>
   <div class="input-box left">:&nbsp;&nbsp;<%= f.file_field :icon_image %></div>
@@ -12,12 +13,12 @@
 <div class="field" style="margin-bottom:20px;">
   <div class="input-title left">&nbsp;</div>
   <div class="input-box left">
-    <span>please input image with size 270x190 (width x height)</span>
+    <span>please input image with size 800x600 (width x height)</span>
   </div>
 </div>
 <div class="field" style="height: 475px;">
     <%= f.cktext_area :description, :ckeditor => {:uiColor => "#F5CDFA", :toolbar => "Basic",
-                                              :width=>'850px', :height=>'250px'}  %>
+                                              :width=>'755px', :height=>'250px'}  %>
 </div>
 <div class="clear"></div>
 <br />

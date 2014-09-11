@@ -10,8 +10,16 @@ username = User.find_or_create_by_email(:email => "martin.me15@yahoo.com",
                                         :password_confirmation => "1q2w3e4r5t")
 puts username.inspect
 
+username2 = User.find_or_create_by_email(:email => "huaxia.icec@gmail.com",
+                                        :password => "1q2w3e4r5t",
+                                        :password_confirmation => "1q2w3e4r5t")
+puts username2.inspect
+
 about_us = Information.find_or_create_by_title(:title => "about_us")
 puts about_us.inspect
+
+short_gxnu = Information.find_or_create_by_title(:title => "short_gxnu")
+puts short_gxnu.inspect
 
 study_at_china = Information.find_or_create_by_title(:title => "study_at_china")
 puts study_at_china.inspect

@@ -1,6 +1,9 @@
 class InfoStudyController < ApplicationController
 
   def index
-    @study_at_china = Information.find_by_title("study_at_china")
+    @info = Information.find_by_permalink(params[:permalink])
+    if @info.nil?
+      redirect_to root_path
+    end
   end
 end

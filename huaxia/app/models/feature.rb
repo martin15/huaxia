@@ -1,5 +1,6 @@
 class Feature < ActiveRecord::Base
-  attr_accessible :title, :short_description, :destination, :color
+  attr_accessible :title, :short_description, :destination, :color, :permalink
+  has_permalink :title, :update => true
 
   validates :title, :presence => true,
             :length => {:minimum => 1, :maximum => 254}

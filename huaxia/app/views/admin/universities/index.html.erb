@@ -1,0 +1,35 @@
+<div id="content">
+  <div class="content-title">Listing Universities</div>
+  <div class="admin-content-layer">
+    <%= raw msg_flash(flash) %>
+    <%= link_to "Add new university", new_admin_university_path %><br /><br /><br />
+    <div class="admin-row border">
+      <div class="no">No</div>
+      <div class="univ-name">Name</div>
+      <div class="univ-province">Province</div>
+      <div class="univ-city">City</div>
+      <div class="action" style="width:140px!important;">action</div>
+    </div>
+    <% @universities.each_with_index do |university, x| %>
+      <div class="admin-university admin-row border">
+        <div class="admin-university no"><%= @no+x+1 %></div>
+        <div class="admin-university univ-name"><%= university.name %></div>
+        <div class="admin-university univ-province"><%= university.province %></div>
+        <div class="admin-university univ-city"><%= university.city %></div>
+        <div class="admin-university action" style="width:140px!important;">
+          <%= link_to "Show", admin_university_path(university) %>&nbsp;&nbsp;|&nbsp;
+          <%= link_to "Edit", edit_admin_university_path(university) %>&nbsp;|&nbsp;&nbsp;
+          <%= link_to "Delete", admin_university_path(university.id ), :method => :delete,
+                                :confirm => "Are you sure?" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="admin-row">
+      <%= will_paginate @universities, :link_separator => " | ",
+                                 :previous_label => "&laquo; previous",
+                                 :next_label => "next &raquo;" %>
+
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

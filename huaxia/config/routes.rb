@@ -5,10 +5,14 @@ Huaxia::Application.routes.draw do
 
   resources :about_us, :only => [:index]
   resources :testimonials, :only => [:index, :show]
-  get "info_study" => "info_study#index", :as => "info_study"
+  get "info/:permalink" => "info_study#index", :as => "info"
   get "hsk" => "hsk#index", :as => "hsk"
   get "learning_mandarin" => "learning_mandarin#index", :as => "learning_mandarin"
-  get "gallery/:title" => "galleries#show", :as => "category"
+  get "galleries" => "galleries#index", :as => "categories"
+  get "gallery/:permalink" => "galleries#show", :as => "category"
+  get "university/:permalink" => "universities#show", :as => "university"
+  get "books" => "books#index", :as => "books"
+  get "book/:permalink" => "books#show", :as => "book"
 
   get "login" => "sessions#new", :as => "login"
   get "logout" => "sessions#destroy", :as => "logout"
@@ -18,13 +22,18 @@ Huaxia::Application.routes.draw do
   post "admin/dashboard/change_password"
 
   namespace :admin do
+    resources :universities
+    resources :books
     resources :informations
     resources :banners
     resources :features
     resources :testimonials
     get "gallery_categories" => "categories#index", :as => "gallery_categories"
+    get "gallery_categories/new" => "categories#new", :as => "new_gallery_categories"
+    post "gallery_categories" => "categories#create", :as => "gallery_categories"
     get "gallery_categories/:id/edit" => "categories#edit", :as => "edit_gallery_categories"
     put "gallery_categories/:id/edit" => "categories#update", :as => "update_gallery_categories"
+    delete "gallery_categories/:id" => "categories#destroy", :as => "delete_gallery_categories"
 
     get ":category_id/galleries" => "galleries#index", :as => "galleries"
     post ":category_id/galleries" => "galleries#create", :as => "galleries"

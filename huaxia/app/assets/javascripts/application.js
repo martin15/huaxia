@@ -12,3 +12,37 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+$(document).ready(function(){
+	//When mouse rolls over
+	$("li#parent-list-univ").mouseover(function(){
+		$("ul.list-univ").slideDown('1');
+  });
+
+	//When mouse is removed
+	$("li#parent-list-univ").mouseleave(function(){
+		$("ul.list-univ").fadeOut(10);
+  });
+
+  $("li#parent-list-info").mouseover(function(){
+		$("ul.list-info").slideDown('1');
+  });
+
+	//When mouse is removed
+	$("li#parent-list-info").mouseleave(function(){
+		$("ul.list-info").fadeOut(10);
+  });
+
+
+});
+
+function display_sub_menu(province){
+  var my_self = $("ul.child#"+province)
+  if(my_self.is(':hidden')){
+    $(my_self).show("slow");
+  }else{
+    $('ul.child').hide("slow");
+  }
+  $('ul.child').not(my_self).hide("slow");
+
+}

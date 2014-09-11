@@ -2,8 +2,10 @@
   <div class="content-title">Listing Gallery Categories</div>
   <div class="admin-content-layer">
     <%= raw msg_flash(flash) %>
-    <% @categories.each do |category| %>
-      <div class="admin-category-gallery">
+    <%= link_to "Add new Gallery", admin_new_gallery_categories_path %><br /><br /><br />
+    <% @categories.each_with_index do |category, x| %>
+      <% nm = "no-margin-right" if (x+1)%3 == 0 %>
+      <div class="admin-category-gallery <%= nm %>">
         <div class="pic">
           <%= link_to (image_tag category.icon_image.url(:big)), 
                       admin_galleries_path(category.id) %>
@@ -17,7 +19,12 @@
         </div>
       </div>
     <% end %>
-    
+    <div class="admin-row">
+      <%= will_paginate @categories, :link_separator => " | ",
+                                 :previous_label => "&laquo; previous",
+                                 :next_label => "next &raquo;" %>
+
+    </div>
     <div class="clear"></div>
   </div>
 </div>

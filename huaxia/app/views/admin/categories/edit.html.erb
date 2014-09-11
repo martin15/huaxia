@@ -5,6 +5,9 @@
     <%= form_for([:admin, @category], :url => admin_edit_gallery_categories_path(@category),
                  :html => { :multipart => true, :method => :put }) do |f| %>
       <%= f.error_messages %>
+      <div class="admin-category-gallery" style="height: 210px;">
+        <%= image_tag @category.icon_image.url(:big) %>
+      </div><br /><br />
       <%= render :partial => 'form', :locals => { :f => f} %>
       <div class="admin-actions">
         <%= f.submit 'Update' %>&nbsp;&nbsp;

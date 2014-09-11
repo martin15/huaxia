@@ -21,51 +21,57 @@
   </div>
 
   <div class="content-left">&nbsp;
-    <% @features.each do |feature| %>
-      <div class="mini-table" style="float:left">
-        <div class="mini-table-main mini-table-head" style="background-color:#<%= feature.color %>">
-          <%= feature.title %>
-        </div>
-        <div class="mini-table-mid">
-          <span>
-            <%= feature.short_description %>
-          </span>
-        </div>
-        <div class="mini-table-main mini-table-low" style="background-color:#<%= feature.color %>">
-          <%= link_to "Read more", feature.destination, :style => "background-color:##{feature.color}" %>
-        </div>
-      </div>
-    <% end %>
+    <div class="gxnu-title">GUANGXI NORMAL UNIVERSITY
+    </div>
+    <div class="gxnu-description">
+      <%= raw @gxnu.content %>
+    </div>
+    <div class="gxnu-more">
+      <%= link_to "More >>" %>
+    </div>
+  
+  
+    <!--
+    <%# @features.each do |feature| %>
+      <%#*<div class="mini-table" style="float:left">%>
+        <%#*<div class="mini-table-main mini-table-head" style="background-color:#<%= feature.color %>">%>
+          <%#= feature.title %>
+        <%#*</div>%>
+        <%#*<div class="mini-table-mid">%>
+          <%#*<span>%>
+            <%#= feature.short_description %>
+          <%#*</span>%>
+        <%#*</div>%>
+        <%#*<div class="mini-table-main mini-table-low" style="background-color:#<%= feature.color %>">%>
+          <%#= link_to "Read more", feature.destination, :style => "background-color:##{feature.color}" %>
+        <%#*</div>%>
+      <%#*</div>%>
+    <%# end %>
+    -->
   </div>
   <div class="content-right">
-    <%= link_to raw("<div class='facebook'>#{
-                       image_tag "facebook_logo.jpg"}<span>icec HuaXia</span>
-                     </div>"), "#" %>
-    <%= link_to raw("<div class='twitter'>#{
-                       image_tag "twitter_logo.jpg"}<span>HuaXia ICEC</span>
-                     </div>"), "#" %>
-
     <div class="graduated-student">
       <div class="graduated-student-up-down">
-        <span>GXNU GRADUATED STUDENT</span>
+        <span>HIMIGNU</span>
       </div>
       <div class="graduated-student-mid">
-        <% unless @testimonial.nil? %>
-          <div class="testi-pic">
-            <%= image_tag @testimonial.picture.url(:thumb) %>
+        <div class="testi-pic">
+          <%= image_tag "himignu.png" %>
+        </div>
+        <div class="testi">
+          <div class="testi-content">
+            Himignu yang merupakan singkatan dari Himpunan Mahasiswa Indonesia Guangxi Normal
+            University, merupakan wadah bagi anak-anak Indonesia yang bersekolah di kota Guilin. 
+            Mengapa Guangxi Normal University? Karena di Guangxi Normal University inilah
+            merupakan pusat kegiatan acara dari seluruh rangkaian kegiatan Himignu ini.
+            Anggota dari Himignu bukan hanya berasal dari Guangxi Normal University,
+            namun juga berasal dari Guilin Medical University, Guilin Ligong University,
+            dan Guilin Institute Tourism.
           </div>
-          <div class="testi">
-            <div class="testi-from">
-              <%= @testimonial.from %>
-            </div>
-            <div class="testi-content">
-              <%= truncate(@testimonial.comment, :length => 500) %>
-            </div>
-          </div>
-        <% end %>
+        </div>
       </div>
       <div class="graduated-student-up-down text-right">
-        <%= link_to "READ MORE", testimonial_path(@testimonial.id) %>
+        <%= link_to "READ MORE", "http://himignu-ppitguilin.com" %>
       </div>
     </div>
   </div>

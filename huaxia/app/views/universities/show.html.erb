@@ -1,0 +1,34 @@
+<div id="content">
+  <div class="content-title"><%= @university.name.humanize.titleize %></div>
+  <div class="content-layer">
+    <div class="univ-detail">
+      <div class="univ-title">Address</div>
+      <div class="univ-value">&nbsp;:&nbsp;<%= @university.address %></div>
+      <div class="univ-title">Phone</div>
+      <div class="univ-value">&nbsp;:&nbsp;<%= @university.phone %></div>
+      <div class="univ-title">Province</div>
+      <div class="univ-value">&nbsp;:&nbsp;<%= @university.province %></div>
+      <div class="univ-title">CIty</div>
+      <div class="univ-value">&nbsp;:&nbsp;<%= @university.city %></div>
+      <div class="univ-desc"><%= raw @university.description %></div>
+    </div>
+    <div class="list-univ-by-province">
+      <div class="list-univ-by-province-title">List University</div>
+      <ul>
+        <% @universities_by_city.each do |province, universities| %>
+          <% temp_province = province.gsub(" ", "-") %>
+          <li><%= link_to province, "javascript:void(0)",
+                                :onclick => "display_sub_menu('#{temp_province}');",
+                                :style => "font-size:15px;" %>
+            <ul class="child" id="<%= temp_province %>">
+              <% universities.each do |univ| %>
+                <li><%= link_to univ.name %></li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>

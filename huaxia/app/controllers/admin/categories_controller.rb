@@ -5,6 +5,22 @@ class Admin::CategoriesController < Admin::ApplicationController
     @categories = Category.includes("galleries")
   end
 
+  def new
+    @category = Category.new
+  end
+
+  def create
+    # create a new category_picture
+    @category = Category.new(params[:category])
+    if @category.save
+      flash[:notice] = "Gallery successfully created"
+      redirect_to admin_gallery_categories_path
+    else
+      flash[:error] = "Gallery failed to create<br />Pleace choose the Image"
+      render :action => "new"
+    end
+  end
+
   def edit
   end
 
