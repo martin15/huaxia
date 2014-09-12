@@ -30,6 +30,9 @@ puts learning_mandarin.inspect
 hsk = Information.find_or_create_by_title(:title => "hsk")
 puts hsk.inspect
 
+book_note = Information.find_or_create_by_title(:title => "book_note")
+puts book_note.inspect
+
 guilin = Category.find_or_create_by_title(:title => "guilin")
 puts guilin.inspect
 

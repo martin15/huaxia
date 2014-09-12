@@ -2,6 +2,7 @@
   <div class="content-title">Listing Informations</div>
   <div class="admin-content-layer">
     <%= raw msg_flash(flash) %>
+    <%= link_to "Add New Info", new_admin_information_path %><br /><br /><br />
     <div class="admin-row border">
       <div class="no">No</div>
       <div class="title">Title</div>
@@ -12,7 +13,13 @@
         <div class="no"><%= @no+x+1 %></div>
         <div class="title text-left"><%= information.title.humanize %></div>
         <div class="action">
-          <%= link_to 'Edit', edit_admin_information_path(information.title) %>
+          <%= link_to 'Edit', edit_admin_information_path(information.permalink) %>
+          <% unless information.permalink == "about_us" %>
+            |&nbsp;<%= link_to "Delete", admin_information_path(information.permalink ),
+                                :method => :delete, :confirm => "Are you sure?" %>
+          <% end %>
+
+          
         </div>
       </div>
     <% end %>

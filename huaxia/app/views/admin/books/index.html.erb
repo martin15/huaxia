@@ -2,7 +2,9 @@
   <div class="content-title">Listing Books</div>
   <div class="admin-content-layer">
     <%= raw msg_flash(flash) %>
-    <%= link_to "Add new book", new_admin_book_path %><br /><br /><br />
+    <%= link_to "Add new book", new_admin_book_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to "Edit Note", edit_admin_information_path("book_note") %>
+    <br /><br /><br />
     <div class="admin-row border">
       <div class="no">No</div>
       <div class="book-image">Image</div>

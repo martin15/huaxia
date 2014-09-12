@@ -12,10 +12,14 @@
           <%= link_to book.name.humanize, book_path(book.permalink) %>
         </div>
         <div class="book-price">
-          <%= number_to_currency(book.price, :unit => "IDR", :format => "%n %u") %>
+          <%= number_to_currency(book.price.to_i, :unit => "IDR",
+                                  :format => "%n %u", :precision => 0) %>
         </div>
       </div>
     <% end %>
+    <div class="book-note">
+      <%= raw @book_note.content %>
+    </div>
     <div class="pagination">
       <%= will_paginate @books, :link_separator => " | ",
                                 :previous_label => "&laquo; previous",

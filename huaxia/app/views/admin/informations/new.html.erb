@@ -1,12 +1,15 @@
-<div class="admin-content">
-  <h2>New Principle Note</h2><br />
-
-  <%= form_for([:admin, @principle_note], :html => { :multipart => true }) do |f| %>
-    <%= f.error_messages %>
-    <%= render :partial => 'form', :locals => { :f => f} %>
-    <div class="admin-actions">
-      <%= f.submit 'Create Principle Note' %>&nbsp;&nbsp;&nbsp;
-      <%= link_to 'Back', admin_principle_notes_path %>
-    </div>
-  <% end %>
+<div id="content">
+  <div class="content-title">New Information</div>
+  <div class="admin-content-layer">
+    <%= form_for([:admin, @information], :html => { :multipart => true},
+    :url => admin_informations_path ) do |f| %>
+      <%= f.error_messages %>
+      <%= render :partial => 'form', :locals => { :f => f} %>
+      <div class="field">
+        <%= f.submit 'Create Information' %>&nbsp;&nbsp;
+        <%= link_to 'Back', admin_informations_path %>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
 </div>

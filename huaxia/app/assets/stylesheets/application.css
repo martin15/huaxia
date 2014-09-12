@@ -313,7 +313,7 @@ ul.list-univ li span:hover, ul.list-info li span:hover{
 }
 
 .mini-table{
-  width: 200px;
+  width: 270px;
   margin-right: 20px;
   float: left;
   margin-bottom: 20px;
@@ -696,4 +696,26 @@ p.ad-info{
   margin-bottom: 10px;
   font-size: 16px;
 }
+
+.book-note{
+  float: left;
+  width: 760px;
+}
+
+.book-note p{
+  margin-bottom: 0px;
+}
+
+.features{
+  float: left;
+  padding-left: 65px;
+  width: 850px;
+  margin: 20px 0 10px;
+}
+
+.feature{
+  float: left;
+  width: 300px;
+}
+
 

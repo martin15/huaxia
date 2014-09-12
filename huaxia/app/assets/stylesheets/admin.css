@@ -88,16 +88,11 @@
 }
 
 .admin-row .image-title, .admin-row .destination,
-.admin-row .univ-province, .admin-row .univ-city{
+.admin-row .univ-province, .admin-row .univ-city, .admin-row .feature-title{
   width: 150px;
 }
 
-.admin-row .sort-desc{
-  width: 250px;
-}
-
-.admin-row .from, .admin-row .feature-title,
-.admin-row .book-name, .admin-row .univ-name{
+.admin-row .from, .admin-row .book-name, .admin-row .univ-name, .admin-row .sort-desc{
   width: 200px;
 }
 

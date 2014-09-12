@@ -2,7 +2,9 @@ class Admin::FeaturesController < Admin::ApplicationController
   before_filter :find_feature, :only => [:destroy, :edit, :update]
 
   def index
-    @features = Feature.all
+    @features = Feature.paginate(:page => params[:page], :per_page => 5,
+                                         :order => "created_at DESC" )
+    @no = params[:page].to_i * 5
   end
 
   def new

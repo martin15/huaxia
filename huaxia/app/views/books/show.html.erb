@@ -9,10 +9,14 @@
     </div>
     <div class="book-detail-price">
       <b>Price&nbsp;:&nbsp;</b>
-      <%= number_to_currency(@book.price, :unit => "IDR", :format => "%n %u") %>
+      <%= number_to_currency(@book.price.to_i, :unit => "IDR", 
+                              :format => "%n %u", :precision => 0) %>
     </div>
     <div class="book-detail-description">
       <b>Description&nbsp;:&nbsp;</b><%= raw @book.description %>
+    </div>
+    <div class="book-note">
+      <%= raw @book_note.content %>
     </div>
   </div>
   <div class="clear"></div>

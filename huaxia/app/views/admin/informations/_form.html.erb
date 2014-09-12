@@ -5,7 +5,7 @@
 <div class="field">
   <div class="input-title left"><%= f.label :title %></div>
   <div class="input-box left">:&nbsp;&nbsp;
-    <% if ["about_us", "short_gxnu"].include?(@information.title) %>
+    <% if ["about_us", "book_note"].include?(@information.title) %>
       <%= @information.title.humanize %>
     <% else %>
       <%= f.text_field :title %>
