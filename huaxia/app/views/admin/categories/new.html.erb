@@ -1,0 +1,15 @@
+<div id="content">
+  <div class="content-title">New Gallery</div>
+  <div class="admin-content-layer">
+    <%= form_for([:admin, @category], :url => admin_gallery_categories_path,
+                  :html => { :multipart => true}) do |f| %>
+      <%= f.error_messages %>
+      <%= render :partial => 'form', :locals => { :f => f} %>
+      <div class="field">
+        <%= f.submit 'Create Gallery' %>&nbsp;&nbsp;
+        <%= link_to 'Back', admin_gallery_categories_path %>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>
