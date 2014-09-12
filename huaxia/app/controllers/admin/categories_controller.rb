@@ -2,7 +2,9 @@ class Admin::CategoriesController < Admin::ApplicationController
   before_filter :find_category, :only => [:edit, :update]
 
   def index
-    @categories = Category.includes("galleries")
+    @categories = Category.includes("galleries").
+                                paginate(:page => params[:page], :per_page => 10,
+                                         :order => "created_at DESC" )
   end
 
   def new
