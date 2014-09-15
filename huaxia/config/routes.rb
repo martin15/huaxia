@@ -11,6 +11,8 @@ Huaxia::Application.routes.draw do
   get "galleries" => "galleries#index", :as => "categories"
   get "gallery/:permalink" => "galleries#show", :as => "category"
   get "university/:permalink" => "universities#show", :as => "university"
+  get "news" => "features#index", :as => "features"
+  get "news/:id" => "features#show", :as => "feature"
   get "books/:book_type" => "books#index", :as => "books"
   get "book/:book_type/:permalink" => "books#show", :as => "book"
 
@@ -26,7 +28,14 @@ Huaxia::Application.routes.draw do
     resources :books
     resources :informations
     resources :banners
-    resources :features
+    
+    get  "list_news" => "features#index", :as => "features"
+    post "list_news" => "features#create", :as => "features"
+    get  "news/new" => "features#new", :as => "new_feature"
+    get  "news/:id/edit" => "features#edit", :as => "edit_feature"
+    put  "news/:id" => "features#update", :as => "feature"
+    delete  "news/:id" => "features#destroy", :as => "feature"
+
     resources :testimonials
     get "gallery_categories" => "categories#index", :as => "gallery_categories"
     get "gallery_categories/new" => "categories#new", :as => "new_gallery_categories"

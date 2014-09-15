@@ -2,8 +2,9 @@ class Admin::FeaturesController < Admin::ApplicationController
   before_filter :find_feature, :only => [:destroy, :edit, :update]
 
   def index
+    params[:page] = params[:page].to_i == 0 ? 1 : params[:page]
     @features = Feature.paginate(:page => params[:page], :per_page => 5,
-                                         :order => "created_at DESC" )
+                                         :order => "updated_at DESC" )
     @no = params[:page].to_i * 5
   end
 
@@ -26,6 +27,7 @@ class Admin::FeaturesController < Admin::ApplicationController
   end
 
   def update
+    puts "----------------"
     if @feature.update_attributes(params[:feature])
       flash[:notice] = "Feature successfully updated"
       redirect_to admin_features_path

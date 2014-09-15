@@ -66,12 +66,17 @@
           <%= feature.title %>
         </div>
         <div class="mini-table-mid">
-          <span>
+          <% if feature.feature_image.file? %>
+            <span class="image">
+              <%= image_tag feature.feature_image.url(:thumb), :size => "105x140" %>
+            </span>
+          <% end %>
+          <span class="desc">
             <%= feature.short_description %>
           </span>
         </div>
         <div class="mini-table-main mini-table-low" style="background-color:#<%= feature.color %>">
-          <%= link_to "Read more", feature.destination, :style => "background-color:##{feature.color}" %>
+          <%= link_to "Read more", feature_path(feature.id), :style => "background-color:##{feature.color}" %>
         </div>
       </div>
     <% end %>

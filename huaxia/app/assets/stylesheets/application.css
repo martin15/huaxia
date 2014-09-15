@@ -132,7 +132,7 @@ ul.down-menu li a, ul.down-menu li.list-gallery, ul.down-menu li span.nav-title 
   position:relative;
 	min-height: 1px;
 	vertical-align: bottom;
-  width: 140px;
+  width: 120px;
   text-align: center;
   border-left: 1px solid white;
 }
@@ -179,8 +179,8 @@ ul.list-univ, ul.list-info, ul.list-book{
 }
 
 ul.list-univ{
-	width: 845px;
-  left: -564px;
+	width: 846px;
+  left: -484px;
   min-height: 110px;
   cursor: default;
 }
@@ -214,6 +214,7 @@ ul.list-book li:hover, ul.list-book li a, ul.list-book li a:hover{
 ul.list-univ li a, ul.list-info li a, ul.list-book li a{
   padding: 5px 0 0 0!important;
   width: auto;
+  font-size: 12px!important;
 }
 
 ul.list-univ li a:hover, ul.list-info li a:hover,
@@ -225,7 +226,7 @@ ul.list-univ li span, ul.list-info li span, ul.list-book li span{
   float: left;
   margin: 5px 0 0 10px;
   text-align: left;
-  width: 211px;
+  width: 201px;
 }
 
 ul.list-info li span, ul.list-book li span{
@@ -278,11 +279,19 @@ ul.list-univ li span:hover, ul.list-info li span:hover, ul.list-book li span:hov
   width: 760px;
 }
 
+.news-layer{
+  background: none!important;
+  padding: 0!important;
+  margin: 10px 0 20px!important;
+  width: 850px!important;
+  border: none!important;
+}
+
 .content-title{
   float:left;
   margin: 0 25px;
   font-size:30px;
-  height: 50px;
+  min-height: 50px;
   width:800px;
 }
 
@@ -339,13 +348,18 @@ ul.list-univ li span:hover, ul.list-info li span:hover, ul.list-book li span:hov
   background-color: #fff; 
   color: #000 !important;
   padding: 10px;
-  height: 150px;
+  height: 250px;
   font-size: 13px;
 }
 
-.mini-table-mid span{
-  height: 150px;
+.mini-table-mid span.image{
   float: left;
+  margin: 0 10px 5px 0;
+}
+
+.mini-table-mid span.desc{
+  height: 150px;
+  position: relative;
   overflow: hidden;
 }
 

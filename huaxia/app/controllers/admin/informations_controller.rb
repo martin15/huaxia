@@ -2,6 +2,7 @@ class Admin::InformationsController < Admin::ApplicationController
   before_filter :find_information, :only => [:edit, :update, :destroy]
 
   def index
+    params[:page] = params[:page].to_i == 0 ? 1 : params[:page]
     @informations = Information.where("permalink != 'book_note'").
                                 paginate(:page => params[:page], :per_page => 10,
                                          :order => "created_at DESC" )

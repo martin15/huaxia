@@ -5,7 +5,7 @@ class CreateFeatures < ActiveRecord::Migration
       t.text :short_description
       t.string :destination
       t.string :color
-      t.string    :permalink
+      t.string :permalink
       t.timestamps
     end
   end

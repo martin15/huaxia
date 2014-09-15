@@ -1,6 +1,7 @@
 class TestimonialsController < ApplicationController
 
   def index
+    params[:page] = params[:page].to_i == 0 ? 1 : params[:page]
     @testimonials = Testimonial.paginate(:page => params[:page], :per_page => 3,
                                 :order => "created_at DESC" )
   end

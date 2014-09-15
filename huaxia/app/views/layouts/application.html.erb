@@ -24,7 +24,7 @@
         <ul class='down-menu'>
           <li class="no-border"><%= link_to "Home", root_path %></li>
           <li><%= link_to "About Us", about_us_path %></li>
-          <li id="parent-list-info"><span class="nav-title">Info Study</span>
+          <li id="parent-list-info"><span class="nav-title">Study In China</span>
             <ul class="list-info">
               <li>
                 <% @informations.each do |information| %>
@@ -47,6 +47,7 @@
               <% end %>
             </ul>
           </li>
+          <li><%= link_to "News", features_path %></li>
           <li id="parent-list-book"><span class="nav-title">Books</span>
             <ul class="list-book">
               <li>
@@ -74,6 +75,7 @@
           <%= link_to raw("<li>Galleries</li>"), categories_path %>
           <%= link_to raw("<li>Universities</li>"),
             (@temp_univ.nil? ? "#" : (university_path(@temp_univ.permalink))) %>
+          <%= link_to raw("<li>News</li>"), features_path %>
           <%= link_to raw("<li class='none-border'>Books</li>"),
                       books_path("buku_ajar_tk") %>
         </ul><br />

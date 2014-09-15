@@ -1,6 +1,7 @@
 class GalleriesController < ApplicationController
 
   def index
+    params[:page] = params[:page].to_i == 0 ? 1 : params[:page]
     @categories = Category.paginate(:page => params[:page], :per_page => 9,
                                          :order => "created_at DESC" )
   end

@@ -3,6 +3,7 @@ class Admin::GalleriesController < Admin::ApplicationController
   before_filter :find_gallery, :only => [:destroy, :edit, :update]
 
   def index
+    params[:page] = params[:page].to_i == 0 ? 1 : params[:page]
     @galleries = @category.galleries.paginate(:page => params[:page], :per_page => 10)
   end
 

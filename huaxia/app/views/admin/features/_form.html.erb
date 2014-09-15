@@ -1,4 +1,5 @@
 <% content_for :javascript_includes do %>
+  <%= javascript_include_tag "/assets/ckeditor/ckeditor" %>
   <%= stylesheet_link_tag "colpick" %>
   <%= javascript_include_tag "colpick" %>
 <% end %>
@@ -20,7 +21,7 @@
 
 
 
-  maxL=300;
+  maxL=350;
   var bName = navigator.appName;
   function taLimit(taObj) {
     if (taObj.value.length==maxL) return true;
@@ -51,20 +52,23 @@
   <div class="input-title left"><%= f.label :title, "Title *" %><span>:</span></div>
   <div class="input-box left"><%= f.text_field :title %></div>
 </div>
-<div class="field" style="height: 50px;">
-  <div class="input-title left"><%= f.label :destination, "Destination *" %><span>:</span></div>
-  <div class="input-box left">
-    <%= f.text_field :destination %><br />
-    <p style="float:left;">please use <b>"http://"</b> first e.g. "http://your-destination/"</p>
+<div class="field  clear-margin">
+  <div class="input-title left"><%= f.label :feature_image, "Image *" %><span>:</span></div>
+  <div class="input-box left"><%= f.file_field :feature_image %></div>
+</div>
+<div class="field">
+  <div class="input-title left">&nbsp;</div>
+  <div class="input-box left small-font">
+    Input image with size 600x800 (width x height)
   </div>
 </div>
 <div class="field" style="height: 200px;">
-  <div class="input-title left"><%= f.label :short_description, "Description *" %><span>:</span></div>
+  <div class="input-title left"><%= f.label :short_description, "Short Description *" %><span>:</span></div>
   <div class="input-box left" style="width: 700px;">
     <%= f.text_area :short_description,  :size => "80x10",
                     :onKeyUp => "return taCount(this,'myCounter')" %><br />
     <p style="float:left;">You have <b><span id=myCounter>
-      <%= 300- @feature.short_description.try(:size).to_i %>
+      <%= 350- @feature.short_description.try(:size).to_i %>
     </span></b> characters remaining</p>
   </div>
 </div>
@@ -73,4 +77,14 @@
   <div class="input-box left">
     <%= f.text_field :color, :id => "picker", :style => "border-color:##{@feature.color} " %>
   </div>
+</div>
+<div class="field">
+  <div class="input-title left">
+    <%= f.label :description, "Description *" %><span>:</span>
+  </div>
+  <div class="input-box left">&nbsp;</div>
+</div>
+<div class="field" style="height: 460px;">
+  <%= f.cktext_area :description, :ckeditor => {:uiColor => "#F5CDFA", :toolbar => "Basic",
+                                              :width=>'755px', :height=>'250px'}  %>
 </div>

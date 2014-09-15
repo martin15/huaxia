@@ -1,8 +1,8 @@
 <div id="content">
-  <div class="content-title">Listing Features</div>
+  <div class="content-title">Listing News</div>
   <div class="admin-content-layer">
     <%= raw msg_flash(flash) %>
-    <%= link_to "Add new feature", new_admin_feature_path %><br /><br /><br />
+    <%= link_to "Add new news", admin_new_feature_path %><br /><br /><br />
     <div class="admin-row border">
       <div class="no">No</div>
       <div class="feature-title">Title</div>
@@ -23,7 +23,7 @@
           <div class="display"  style="background-color:#<%= feature.color %>">&nbsp; </div>
         </div>
         <div class="admin-feature action">
-          <%= link_to "Edit", edit_admin_feature_path(feature) %>&nbsp;&nbsp;|&nbsp;&nbsp;
+          <%= link_to "Edit", admin_edit_feature_path(feature) %>&nbsp;&nbsp;|&nbsp;&nbsp;
           <%= link_to "Delete", admin_feature_path(feature.id ), :method => :delete,
                                 :confirm => "Are you sure?" %>
         </div>

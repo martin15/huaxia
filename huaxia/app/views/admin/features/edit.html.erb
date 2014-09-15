@@ -1,8 +1,12 @@
 <div id="content">
-  <div class="content-title">Edit Feature</div>
+  <div class="content-title">Edit News</div>
   <div class="admin-content-layer">
-    <%= form_for([:admin, @feature], :html => { :method => :put }) do |f| %>
+    <%= form_for([:admin, @feature], :html => { :method => :put },
+                  :url => admin_feature_path) do |f| %>
       <%= f.error_messages %>
+      <div class="admin-category-testimonial" style="height: 200px;">
+        <%= image_tag @feature.feature_image.url(:thumb) %>
+      </div><br />
       <%= render :partial => 'form', :locals => { :f => f} %>
       <div class="field">
         <%= f.submit 'Update Feature' %>&nbsp;&nbsp;

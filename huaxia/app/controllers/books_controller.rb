@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
 
   def index
+    params[:page] = params[:page].to_i == 0 ? 1 : params[:page]
     @books = Book.where("book_type = '#{params[:book_type]}'").
                   paginate(:page => params[:page], :per_page => 9,
                                          :order => "created_at DESC" )
