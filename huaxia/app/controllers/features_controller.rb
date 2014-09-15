@@ -2,7 +2,7 @@ class FeaturesController < ApplicationController
 
   def index
     params[:page] = params[:page].to_i == 0 ? 1 : params[:page]
-    @all_news = Feature.paginate(:page => params[:page], :per_page => 2,
+    @all_news = Feature.paginate(:page => params[:page], :per_page => 9,
                                          :order => "updated_at DESC" )
   end
 
