@@ -3,9 +3,9 @@ class Admin::BooksController < Admin::ApplicationController
 
   def index
     params[:page] = params[:page].to_i == 0 ? 1 : params[:page] unless params[:page].nil?
-    @books = Book.paginate(:page => params[:page], :per_page => 5,
+    @books = Book.paginate(:page => params[:page], :per_page => 10,
                                          :order => "created_at DESC" )
-    @no = params[:page].to_i * 5
+    @no = params[:page].to_i * 10
   end
 
   def new
