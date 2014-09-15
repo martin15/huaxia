@@ -3,6 +3,10 @@
 <% end %>
 
 <div class="field">
+  <div class="input-title left"><%= f.label :logo_image, "Logo" %><span>:</span></div>
+  <div class="input-box left"><%= f.file_field :logo_image %></div>
+</div>
+<div class="field">
   <div class="input-title left"><%= f.label :name, "Name *" %><span>:</span></div>
   <div class="input-box left"><%= f.text_field :name %></div>
 </div>

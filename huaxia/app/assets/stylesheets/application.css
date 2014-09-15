@@ -181,6 +181,8 @@ ul.list-univ, ul.list-info, ul.list-book{
 ul.list-univ{
 	width: 845px;
   left: -564px;
+  min-height: 110px;
+  cursor: default;
 }
 
 ul.list-info, ul.list-book{
@@ -608,6 +610,12 @@ p.ad-info{
   float:left;
   height: auto;
   width:175px;
+}
+
+.univ-logo{
+  float: left;
+  width: 550px;
+  margin-bottom: 15px;
 }
 
 .univ-title{

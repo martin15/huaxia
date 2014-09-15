@@ -17,7 +17,6 @@
         <div class="admin-university univ-province"><%= university.province %></div>
         <div class="admin-university univ-city"><%= university.city %></div>
         <div class="admin-university action" style="width:140px!important;">
-          <%= link_to "Show", admin_university_path(university) %>&nbsp;&nbsp;|&nbsp;
           <%= link_to "Edit", edit_admin_university_path(university) %>&nbsp;|&nbsp;&nbsp;
           <%= link_to "Delete", admin_university_path(university.id ), :method => :delete,
                                 :confirm => "Are you sure?" %>

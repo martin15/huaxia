@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 	//When mouse is removed
 	$("li#parent-list-univ").mouseleave(function(){
-		$("ul.list-univ").fadeOut(300);
+		$("ul.list-univ").fadeOut(1000);
   });
 
   $("li#parent-list-info").mouseover(function(){

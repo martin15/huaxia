@@ -2,6 +2,9 @@
   <div class="content-title"><%= @university.name.humanize.titleize %></div>
   <div class="content-layer">
     <div class="univ-detail">
+      <% if @university.logo_image.file? %>
+        <div class="univ-logo"><%= image_tag @university.logo_image.url(:medium) %></div>
+      <% end %>
       <div class="univ-title">Address</div>
       <div class="univ-value">&nbsp;:&nbsp;<%= @university.address %></div>
       <div class="univ-title">Phone</div>
