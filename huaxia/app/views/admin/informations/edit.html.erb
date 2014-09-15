@@ -1,7 +1,7 @@
 <div id="content">
   <div class="content-title">Edit Informations</div>
   <div class="admin-content-layer">
-    <%= form_for([:admin, @information], :url => admin_information_path(@information.title),
+    <%= form_for([:admin, @information], :url => admin_information_path(@information.permalink),
                   :html => { :multipart => true, :method => :put }) do |f| %>
       <%= f.error_messages %>
       <%= render :partial => 'form', :locals => { :f => f} %>
