@@ -2,7 +2,7 @@ class Admin::UniversitiesController < Admin::ApplicationController
   before_filter :find_university, :only => [:show, :destroy, :edit, :update]
 
   def index
-    params[:page] = params[:page].to_i == 0 ? 1 : params[:page]
+    params[:page] = params[:page].to_i == 0 ? 1 : params[:page] unless params[:page].nil?
     @universities = University.paginate(:page => params[:page], :per_page => 5,
                                          :order => "created_at DESC" )
     @no = params[:page].to_i * 5

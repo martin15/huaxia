@@ -2,7 +2,7 @@ class Admin::CategoriesController < Admin::ApplicationController
   before_filter :find_category, :only => [:edit, :update]
 
   def index
-    params[:page] = params[:page].to_i == 0 ? 1 : params[:page]
+    params[:page] = params[:page].to_i == 0 ? 1 : params[:page] unless params[:page].nil?
     @categories = Category.includes("galleries").
                                 paginate(:page => params[:page], :per_page => 10,
                                          :order => "created_at DESC" )
