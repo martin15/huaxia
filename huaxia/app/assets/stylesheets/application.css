@@ -620,6 +620,12 @@ p.ad-info{
   margin-right: 25px
 }
 
+.news-detail{
+  float:left;
+  height: auto;
+  width:760px;
+}
+
 .list-univ-by-province{
   float:left;
   height: auto;
@@ -632,10 +638,21 @@ p.ad-info{
   margin-bottom: 15px;
 }
 
+.feature-image{
+  float: left;
+  width: 410px;
+  margin-bottom: 15px;
+}
+
 .univ-title{
   float: left;
   width: 75px;
   margin-bottom: 5px;
+}
+
+.news-title{
+  font-size: 22px;
+  margin-bottom: 20px;
 }
 
 .univ-value{
@@ -644,8 +661,16 @@ p.ad-info{
   margin-bottom: 5px;
 }
 
+.news-value{
+  margin-bottom: 5px;
+}
+
 .univ-desc{
   width: 560px;
+}
+
+.news-information{
+  position: relative;
 }
 
 .list-univ-by-province-title{

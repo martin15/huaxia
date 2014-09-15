@@ -1,22 +1,16 @@
 <div id="content">
-  <div class="content-title">BOOK DETAIL</div>
+  <div class="content-title">NEWS DETAIL</div>
   <div class="content-layer">
-    <div class="book-detail-pic">
-      <%= image_tag @book.book_image.url(:big) %>
-    </div>
-    <div class="book-detail-title">
-      <b>Title&nbsp;:&nbsp;</b><%= @book.name.humanize %>
-    </div>
-    <div class="book-detail-price">
-      <b>Price&nbsp;:&nbsp;</b>
-      <%= number_to_currency(@book.price.to_i, :unit => "IDR", 
-                              :format => "%n %u", :precision => 0) %>
-    </div>
-    <div class="book-detail-description">
-      <b>Description&nbsp;:&nbsp;</b><%= raw @book.description %>
-    </div>
-    <div class="book-note">
-      <%= raw @book_note.content %>
+    <div class="news-detail">
+      <% if @news.feature_image.file? %>
+        <div class="feature-image">
+          <%= image_tag @news.feature_image.url(:large), :size => "390x520" %>
+        </div>
+      <% end %>
+      <div class="news-information">
+        <div class="news-title"><%= @news.title.titleize %></div>
+        <div class="news-desc text-area"><%= raw @news.description %></div>
+      </div>
     </div>
   </div>
   <div class="clear"></div>
