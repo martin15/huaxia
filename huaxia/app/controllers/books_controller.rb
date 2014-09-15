@@ -1,8 +1,15 @@
 class BooksController < ApplicationController
 
   def index
-    @books = Book.paginate(:page => params[:page], :per_page => 9,
+    @books = Book.where("book_type = '#{params[:book_type]}'").
+                  paginate(:page => params[:page], :per_page => 9,
                                          :order => "created_at DESC" )
+    bl = Book.list_type.map{|type| type[1]}
+    @book_type = params[:book_type]
+    unless bl.include?(@book_type)
+      redirect_to root_path
+      return
+    end
     @book_note = Information.find_by_permalink("book_note")
   end
 

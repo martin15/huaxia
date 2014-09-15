@@ -10,6 +10,10 @@
   <div class="input-title left"><%= f.label :price, "Price *" %><span>:</span></div>
   <div class="input-box left"><%= f.text_field :price %></div>
 </div>
+<div class="field">
+  <div class="input-title left"><%= f.label :book_type, "Book Type *" %><span>:</span></div>
+  <div class="input-box left"><%= f.select :book_type, Book.list_type %></div>
+</div>
 <div class="field clear-margin">
   <div class="input-title left"><%= f.label :book_image, "Image *" %><span>:</span></div>
   <div class="input-box left"><%= f.file_field :book_image %></div>

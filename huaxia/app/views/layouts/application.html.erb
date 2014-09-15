@@ -47,7 +47,16 @@
               <% end %>
             </ul>
           </li>
-          <li><%= link_to "Books", books_path %></li>
+          <li id="parent-list-book"><span class="nav-title">Books</span>
+            <ul class="list-book">
+              <li>
+                <% Book.list_type.each do |book_type| %>
+                  <span><%= link_to book_type[0],
+                                    books_path(book_type[1]) %></span><br />
+                <% end %>
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
@@ -66,7 +75,7 @@
           <%= link_to raw("<li>Universities</li>"),
             (@temp_univ.nil? ? "#" : (university_path(@temp_univ.permalink))) %>
           <%= link_to raw("<li class='none-border'>Books</li>"),
-                      books_path %>
+                      books_path("buku_ajar_tk") %>
         </ul><br />
         <p>Copyright ©  <%= Date.today.year %>, huaxia-icec.com - all rights reserved</p>
       </div>

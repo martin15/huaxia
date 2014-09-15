@@ -16,21 +16,30 @@
 $(document).ready(function(){
 	//When mouse rolls over
 	$("li#parent-list-univ").mouseover(function(){
-		$("ul.list-univ").slideDown('1');
+		$("ul.list-univ").slideDown(1);
   });
 
 	//When mouse is removed
 	$("li#parent-list-univ").mouseleave(function(){
-		$("ul.list-univ").fadeOut(10);
+		$("ul.list-univ").fadeOut(300);
   });
 
   $("li#parent-list-info").mouseover(function(){
-		$("ul.list-info").slideDown('1');
+		$("ul.list-info").slideDown(1);
   });
 
 	//When mouse is removed
 	$("li#parent-list-info").mouseleave(function(){
-		$("ul.list-info").fadeOut(10);
+		$("ul.list-info").fadeOut(300);
+  });
+
+  $("li#parent-list-book").mouseover(function(){
+		$("ul.list-book").slideDown(1);
+  });
+
+	//When mouse is removed
+	$("li#parent-list-book").mouseleave(function(){
+		$("ul.list-book").fadeOut(300);
   });
 
 

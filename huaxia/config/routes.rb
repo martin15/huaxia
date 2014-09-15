@@ -6,13 +6,13 @@ Huaxia::Application.routes.draw do
   resources :about_us, :only => [:index]
   resources :testimonials, :only => [:index, :show]
   get "info/:permalink" => "info_study#index", :as => "info"
-  get "hsk" => "hsk#index", :as => "hsk"
+#  get "hsk" => "hsk#index", :as => "hsk"
   get "learning_mandarin" => "learning_mandarin#index", :as => "learning_mandarin"
   get "galleries" => "galleries#index", :as => "categories"
   get "gallery/:permalink" => "galleries#show", :as => "category"
   get "university/:permalink" => "universities#show", :as => "university"
-  get "books" => "books#index", :as => "books"
-  get "book/:permalink" => "books#show", :as => "book"
+  get "books/:book_type" => "books#index", :as => "books"
+  get "book/:book_type/:permalink" => "books#show", :as => "book"
 
   get "login" => "sessions#new", :as => "login"
   get "logout" => "sessions#destroy", :as => "logout"

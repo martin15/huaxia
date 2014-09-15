@@ -167,7 +167,7 @@ ul.down-menu li a, ul.down-menu li.list-gallery, ul.down-menu li span.nav-title 
   background-color: #de2c29;
 }*/
 
-ul.list-univ, ul.list-info{
+ul.list-univ, ul.list-info, ul.list-book{
   color: #6cffff;
 	z-index: 500;
 	top: 48px;
@@ -183,11 +183,11 @@ ul.list-univ{
   left: -564px;
 }
 
-ul.list-info{
+ul.list-info, ul.list-book{
   width: 140px;
 }
 
-ul.list-univ li, ul.list-info li{
+ul.list-univ li, ul.list-info li, ul.list-book li{
   cursor: default!important;
   float: left !important;
   border-left: none !important;
@@ -199,36 +199,38 @@ ul.list-univ li{
   width: 211px!important;
 }
 
-ul.list-info li{
+ul.list-info li, ul.list-book li{
   width: 140px;
 }
 
 ul.list-univ li:hover, ul.list-univ li a, ul.list-univ li a:hover,
-ul.list-info li:hover, ul.list-info li a, ul.list-info li a:hover{
+ul.list-info li:hover, ul.list-info li a, ul.list-info li a:hover,
+ul.list-book li:hover, ul.list-book li a, ul.list-book li a:hover{
   background-color: #262A30!important;
 }
 
-ul.list-univ li a, ul.list-info li a{
+ul.list-univ li a, ul.list-info li a, ul.list-book li a{
   padding: 5px 0 0 0!important;
   width: auto;
 }
 
-ul.list-univ li a:hover, ul.list-info li a:hover{
+ul.list-univ li a:hover, ul.list-info li a:hover,
+ul.list-book li a:hover{
   color: #c3caff!important;
 }
 
-ul.list-univ li span, ul.list-info li span{
+ul.list-univ li span, ul.list-info li span, ul.list-book li span{
   float: left;
   margin: 5px 0 0 10px;
   text-align: left;
   width: 211px;
 }
 
-ul.list-info li span{
+ul.list-info li span, ul.list-book li span{
   width: 130px!important;
 }
 
-ul.list-univ li span:hover, ul.list-info li span:hover{
+ul.list-univ li span:hover, ul.list-info li span:hover, ul.list-book li span:hover{
   color: white;
 }
 
@@ -718,4 +720,29 @@ p.ad-info{
   width: 300px;
 }
 
+.text-area ol{
+  list-style-type: decimal!important;
+  list-style-position: inside!important;
+  margin-bottom: 5px!important;
+}
 
+.text-area ol ol li{
+  margin-bottom: 5px!important;
+}
+
+.text-area ol li{
+  margin-top: 5px!important;
+}
+
+.text-area ol ol{
+  padding-left: 10px;
+  margin-bottom: 5px!important;
+}
+
+.text-area ul{
+  list-style: disc none inside!important;
+}
+.text-area ul li{
+  padding-left: 10px!important;
+  margin-bottom: 5px!important;
+}
