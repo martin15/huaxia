@@ -14,7 +14,8 @@
         <div class="title text-left"><%= information.title.humanize %></div>
         <div class="action">
           <%= link_to 'Edit', edit_admin_information_path(information.permalink) %>
-          <% unless information.permalink == "about_us" %>
+          <% unless ["about_us", "book_note", "study_in_china",
+                     "study-in-china"].include?(information.permalink) %>
             |&nbsp;<%= link_to "Delete", admin_information_path(information.permalink ),
                                 :method => :delete, :confirm => "Are you sure?" %>
           <% end %>

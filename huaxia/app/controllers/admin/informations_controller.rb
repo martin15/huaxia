@@ -9,20 +9,20 @@ class Admin::InformationsController < Admin::ApplicationController
     @no = params[:page].to_i * 10
   end
 
-  def new
-    @information = Information.new
-  end
-
-  def create
-    @information = Information.new(params[:information])
-    if @information.save
-      flash[:notice] = "Information successfully created"
-      redirect_to admin_informations_path
-    else
-      flash[:error] = "Information failed to create"
-      render :action => "new"
-    end
-  end
+#  def new
+#    @information = Information.new
+#  end
+#
+#  def create
+#    @information = Information.new(params[:information])
+#    if @information.save
+#      flash[:notice] = "Information successfully created"
+#      redirect_to admin_informations_path
+#    else
+#      flash[:error] = "Information failed to create"
+#      render :action => "new"
+#    end
+#  end
 
   def edit
   end
