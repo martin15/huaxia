@@ -8,7 +8,7 @@ Huaxia::Application.routes.draw do
   get "info/:permalink" => "info_study#index", :as => "info"
 #  get "hsk" => "hsk#index", :as => "hsk"
   get "learning_mandarin" => "learning_mandarin#index", :as => "learning_mandarin"
-  get "galleries" => "galleries#index", :as => "categories"
+  get "galleries/:type" => "galleries#index", :as => "categories"
   get "gallery/:permalink" => "galleries#show", :as => "category"
   get "university/:permalink" => "universities#show", :as => "university"
   get "news" => "features#index", :as => "features"

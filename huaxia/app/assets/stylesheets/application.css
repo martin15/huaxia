@@ -120,7 +120,7 @@ ul.down-menu{
   font-size: 17px;
 }
 
-ul.down-menu li a, ul.down-menu li.list-gallery, ul.down-menu li span.nav-title {
+ul.down-menu li a,/* ul.down-menu li.list-gallery, */ul.down-menu li span.nav-title {
 /*  color: #626262;*/
   color: #ffffff;
   cursor: pointer;
@@ -175,7 +175,7 @@ ul.down-menu li a, ul.down-menu li.list-gallery, ul.down-menu li span.nav-title 
   background-color: #de2c29;
 }*/
 
-ul.list-univ, ul.list-info, ul.list-book{
+ul.list-univ, ul.list-info, ul.list-book, ul.list-gallery{
   color: #6cffff;
 	z-index: 500;
 	top: 48px;
@@ -197,7 +197,7 @@ ul.list-info, ul.list-book{
   width: 140px;
 }
 
-ul.list-univ li, ul.list-info li, ul.list-book li{
+ul.list-univ li, ul.list-info li, ul.list-book li, ul.list-gallery li{
   cursor: default!important;
   float: left !important;
   border-left: none !important;
@@ -215,22 +215,23 @@ ul.list-info li, ul.list-book li{
 
 ul.list-univ li:hover, ul.list-univ li a, ul.list-univ li a:hover,
 ul.list-info li:hover, ul.list-info li a, ul.list-info li a:hover,
-ul.list-book li:hover, ul.list-book li a, ul.list-book li a:hover{
+ul.list-book li:hover, ul.list-book li a, ul.list-book li a:hover,
+ul.list-gallery li:hover, ul.list-gallery li a, ul.list-gallery li a:hover{
   background-color: #262A30!important;
 }
 
-ul.list-univ li a, ul.list-info li a, ul.list-book li a{
+ul.list-univ li a, ul.list-info li a, ul.list-book li a, ul.list-gallery li a{
   padding: 5px 0 0 0!important;
   width: auto;
   font-size: 12px!important;
 }
 
 ul.list-univ li a:hover, ul.list-info li a:hover,
-ul.list-book li a:hover{
+ul.list-book li a:hover, ul.list-gallery li a:hover{
   color: #c3caff!important;
 }
 
-ul.list-univ li span, ul.list-info li span, ul.list-book li span{
+ul.list-univ li span, ul.list-info li span, ul.list-book li span, ul.list-gallery li span{
   float: left;
   margin: 5px 0 0 10px;
   text-align: left;
@@ -241,7 +242,8 @@ ul.list-info li span, ul.list-book li span{
   width: 130px!important;
 }
 
-ul.list-univ li span:hover, ul.list-info li span:hover, ul.list-book li span:hover{
+ul.list-univ li span:hover, ul.list-info li span:hover, ul.list-book li span:hover,
+ul.list-gallery li span:hover{
   color: white;
 }
 
@@ -304,22 +306,21 @@ ul.list-univ li span:hover, ul.list-info li span:hover, ul.list-book li span:hov
 }
 
 .content-left{
-  padding-left: 65px;
+/*  padding-left: 65px;*/
   float: left;
-  width: 570px;
+  width: 1000px;
 }
 
 .content-left .gxnu-title, .content-left .gxnu-description,
 .content-left .gxnu-more{
-  width: 540px;
-  margin-right: 30px;
+  width: 1000px;
   font-size: 25px;
   margin-bottom: 15px
 }
 
 .content-left .gxnu-description{
   font-size: 13px;
-  height: 255px;
+/*  height: 255px;*/
   overflow: hidden;
 }
 
@@ -356,8 +357,9 @@ ul.list-univ li span:hover, ul.list-info li span:hover, ul.list-book li span:hov
   background-color: #fff; 
   color: #000 !important;
   padding: 10px;
-  height: 250px;
+  height: 245px;
   font-size: 13px;
+  overflow: hidden;
 }
 
 .mini-table-mid span.image{
@@ -380,6 +382,7 @@ ul.list-univ li span:hover, ul.list-info li span:hover, ul.list-book li span:hov
 .content-right{
   width: 280px;
   float: left;
+  padding-left: 65px;
 }
 
 .facebook, .twitter{
@@ -408,7 +411,7 @@ ul.list-univ li span:hover, ul.list-info li span:hover, ul.list-book li span:hov
 
 .graduated-student{
   float:left;
-  width:270px;
+  width:850px;
 }
 
 .graduated-student-up-down, .graduated-student-up-down a{
@@ -422,7 +425,7 @@ ul.list-univ li span:hover, ul.list-info li span:hover, ul.list-book li span:hov
 
 .graduated-student-mid{
   background-color:#fec4d4;
-  min-height:250px;
+  min-height:125px;
   padding:10px;
 }
 

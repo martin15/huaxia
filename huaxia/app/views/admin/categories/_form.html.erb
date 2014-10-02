@@ -7,6 +7,10 @@
   <div class="input-box left">:&nbsp;&nbsp;<%= f.text_field :title %></div>
 </div>
 <div class="field">
+  <div class="input-title left"><%= f.label :category_type, "Type *" %></div>
+  <div class="input-box left">:&nbsp;&nbsp;<%= f.select :category_type, Category.list_type %></div>
+</div>
+<div class="field">
   <div class="input-title left"><%= f.label :icon_image, "Image" %></div>
   <div class="input-box left">:&nbsp;&nbsp;<%= f.file_field :icon_image %></div>
 </div>

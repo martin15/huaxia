@@ -15,7 +15,9 @@
           <%= "(#{category.galleries.count})" %>
         </div>
         <div class="action">
-          <%= link_to "Edit", admin_edit_gallery_categories_path(category.id) %>
+          <%= link_to "Edit", admin_edit_gallery_categories_path(category.id) %>&nbsp;&nbsp;|&nbsp;&nbsp;
+          <%= link_to "Delete", admin_delete_gallery_categories_path(category.id),
+                                :method => :delete, :confirm => "Are you sure?" %>
         </div>
       </div>
     <% end %>

@@ -1,5 +1,5 @@
 <div id="content">
-  <div class="content-title">GALLERIES</div>
+  <div class="content-title"><%= params[:type].humanize.upcase %> GALLERIES</div>
   <div class="content-layer">
     <% @categories.each_with_index do |category, x| %>
       <% nm = "no-margin-right" if (x+1)%3 == 0 %>

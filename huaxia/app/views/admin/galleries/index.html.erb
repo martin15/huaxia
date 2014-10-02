@@ -15,7 +15,9 @@
         <div class="admin-galery no"><%= x+1 %></div>
         <div class="admin-galery image"><%= image_tag  gallery.gallery_image.url(:thumb) %></div>
         <div class="admin-galery image-title"><%= gallery.title %></div>
-        <div class="admin-galery image-description"><%= gallery.description %></div>
+        <div class="admin-galery image-description" style="width:280px;">
+          <%= gallery.description %>
+        </div>
         <div class="admin-galery action">
           <%= link_to "Edit", admin_edit_gallery_path(:category_id => @category.id,
                                                 :id => gallery.id ) %>&nbsp;&nbsp;|&nbsp;&nbsp;

@@ -35,8 +35,20 @@
               <%#*</li>%>
             <%#*</ul>%>
           <%#*</li>%>-->
-          <li><%= link_to "Galleries", categories_path %>
+
+
+
+          <li id="parent-list-gallery"><span class="nav-title">Galleries</span>
+            <ul class="list-gallery">
+              <li>
+                <% Category.list_type.each do |book_type| %>
+                  <span><%= link_to book_type[0],
+                                    categories_path(book_type[1]) %></span><br />
+                <% end %>
+              </li>
+            </ul>
           </li>
+
           <li id="parent-list-univ"><span class="nav-title">Universities</span>
             <ul class="list-univ">
               <% @universities.each do |small_univ| %>
@@ -74,7 +86,7 @@
           <%= link_to raw("<li>Study In China</li>"),info_path('study-in-china') %>
           <%#= link_to raw("<li>Study In China</li>"),
             (@temp_info .nil? ? "#" : (info_path(@temp_info.permalink))) %>
-          <%= link_to raw("<li>Galleries</li>"), categories_path %>
+          <%= link_to raw("<li>Galleries</li>"), categories_path("city") %>
           <%= link_to raw("<li>Universities</li>"),
             (@temp_univ.nil? ? "#" : (university_path(@temp_univ.permalink))) %>
           <%= link_to raw("<li>News</li>"), features_path %>

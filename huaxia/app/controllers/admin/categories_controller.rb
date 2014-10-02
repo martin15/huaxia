@@ -1,5 +1,5 @@
 class Admin::CategoriesController < Admin::ApplicationController
-  before_filter :find_category, :only => [:edit, :update]
+  before_filter :find_category, :only => [:edit, :update, :destroy]
 
   def index
     params[:page] = params[:page].to_i == 0 ? 1 : params[:page] unless params[:page].nil?
@@ -35,6 +35,12 @@ class Admin::CategoriesController < Admin::ApplicationController
       flash[:error] = "Image failed to update<br />Pleace choose the Image"
       render :action => "edit"
     end
+  end
+
+  def destroy
+    flash[:notice] =  @category.destroy ? 'Category was successfully deleted.' :
+                                          'Category was falied to delete.'
+    redirect_to admin_gallery_categories_path
   end
 
   private

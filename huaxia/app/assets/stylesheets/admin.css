@@ -65,7 +65,7 @@
 }
 
 .admin-galery{
-  height: 90px!important;
+/*  height: 90px!important;*/
 }
 
 .admin-banner, .admin-testimonial{
@@ -105,7 +105,7 @@
 }
 
 .admin-row .image-description{
-  width: 400px;
+  width: 390px;
 }
 
 .admin-row .comment{
@@ -142,7 +142,7 @@
 
 .admin-category-gallery .title{
   float: left;
-  width: 190px;
+  width: 145px;
   height: 50px;
   padding-right: 20px;
   font-size: 14px;
@@ -150,7 +150,7 @@
 
 .admin-category-gallery .action{
   float: left;
-  width: 30px;
+  width: 75px;
   height: 50px;
   text-decoration: underline;
 }
