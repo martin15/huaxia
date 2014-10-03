@@ -4,7 +4,7 @@ class Admin::CategoriesController < Admin::ApplicationController
   def index
     params[:page] = params[:page].to_i == 0 ? 1 : params[:page] unless params[:page].nil?
     @categories = Category.includes("galleries").
-                                paginate(:page => params[:page], :per_page => 10,
+                                paginate(:page => params[:page], :per_page => 12,
                                          :order => "created_at DESC" )
   end
 
@@ -29,10 +29,10 @@ class Admin::CategoriesController < Admin::ApplicationController
 
   def update
     if @category.update_attributes(params[:category])
-      flash[:notice] = "Image successfully updated"
+      flash[:notice] = "Gallery successfully updated"
       redirect_to admin_gallery_categories_path
     else
-      flash[:error] = "Image failed to update<br />Pleace choose the Image"
+      flash[:error] = "Gallery failed to update<br />Pleace choose the Image"
       render :action => "edit"
     end
   end

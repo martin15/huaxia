@@ -21,7 +21,7 @@
         <div class="admin-book book-price"><%= book.price %></div>
         <div class="admin-book book-available"><%= book.available %></div>
         <div class="admin-book action" style="width:140px!important;">
-          <%= link_to "Show", admin_book_path(book) %>&nbsp;&nbsp;|&nbsp;
+          <%#= link_to "Show", admin_book_path(book) %><%#*&nbsp;&nbsp;|&nbsp;%>
           <%= link_to "Edit", edit_admin_book_path(book) %>&nbsp;|&nbsp;&nbsp;
           <%= link_to "Delete", admin_book_path(book.id ), :method => :delete,
                                 :confirm => "Are you sure?" %>

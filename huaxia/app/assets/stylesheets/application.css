@@ -313,7 +313,7 @@ ul.list-gallery li span:hover{
 
 .content-left .gxnu-title, .content-left .gxnu-description,
 .content-left .gxnu-more{
-  width: 1000px;
+  width: 850px;
   font-size: 25px;
   margin-bottom: 15px
 }
@@ -321,7 +321,14 @@ ul.list-gallery li span:hover{
 .content-left .gxnu-description{
   font-size: 13px;
 /*  height: 255px;*/
+  padding: 0 65px;
   overflow: hidden;
+}
+
+.content-left .gxnu-description img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto
 }
 
 .content-left .gxnu-more{
@@ -596,6 +603,10 @@ p.ad-info{
   width: 242px;
   height: 250px;
   margin-right: 16px;
+}
+
+.category-gallery{
+  height: 275px!important;
 }
 
 .no-margin-right{
