@@ -4,10 +4,8 @@ class Admin::DashboardController < Admin::ApplicationController
   end
 
   def change_password
-    puts params.inspect
     @user = User.authenticate(params[:user][:email], params[:user][:old_password])
     if @user
-      puts params[:user]
       if @user.update_attributes(params[:user])
         flash[:notice] = "Password successfully changed"
       else

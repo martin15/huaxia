@@ -27,7 +27,6 @@ class Admin::FeaturesController < Admin::ApplicationController
   end
 
   def update
-    puts "----------------"
     if @feature.update_attributes(params[:feature])
       flash[:notice] = "Feature successfully updated"
       redirect_to admin_features_path

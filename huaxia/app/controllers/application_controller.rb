@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
     @temp_info = @informations.first
     @universities = University.all.in_groups(4, false)
     @temp_univ = @universities.empty? ? nil : @universities.first.first
-    puts @temp_univ.inspect
   end
 
 end

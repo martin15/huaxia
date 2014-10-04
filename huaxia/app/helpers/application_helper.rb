@@ -12,8 +12,6 @@ module ApplicationHelper
   def short_desc(text, count)
     new_text_splited = text[0, count].split(" ")
     new_text_splited.pop(1)
-    puts text[0, count]
-    puts text[0, count].split(" ")
     return new_text_splited.join(" ")
   end
 end

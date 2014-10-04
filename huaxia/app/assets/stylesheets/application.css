@@ -9,8 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require jquery.qtip.css
  */
-
  
 *{margin:0;padding:0;}
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
@@ -306,29 +306,118 @@ ul.list-gallery li span:hover{
 }
 
 .content-left{
-/*  padding-left: 65px;*/
+  padding-left: 65px;
   float: left;
-  width: 1000px;
+  width: 640px;
 }
 
 .content-left .gxnu-title, .content-left .gxnu-description,
 .content-left .gxnu-more{
-  width: 850px;
+  width: 630px;
   font-size: 25px;
   margin-bottom: 15px
 }
 
 .content-left .gxnu-description{
   font-size: 13px;
-/*  height: 255px;*/
-  padding: 0 65px;
+/*  height: 255px;
+  padding: 0 65px;*/
   overflow: hidden;
+  position: relative;
 }
 
-.content-left .gxnu-description img{
-  display: block;
-  margin-left: auto;
-  margin-right: auto
+.list-univ-at-map-box{
+  float: left;
+  position: absolute;
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#guilin{
+  left: 340px;
+  top: 415px;
+  height: 50px;
+  width: 90px;
+}
+
+#hainan{
+  left:390px;
+  top: 493px;
+  height: 32px;
+  width: 37px;
+}
+
+#hunan{
+  left:400px;
+  top: 355px;
+  height: 50px;
+  width: 50px;
+}
+
+#wuhan{
+  left:405px;
+  top: 322px;
+  height: 40px;
+  width: 65px;
+}
+
+#chongqing {
+  height: 30px;
+  left: 348px;
+  top: 338px;
+  width: 40px;
+}
+
+#nanjing {
+  height: 45px;
+  left: 502px;
+  top: 275px;
+  width: 40px;
+}
+
+#beijing {
+  height: 22px;
+  left: 457px;
+  top: 190px;
+  width: 20px;
+}
+
+#taiwan {
+  height: 50px;
+  left: 543px;
+  top: 402px;
+  width: 20px;
+}
+
+.list-univ-at-map{
+  display: none
+}
+
+.list-univ-at-map p{
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.list-univ-at-map a{
+  text-decoration: underline;
+}
+
+.list-univ-at-map a:hover{
+  color: #858585;
+}
+
+.list-univ-at-map ul{
+  margin-bottom: 10px;
+}
+
+.list-univ-at-map ul li{
+  background: url("../assets/arrow-list.png") no-repeat;
+  background-position: center left;
+  padding-left: 23px;
+  margin-bottom: 5px;
 }
 
 .content-left .gxnu-more{
@@ -387,9 +476,9 @@ ul.list-gallery li span:hover{
 }
 
 .content-right{
-  width: 280px;
+  width: 205px;
   float: left;
-  padding-left: 65px;
+  padding-left: 5px;
 }
 
 .facebook, .twitter{
@@ -418,7 +507,8 @@ ul.list-gallery li span:hover{
 
 .graduated-student{
   float:left;
-  width:850px;
+  width:205px;
+  text-align: justify;
 }
 
 .graduated-student-up-down, .graduated-student-up-down a{
