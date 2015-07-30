@@ -335,7 +335,7 @@ ul.list-gallery li span:hover{
   cursor: pointer;
 }
 
-#guilin{
+#guilin, #guangxi{
   left: 340px;
   top: 415px;
   height: 50px;
@@ -356,7 +356,7 @@ ul.list-gallery li span:hover{
   width: 50px;
 }
 
-#wuhan{
+#wuhan, #hubei{
   left:405px;
   top: 322px;
   height: 40px;
@@ -370,7 +370,7 @@ ul.list-gallery li span:hover{
   width: 40px;
 }
 
-#nanjing {
+#nanjing, #jiangsu {
   height: 45px;
   left: 502px;
   top: 275px;

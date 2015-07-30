@@ -40,75 +40,90 @@
     </div>
     <div class="gxnu-description">
       <%= image_tag "china-map.gif" %>
-      <div class="list-univ-at-map-box" id="guilin">&nbsp;</div>
-      <div class="list-univ-at-map">
-        <p>Guilin</p>
-        <ul>
-          <li><%= link_to "Guangxi Normal University", university_path("guangxi-normal-university") %></li>
-          <li><%= link_to "Guilin University of Aerospace Technology", university_path("guilin-university-of-aerospace-technology") %></li>
-        </ul>
-        <p>Nanning</p>
-        <ul>
-          <li><%= link_to "Guangxi Arts Institute", university_path("guangxi-arts-institute") %></li>
-          <li><%= link_to "Guangxi Medical University", university_path("guangxi-medical-university") %></li>
-        </ul>
-      </div>
+      <% @list_univs.each do |province, province_univs| %>
+        <div class="list-univ-at-map-box" id="<%= province.downcase %>">&nbsp;</div>
+        <div class="list-univ-at-map">
+          <% province_univs = province_univs.group_by{|m| m.city} %>
+          <% province_univs.each do |city, univs| %>
+            <p><%= city %></p>
+            <ul>
+              <% univs.each do |univ| %>
+                <li><%= link_to univ.name, university_path(univ.permalink) %></li>
+              <% end %>
+            </ul>
+          <% end  %>
+        </div>
+      <% end %>
 
-      <div class="list-univ-at-map-box" id="hainan">&nbsp;</div>
-      <div class="list-univ-at-map">
-        <p>Hainan</p>
-        <ul>
-          <li><%= link_to "Hainan Normal University", university_path('hainan-normal-university') %></li>
-        </ul>
-      </div>
+      <!--<%#*<div class="list-univ-at-map-box" id="guilin">&nbsp;</div>%>
+      <%#*<div class="list-univ-at-map">%>
+        <%#*<p>Guilin</p>%>
+        <%#*<ul>%>
+          <%#*<li><%= link_to "Guangxi Normal University", university_path("guangxi-normal-university") %></li>%>
+          <%#*<li><%= link_to "Guilin University of Aerospace Technology", university_path("guilin-university-of-aerospace-technology") %></li>%>
+        <%#*</ul>%>
+        <%#*<p>Nanning</p>%>
+        <%#*<ul>%>
+          <%#*<li><%= link_to "Guangxi Arts Institute", university_path("guangxi-arts-institute") %></li>%>
+          <%#*<li><%= link_to "Guangxi Medical University", university_path("guangxi-medical-university") %></li>%>
+        <%#*</ul>%>
+      <%#*</div>%>
 
-      <div class="list-univ-at-map-box" id="hunan">&nbsp;</div>
-      <div class="list-univ-at-map">
-        <p>Hunan</p>
-        <ul>
-          <li><%= link_to "Hunan Normal University", university_path("hunan-normal-university") %></li>
-        </ul>
-      </div>
+      <%#*<div class="list-univ-at-map-box" id="hainan">&nbsp;</div>%>
+      <%#*<div class="list-univ-at-map">%>
+        <%#*<p>Hainan</p>%>
+        <%#*<ul>%>
+          <%#*<li><%= link_to "Hainan Normal University", university_path('hainan-normal-university') %></li>%>
+        <%#*</ul>%>
+      <%#*</div>%>
 
-      <div class="list-univ-at-map-box" id="wuhan">&nbsp;</div>
-      <div class="list-univ-at-map">
-        <p>Wuhan</p>
-        <ul>
-          <li><%= link_to "Wuhan Normal University", university_path("wuhan-university") %></li>
-        </ul>
-      </div>
+      <%#*<div class="list-univ-at-map-box" id="hunan">&nbsp;</div>%>
+      <%#*<div class="list-univ-at-map">%>
+        <%#*<p>Hunan</p>%>
+        <%#*<ul>%>
+          <%#*<li><%= link_to "Hunan Normal University", university_path("hunan-normal-university") %></li>%>
+        <%#*</ul>%>
+      <%#*</div>%>
 
-      <div class="list-univ-at-map-box" id="chongqing">&nbsp;</div>
-      <div class="list-univ-at-map">
-        <p>Chongqing</p>
-        <ul>
-          <li><%= link_to "Chongqing University of Posts and Telecommunications", university_path("chongqing-university-of-posts-and-telecommunications") %></li>
-        </ul>
-      </div>
+      <%#*<div class="list-univ-at-map-box" id="wuhan">&nbsp;</div>%>
+      <%#*<div class="list-univ-at-map">%>
+        <%#*<p>Wuhan</p>%>
+        <%#*<ul>%>
+          <%#*<li><%= link_to "Wuhan Normal University", university_path("wuhan-university") %></li>%>
+        <%#*</ul>%>
+      <%#*</div>%>
 
-      <div class="list-univ-at-map-box" id="nanjing">&nbsp;</div>
-      <div class="list-univ-at-map">
-        <p>Nanjing</p>
-        <ul>
-          <li><%= link_to "Nanjing Normal University", university_path("nanjing-normal-university") %></li>
-        </ul>
-      </div>
+      <%#*<div class="list-univ-at-map-box" id="chongqing">&nbsp;</div>%>
+      <%#*<div class="list-univ-at-map">%>
+        <%#*<p>Chongqing</p>%>
+        <%#*<ul>%>
+          <%#*<li><%= link_to "Chongqing University of Posts and Telecommunications", university_path("chongqing-university-of-posts-and-telecommunications") %></li>%>
+        <%#*</ul>%>
+      <%#*</div>%>
 
-      <div class="list-univ-at-map-box" id="beijing">&nbsp;</div>
-      <div class="list-univ-at-map">
-        <p>Beijing</p>
-        <ul>
-          <li><%= link_to "Beijing Language and Culture University", university_path("beijing-language-and-culture-university") %></li>
-        </ul>
-      </div>
+      <%#*<div class="list-univ-at-map-box" id="nanjing">&nbsp;</div>%>
+      <%#*<div class="list-univ-at-map">%>
+        <%#*<p>Nanjing</p>%>
+        <%#*<ul>%>
+          <%#*<li><%= link_to "Nanjing Normal University", university_path("nanjing-normal-university") %></li>%>
+        <%#*</ul>%>
+      <%#*</div>%>
 
-      <div class="list-univ-at-map-box" id="taiwan">&nbsp;</div>
-      <div class="list-univ-at-map">
-        <p>Taiwan</p>
-        <ul>
-          <li><%= link_to "China University of Technology", university_path("china-university-of-technology-taiwan") %></li>
-        </ul>
-      </div>
+      <%#*<div class="list-univ-at-map-box" id="beijing">&nbsp;</div>%>
+      <%#*<div class="list-univ-at-map">%>
+        <%#*<p>Beijing</p>%>
+        <%#*<ul>%>
+          <%#*<li><%= link_to "Beijing Language and Culture University", university_path("beijing-language-and-culture-university") %></li>%>
+        <%#*</ul>%>
+      <%#*</div>%>
+
+      <%#*<div class="list-univ-at-map-box" id="taiwan">&nbsp;</div>%>
+      <%#*<div class="list-univ-at-map">%>
+        <%#*<p>Taiwan</p>%>
+        <%#*<ul>%>
+          <%#*<li><%= link_to "China University of Technology", university_path("china-university-of-technology-taiwan") %></li>%>
+        <%#*</ul>%>
+      <%#*</div>%>-->
 
     </div>
     <%#*<div class="gxnu-more">%>

@@ -15,6 +15,10 @@ class HomeController < ApplicationController
 #                                             'Nanjing Normal University',
 #                                             'Beijing Language and Culture University',
 #                                             'China University of Technology')").select("name")
+    @list_univs = University.where("province in ('Guangxi', 'Hainan', 'Hunan',
+                                                 'Hubei', 'Chongqing', 'Jiangsu',
+                                                 'Beijing', 'Taiwan')").
+                             group_by{ |h| h.province }
 
   end
 end
