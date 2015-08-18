@@ -371,10 +371,40 @@ ul.list-gallery li span:hover{
 }
 
 #nanjing, #jiangsu {
-  height: 45px;
+  height: 50px;
   left: 502px;
   top: 275px;
-  width: 40px;
+  width: 34px;
+}
+
+#shanghai {
+  height: 13px;
+  left: 535px;
+  top: 315px;
+  width: 14px;
+}
+
+#guizhou {
+  height: 57px;
+  left: 336px;
+  top: 366px;
+  width: 63px;
+}
+
+#shandong {
+  height: 42px;
+  left: 465px;
+  top: 234px;
+  width: 48px;
+  z-index: 1000;
+}
+
+#shijiazhuang {
+  height: 78px;
+  left: 438px;
+  top: 178px;
+  width: 56px;
+  z-index: 500;
 }
 
 #beijing {
@@ -382,6 +412,7 @@ ul.list-gallery li span:hover{
   left: 457px;
   top: 190px;
   width: 20px;
+  z-index: 1000;
 }
 
 #taiwan {

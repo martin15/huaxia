@@ -5,7 +5,7 @@ class Admin::FeaturesController < Admin::ApplicationController
     params[:page] = params[:page].to_i == 0 ? 1 : params[:page] unless params[:page].nil?
     @features = Feature.paginate(:page => params[:page], :per_page => 10,
                                          :order => "updated_at DESC" )
-    @no = params[:page].to_i * 10
+    @no = params[:page].nil? ? 0 : (params[:page].to_i-1) * 10
   end
 
   def new
@@ -24,6 +24,9 @@ class Admin::FeaturesController < Admin::ApplicationController
   end
 
   def edit
+      puts @feature.feature_image.inspect
+      puts "--------------------------------"
+      puts @feature.feature_image.file?
   end
 
   def update
@@ -39,6 +42,10 @@ class Admin::FeaturesController < Admin::ApplicationController
   def destroy
     flash[:notice] =  @feature.destroy ? 'Feature was successfully deleted.' : 'Feature was falied to delete.'
     redirect_to admin_features_path
+  end
+
+  def destroy_image
+    
   end
 
   private

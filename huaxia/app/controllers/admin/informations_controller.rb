@@ -6,7 +6,7 @@ class Admin::InformationsController < Admin::ApplicationController
     @informations = Information.where("permalink != 'book_note'").
                                 paginate(:page => params[:page], :per_page => 10,
                                          :order => "created_at DESC" )
-    @no = params[:page].to_i * 10
+    @no = params[:page].nil? ? 0 : (params[:page].to_i-1) * 10
   end
 
 #  def new
