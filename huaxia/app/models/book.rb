@@ -20,7 +20,7 @@ class Book < ActiveRecord::Base
     :bahan_ajar_umum => "Bahan Ajar Umum",
     :buku_umum => "Buku Umum",
     :kamus => "Kamus",
-    :dan_lain_lain => "Dan lain lain",
+    :dan_lain_lain => "YCT & HSK",
   }
 
   def self.list_type
