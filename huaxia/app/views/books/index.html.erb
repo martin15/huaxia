@@ -1,5 +1,7 @@
 <div id="content">
-  <div class="content-title"><%= @book_type.humanize.titleize %></div>
+  <div class="content-title">
+    <%= @book_type == 'dan_lain_lain' ? "YCT & HSK" : @book_type.humanize.titleize %>
+  </div>
   <div class="content-layer">
     <% @books.each_with_index do |book, x| %>
       <% nm = "no-margin-right" if (x+1)%3 == 0 %>
