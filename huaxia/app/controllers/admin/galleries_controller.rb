@@ -5,6 +5,7 @@ class Admin::GalleriesController < Admin::ApplicationController
   def index
     params[:page] = params[:page].to_i == 0 ? 1 : params[:page] unless params[:page].nil?
     @galleries = @category.galleries.paginate(:page => params[:page], :per_page => 10)
+    @no = params[:page].nil? ? 0 : (params[:page].to_i-1) * 10
   end
 
   def new

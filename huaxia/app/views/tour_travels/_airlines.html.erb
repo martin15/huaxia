@@ -1,0 +1,12 @@
+<%= render :partial => "search" %>
+
+<div class="col-md-12 list-ticket">
+  <% @airlines.each do |airline| %>
+    <div class="col-xs-12 col-sm-4 col-md-3 margin_b_20">
+      <%= link_to airline.name, tour_travel_airline_detail_path(
+                                  :child_info => params[:child_info],
+                                  :airline => airline.permalink) %>
+    </div>
+  <% end %>
+</div>
+

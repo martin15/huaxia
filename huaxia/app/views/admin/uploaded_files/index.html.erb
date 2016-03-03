@@ -1,0 +1,38 @@
+<div class="col-md-12 content">
+  <h2>Attachment File</h2>
+  <div class="col-md-12">
+    <p><%= raw msg_flash(flash) %></p>
+    <p><%= link_to "Add new uploaded file", new_admin_uploaded_file_path %></p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>File Name</th>
+          <th>URL</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @uploaded_files.each_with_index do |uploaded_file, x| %>
+          <tr>
+            <th scope="row"><%= @no+x+1 %></th>
+            <td><%= uploaded_file.name %></td>
+            <td><%= uploaded_file.attachment.url %></td>
+            <td>
+              <%= link_to "Edit", edit_admin_uploaded_file_path(uploaded_file), :class => "btn btn-success" %>
+              <%= link_to "Delete", admin_uploaded_file_path(uploaded_file), :method => :delete,
+                                    :confirm => "Are you sure?", :class => "btn btn-warning" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody> 
+    </table>
+    <div class="admin-row">
+      <%= will_paginate @airlines, :link_separator => " | ",
+                                 :previous_label => "&laquo; previous",
+                                 :next_label => "next &raquo;" %>
+
+    </div>
+  </div>
+</div>
+

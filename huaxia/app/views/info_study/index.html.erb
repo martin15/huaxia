@@ -1,7 +1,49 @@
-<div id="content">
-  <div class="content-title"><%= @info.title.humanize.titleize %></div>
-  <div class="content-layer text-area">
-    <%= raw @info.content %>
+<div class="col-md-12 content">
+  <h2><%= @child_info.title.upcase %></h2>
+  <div class="visible-xs hidden-sm hidden-md hidden-lg">
+    <% @list_child_info.each_with_index do |child_info, x| %>
+      <% if child_info.permalink == @child_info.permalink %>
+        <span class="active"><%= child_info.title.humanize %></span>
+      <% else %>
+        <%= link_to child_info.title.humanize,
+                    study_in_china_child_info_path(child_info.permalink) %>
+      <% end %>
+      <%= " |" unless @list_child_info.size == x+1 %>
+    <% end %><br /><br /><br />
   </div>
-  <div class="clear"></div>
+  <div class=" hidden-xs col-sm-3 col-md-3">
+    <% @list_child_info.each do |child_info| %>
+      <div class="col-md-12 padding_t_b_5">
+        <% if child_info.permalink == @child_info.permalink %>
+          <span class="active"><%= child_info.title.humanize %></span><br />
+        <% else %>
+          <%= link_to child_info.title.humanize,
+                      study_in_china_child_info_path(child_info.permalink) %><br />
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-xs-12 col-sm-9 col-md-9 study-in-china">
+    <% if @child_info.permalink.include?("step-by-step") %>
+      <div class="panel-group" id="accordion">
+        <% @child_info.child_info.each_with_index do |info, x| %>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <%= link_to info.title.humanize, "#collapse-#{x+1}", :class => "accordion-toggle",
+                            :data => {:toggle => "collapse", :parent => "#accordion"} %>
+              </h4>
+            </div>
+            <div id="collapse-<%= x+1 %>" class="panel-collapse collapse">
+              <div class="panel-body">
+                <%= raw info.content %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <%= raw @child_info.content %>
+    <% end %>
+  </div>
 </div>

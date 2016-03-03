@@ -1,4 +1,9 @@
-  <script type="text/javascript">
+<% content_for :javascript_includes do %>
+  <%= stylesheet_link_tag "buttons.css", "animate.css", "bootstrap-notify.css" %>
+  <%= javascript_include_tag "jquery.noty.packaged.js", "bootstrap-notify.js" %>
+<% end %>
+
+<script type="text/javascript">
     $(window).load(function() {
         $('#slider').nivoSlider({
           effect: 'fade',
@@ -22,10 +27,53 @@
       });
     });
 
+  function generate(type, text) {
+    var n = noty({
+        text        : text,
+        type        : type,
+        dismissQueue: true,
+        layout      : 'bottomLeft',
+        closeWith   : ['button'],
+        theme       : 'relax',
+        maxVisible  : 10,
+        animation   : {
+            open  : 'animated bounceInLeft',
+            close : 'animated bounceOutLeft',
+            easing: 'swing',
+            speed : 500
+        }
+    });
+    console.log('html: ' + n.options.id);
+  }
+
+  function generateAll() {
+    var cars = ["success", "information", "warning", "error"];
+    <% @programs.each_with_index do |program, index|  %>
+      title = "<a href='/programs/<%= program.permalink %>'><%= program.title %></a>"
+      sort_desc = "<a href='/programs/<%= program.permalink %>'><%= program.short_description %></a>"
+      text = "<div class='activity-item'> \n\
+                <i class='glyphicon glyphicon-list-alt'></i> \n\
+                <div class='activity'> \n\
+                  "+ title +" \n\
+                  <span>"+ sort_desc +"</span>  \n\
+                </div>  \n\
+            </div>"
+
+      generate(cars[<%= index %>], text);
+    <%  end %>
+  }
+
+  $(document).ready(function () {
+
+      setTimeout(function() {
+          generateAll();
+      }, 500);
+  });
+
   </script>
 
-<div id="content-home">
-  <div id="wrapper" style="margin:0px 0 25px 0;padding:0 65px;">
+<div class="col-md-12 content">
+  <div id="wrapper" class="hidden-xs hidden-xm col-md-12">
     <div class="slider-wrapper theme-light">
       <div id="slider" class="nivoSlider">
         <% @banners.each do |banner| %>
@@ -35,11 +83,10 @@
     </div>
   </div>
 
-  <div class="content-left">&nbsp;
-    <div class="gxnu-title">China Map
-    </div>
-    <div class="gxnu-description">
-      <%= image_tag "china-map.gif" %>
+  <div class="col-xs-12 col-sm-12 col-md-12">&nbsp;
+    <h2>China Map</h2>
+    <%= image_tag "china-map.png", :class => "img-responsive" %>
+    <div class="gxnu-description hidden-xs">
       <% @list_univs.each do |province, province_univs| %>
         <div class="list-univ-at-map-box" id="<%= province.downcase %>">&nbsp;</div>
         <div class="list-univ-at-map">
@@ -48,143 +95,13 @@
             <p><%= city %></p>
             <ul>
               <% univs.each do |univ| %>
-                <li><%= link_to univ.name, university_path(univ.permalink) %></li>
+                <li><%= link_to univ.name, university_path(province, univ.permalink) %></li>
               <% end %>
             </ul>
           <% end  %>
         </div>
       <% end %>
-
-      <!--<%#*<div class="list-univ-at-map-box" id="guilin">&nbsp;</div>%>
-      <%#*<div class="list-univ-at-map">%>
-        <%#*<p>Guilin</p>%>
-        <%#*<ul>%>
-          <%#*<li><%= link_to "Guangxi Normal University", university_path("guangxi-normal-university") %></li>%>
-          <%#*<li><%= link_to "Guilin University of Aerospace Technology", university_path("guilin-university-of-aerospace-technology") %></li>%>
-        <%#*</ul>%>
-        <%#*<p>Nanning</p>%>
-        <%#*<ul>%>
-          <%#*<li><%= link_to "Guangxi Arts Institute", university_path("guangxi-arts-institute") %></li>%>
-          <%#*<li><%= link_to "Guangxi Medical University", university_path("guangxi-medical-university") %></li>%>
-        <%#*</ul>%>
-      <%#*</div>%>
-
-      <%#*<div class="list-univ-at-map-box" id="hainan">&nbsp;</div>%>
-      <%#*<div class="list-univ-at-map">%>
-        <%#*<p>Hainan</p>%>
-        <%#*<ul>%>
-          <%#*<li><%= link_to "Hainan Normal University", university_path('hainan-normal-university') %></li>%>
-        <%#*</ul>%>
-      <%#*</div>%>
-
-      <%#*<div class="list-univ-at-map-box" id="hunan">&nbsp;</div>%>
-      <%#*<div class="list-univ-at-map">%>
-        <%#*<p>Hunan</p>%>
-        <%#*<ul>%>
-          <%#*<li><%= link_to "Hunan Normal University", university_path("hunan-normal-university") %></li>%>
-        <%#*</ul>%>
-      <%#*</div>%>
-
-      <%#*<div class="list-univ-at-map-box" id="wuhan">&nbsp;</div>%>
-      <%#*<div class="list-univ-at-map">%>
-        <%#*<p>Wuhan</p>%>
-        <%#*<ul>%>
-          <%#*<li><%= link_to "Wuhan Normal University", university_path("wuhan-university") %></li>%>
-        <%#*</ul>%>
-      <%#*</div>%>
-
-      <%#*<div class="list-univ-at-map-box" id="chongqing">&nbsp;</div>%>
-      <%#*<div class="list-univ-at-map">%>
-        <%#*<p>Chongqing</p>%>
-        <%#*<ul>%>
-          <%#*<li><%= link_to "Chongqing University of Posts and Telecommunications", university_path("chongqing-university-of-posts-and-telecommunications") %></li>%>
-        <%#*</ul>%>
-      <%#*</div>%>
-
-      <%#*<div class="list-univ-at-map-box" id="nanjing">&nbsp;</div>%>
-      <%#*<div class="list-univ-at-map">%>
-        <%#*<p>Nanjing</p>%>
-        <%#*<ul>%>
-          <%#*<li><%= link_to "Nanjing Normal University", university_path("nanjing-normal-university") %></li>%>
-        <%#*</ul>%>
-      <%#*</div>%>
-
-      <%#*<div class="list-univ-at-map-box" id="beijing">&nbsp;</div>%>
-      <%#*<div class="list-univ-at-map">%>
-        <%#*<p>Beijing</p>%>
-        <%#*<ul>%>
-          <%#*<li><%= link_to "Beijing Language and Culture University", university_path("beijing-language-and-culture-university") %></li>%>
-        <%#*</ul>%>
-      <%#*</div>%>
-
-      <%#*<div class="list-univ-at-map-box" id="taiwan">&nbsp;</div>%>
-      <%#*<div class="list-univ-at-map">%>
-        <%#*<p>Taiwan</p>%>
-        <%#*<ul>%>
-          <%#*<li><%= link_to "China University of Technology", university_path("china-university-of-technology-taiwan") %></li>%>
-        <%#*</ul>%>
-      <%#*</div>%>-->
-
-    </div>
-    <%#*<div class="gxnu-more">%>
-      <%#= link_to "More >>" %>
-    <%#*</div>%>
-  </div>
-
-  <div class="content-right">
-    <div class="graduated-student">
-      <div class="graduated-student-up-down">
-        <span>HIMIGNU</span>
-      </div>
-      <div class="graduated-student-mid">
-        <div class="testi-pic">
-          <%= image_tag "himignu.png" %>
-        </div>
-        <div class="testi">
-          <div class="testi-content">
-            Himignu yang merupakan singkatan dari Himpunan Mahasiswa Indonesia Guangxi Normal
-            University, merupakan wadah bagi anak-anak Indonesia yang bersekolah di kota Guilin. 
-            Mengapa Guangxi Normal University? Karena di Guangxi Normal University inilah
-            merupakan pusat kegiatan acara dari seluruh rangkaian kegiatan Himignu ini.
-            Anggota dari Himignu bukan hanya berasal dari Guangxi Normal University,
-            namun juga berasal dari Guilin Medical University, Guilin Ligong University,
-            dan Guilin Institute Tourism.
-          </div>
-        </div>
-      </div>
-      <div class="graduated-student-up-down text-right">
-        <%= link_to "READ MORE", "http://himignu-ppitguilin.com" %>
-      </div>
     </div>
   </div>
-
-  <div class="features">
-    <% @features.each_with_index do |feature, x| %>
-      <% nm = "no-margin-right" if (x+1)%3 == 0 %>
-      <div class="mini-table <%= nm %>">
-        <div class="mini-table-main mini-table-head" style="background-color:#<%= feature.color %>">
-          <%= feature.title %>
-        </div>
-        <div class="mini-table-mid">
-          <% if feature.feature_image.file? %>
-            <span class="image">
-              <%= image_tag feature.feature_image.url(:thumb), :size => "105x140" %>
-            </span>
-          <% end %>
-          <span class="desc">
-            <%= simple_format feature.short_description %>
-          </span>
-        </div>
-        <div class="mini-table-main mini-table-low" style="background-color:#<%= feature.color %>">
-          <%= link_to "Read more", feature_path(feature.id), :style => "background-color:##{feature.color}" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
- <!--
-    
-    -->
-
-    <div class="clear"></div>
 </div>
 

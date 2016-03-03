@@ -24,13 +24,15 @@ class Admin::FeaturesController < Admin::ApplicationController
   end
 
   def edit
-      puts @feature.feature_image.inspect
-      puts "--------------------------------"
-      puts @feature.feature_image.file?
   end
 
   def update
+    puts params.inspect
     if @feature.update_attributes(params[:feature])
+      if params[:feature][:delete_image].to_i == 1 && @feature.feature_image.file?
+        @feature.feature_image.destroy
+        @feature.save
+      end
       flash[:notice] = "Feature successfully updated"
       redirect_to admin_features_path
     else

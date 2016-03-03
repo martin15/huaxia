@@ -1,32 +1,33 @@
-<div id="content">
-  <div class="content-title">NEWS</div>
-  <div class="content-layer news-layer">
-     <% @all_news.each_with_index do |news, x| %>
-      <% nm = "no-margin-right" if (x+1)%3 == 0 %>
-      <div class="mini-table <%= nm %>">
-        <div class="mini-table-main mini-table-head" style="background-color:#<%= news.color %>">
-          <%= news.title %>
+<div class="col-md-12 content">
+  <h2>PROGRAMS</h2>
+  <% @program_categories.each do |program_category| %>
+    <div class="col-xs-12 col-sm-6 col-md-4 margin_b_30">
+        <div class="col-md-12 mini-table-head well-height" style="background-color:#<%= program_category.color %>">
+          <%= program_category.name.humanize.titleize %>
         </div>
-        <div class="mini-table-mid">
-          <% if news.feature_image.file? %>
-            <span class="image">
-              <%= image_tag news.feature_image.url(:thumb), :size => "105x140" %>
-            </span>
-          <% end %>
-          <span class="desc">
-            <%= simple_format news.short_description %>
-          </span>
+        <div class="col-md-12 mini-table-mid">
+          <ul>
+            <% program_category.features.each do |program| %>
+              <li><%= link_to program.title, program_path(program.permalink) %></li>
+            <% end %>
+          </ul>
         </div>
-        <div class="mini-table-main mini-table-low" style="background-color:#<%= news.color %>">
-          <%= link_to "Read more", feature_path(news.id), :style => "background-color:##{news.color}" %>
+        <div class="col-md-12 mini-table-foot" style="background-color:#<%= program_category.color %>">
+          &nbsp;
         </div>
-      </div>
-    <% end %>
-    <div class="pagination">
-      <%= will_paginate @all_news, :link_separator => " | ",
-                                :previous_label => "&laquo; previous",
-                                :next_label => "next &raquo;" %>
     </div>
-  </div>
-  <div class="clear"></div>
+  <% end %>
 </div>
+
+<script>
+$( document ).ready(function() {
+    var heights = $(".well-height").map(function() {
+        return $(this).height();
+    }).get(),
+
+    maxHeight = Math.max.apply(null, heights);
+
+    $(".well-height").height(maxHeight);
+});
+
+</script>

@@ -20,6 +20,6 @@ class HomeController < ApplicationController
                                                  'Beijing', 'Taiwan', 'Shanghai',
                                                  'Guizhou', 'Shijiazhuang', 'Shandong')").
                              group_by{ |h| h.province }
-
+    @programs = Feature.where("display_at_home = true").order("title")
   end
 end

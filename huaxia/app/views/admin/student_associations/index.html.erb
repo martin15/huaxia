@@ -1,0 +1,39 @@
+<div class="col-md-12 content">
+  <h2>Student Association</h2>
+  <div class="col-md-12">
+    <p><%= raw msg_flash(flash) %></p>
+    <p><%= link_to "Add new student_association", new_admin_student_association_path %></p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>City</th>
+          <th>URL</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @student_associations.each_with_index do |student_association, x| %>
+          <tr>
+            <th scope="row"><%= @no+x+1 %></th>
+            <td><%= student_association.name %></td>
+            <td><%= student_association.city %></td>
+            <td><%= student_association.url %></td>
+            <td>
+              <%= link_to "Edit", edit_admin_student_association_path(student_association.id),
+                                  :class => "btn btn-success" %>
+              <%= link_to "Delete", admin_student_association_path(student_association.id ), :method => :delete,
+                                :confirm => "Are you sure?", :class => "btn btn-warning" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="admin-row">
+      <%= will_paginate @student_associations, :link_separator => " | ",
+                                 :previous_label => "&laquo; previous",
+                                 :next_label => "next &raquo;" %>
+    </div>
+  </div>
+</div>

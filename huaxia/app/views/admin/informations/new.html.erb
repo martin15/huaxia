@@ -1,15 +1,18 @@
-<div id="content">
-  <div class="content-title">New Information</div>
-  <div class="admin-content-layer">
-    <%= form_for([:admin, @information], :html => { :multipart => true},
-    :url => admin_informations_path ) do |f| %>
+<div class="col-md-12 content">
+  <h2>New Information</h2>
+  <div class="col-md-12">
+    <%= form_for([:admin, @information],
+                  :url => (params[:id].nil? ? admin_informations_path : admin_child_informations_path(params[:id])),
+                  :html => { :multipart => true,  :class => "form-horizontal"}) do |f| %>
       <%= f.error_messages %>
       <%= render :partial => 'form', :locals => { :f => f} %>
-      <div class="field">
-        <%= f.submit 'Create Information' %>&nbsp;&nbsp;
-        <%= link_to 'Back', admin_informations_path %>
+      <div class="form-group">
+        <div class="col-sm-2">&nbsp;</div>
+        <div class="col-sm-10">
+          <%= f.submit :class => "btn btn-success" %>
+          <%= link_to 'Back', admin_informations_path, :class => "btn btn-info" %>
+        </div>
       </div>
     <% end %>
-    <div class="clear"></div>
   </div>
 </div>

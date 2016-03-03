@@ -14,4 +14,22 @@ module ApplicationHelper
     new_text_splited.pop(1)
     return new_text_splited.join(" ")
   end
+
+  def active_menu(obj)
+    return 'active-menu' if controller_name == obj
+  end
+
+  def target_url(url)
+    unless url.include?("http://") 
+      return "http://#{url}"
+    end
+  end
+
+  def order_item
+   [["Search by...", nil],
+    ["Destination", "destination"],
+    ["Origin", "origin"],
+    ["Transit", "transit"]]
+
+  end
 end

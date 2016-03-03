@@ -1,0 +1,35 @@
+<div class="col-md-12 content">
+  <h2>Airlines</h2>
+  <div class="col-md-12">
+    <p><%= raw msg_flash(flash) %></p>
+    <p><%= link_to "Add new airline", new_admin_airline_path %></p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @airlines.each_with_index do |airline, x| %>
+          <tr>
+            <th scope="row"><%= @no+x+1 %></th>
+            <td><%= airline.name %></td>
+            <td>
+              <%= link_to "Edit", edit_admin_airline_path(airline), :class => "btn btn-success" %>
+              <%= link_to "Delete", admin_airline_path(airline.id ), :method => :delete,
+                                    :confirm => "Are you sure?", :class => "btn btn-warning" %>
+              <%= link_to "Add Route", routes_admin_airline_path(airline.id), :class => "btn btn-info" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="admin-row">
+      <%= will_paginate @airlines, :link_separator => " | ",
+                                 :previous_label => "&laquo; previous",
+                                 :next_label => "next &raquo;" %>
+    </div>
+  </div>
+</div>

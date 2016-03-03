@@ -1,18 +1,17 @@
-<div id="content">
-  <div class="content-title">Edit Book</div>
-  <div class="admin-content-layer">
-    <%= form_for([:admin, @book], :html => { :multipart => true, :method => :put }) do |f| %>
+<div class="col-md-12 content">
+  <h2>Edit Book</h2>
+  <div class="col-md-12">
+    <%= form_for([:admin, @book],
+                  :html => { :multipart => true, :method => :put,  :class => "form-horizontal"}) do |f| %>
       <%= f.error_messages %>
-      <div class="admin-category-testimonial" style="height: 200px;">
-        <%= image_tag @book.book_image.url(:medium) %>
-      </div><br />
       <%= render :partial => 'form', :locals => { :f => f} %>
-      <div class="field">
-        <%= f.submit 'Update Book' %>&nbsp;&nbsp;
-        <%= link_to 'Back', admin_books_path %>
+      <div class="form-group">
+        <div class="col-sm-2">&nbsp;</div>
+        <div class="col-sm-10">
+          <%= f.submit :class => "btn btn-success" %>
+          <%= link_to 'Back', admin_books_path, :class => "btn btn-info" %>
+        </div>
       </div>
     <% end %>
-    <div class="clear"></div>
   </div>
 </div>
-

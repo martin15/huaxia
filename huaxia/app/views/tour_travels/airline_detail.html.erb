@@ -1,0 +1,43 @@
+<div class="col-md-12 content">
+  <h2><%= @airline.name.upcase %></h2>
+  <%= render :partial => "side_menu" %>
+  <div class="col-xs-12 col-sm-9 col-md-9">
+    <%= render :partial => "search" %>
+    <div class="row tour-travel-back-link">
+      <%= link_to "List Tiket Pesawat", tour_travel_child_info_path("tiket-pesawat") %>
+    </div>
+    <% @airline.routes.each do |route| %>
+      <div class="row margin_b_30 padding_b_20 border_bottom">
+        <h3><%= "#{route.origin} - #{route.destination}" %></h3>
+        <div class="col-sm-12 col-md-12 no-padding-lr">
+          <div class="hidden-xs col-md-1 dot-bg-position">&nbsp;</div>
+          <div class="hidden-xs col-md-10 dot-bg dot-bg-position">&nbsp;</div>
+          <div class="hidden-xs col-md-1 dot-bg-position">&nbsp;</div>
+          <div class="col-xs-12 col-sm-1 col-md-1 no-padding-lr">
+            <div class="airline-route-circle margin_b_20">1</div>
+            <div class="city-name"><%= route.origin.humanize.titleize %></div>
+          </div>
+          <div class="col-xs-12 col-sm-10 col-md-10 no-padding-lr">
+            <div class="col-md-12 no-padding-lr">
+              <% @total_transit = route.transit.split(",").size %>
+              <% route.transit.split(",").each_with_index do |transit, x| %>
+                <div class="col-sm-<%= 12/@total_transit %> col-md-<%= 12/@total_transit %> no-padding-lr">
+                  <div class="airline-route-circle margin_b_20"><%= x+2 %></div>
+                  <div class="city-name"><%= transit.humanize.titleize %></div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-1 col-md-1 no-padding-lr">
+            <div class="airline-route-circle margin_b_20"><%= @total_transit+2 %></div>
+            <div class="city-name"><%= route.destination.humanize.titleize %></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="row tour-travel-back-link">
+      <%= link_to "List Tiket Pesawat", tour_travel_child_info_path("tiket-pesawat") %>
+    </div>
+  </div>
+</div>
+

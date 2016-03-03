@@ -1,17 +1,20 @@
-<div id="content">
-  <div class="content-title">Edit Informations</div>
-  <div class="admin-content-layer">
+<div class="col-md-12 content">
+  <h2>Edit Informations</h2>
+  <div class="col-md-12">
     <%= form_for([:admin, @information], :url => admin_information_path(@information.permalink),
-                  :html => { :multipart => true, :method => :put }) do |f| %>
+                  :html => { :multipart => true, :method => :put,  :class => "form-horizontal"}) do |f| %>
       <%= f.error_messages %>
       <%= render :partial => 'form', :locals => { :f => f} %>
-      <div class="field">
-        <%= f.submit 'Update Information' %>&nbsp;&nbsp;
-        <%= link_to 'Back', admin_informations_path %>
+      <div class="form-group">
+        <div class="col-sm-2">&nbsp;</div>
+        <div class="col-sm-10">
+          <%= f.submit :class => "btn btn-success" %>
+          <%= link_to 'Back', @information.is_parent? ? 
+                                (admin_informations_path) :
+                                (admin_information_path(@information.parent_info.permalink)),
+                              :class => "btn btn-info" %>
+        </div>
       </div>
     <% end %>
-    <div class="clear"></div>
   </div>
 </div>
-
-

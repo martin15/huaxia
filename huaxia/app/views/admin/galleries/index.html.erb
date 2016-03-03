@@ -1,38 +1,44 @@
-<div id="content">
-  <div class="content-title">Listing '<%= @category.title.humanize %>' Galleries</div>
-  <div class="admin-content-layer">
-    <%= raw msg_flash(flash) %>
-    <%= link_to "Add new image", admin_new_gallery_path %><br /><br /><br />
-    <div class="admin-row border">
-      <div class="no">No</div>
-      <div class="image">Image</div>
-      <div class="image-title">Title</div>
-      <div class="image-description">Description</div>
-      <div class="action">action</div>
-    </div>
-    <% @galleries.each_with_index do |gallery, x| %>
-      <div class="admin-row">
-        <div class="admin-galery no"><%= x+1 %></div>
-        <div class="admin-galery image"><%= image_tag  gallery.gallery_image.url(:thumb) %></div>
-        <div class="admin-galery image-title"><%= gallery.title %></div>
-        <div class="admin-galery image-description" style="width:280px;">
-          <%= gallery.description %>
-        </div>
-        <div class="admin-galery action">
-          <%= link_to "Edit", admin_edit_gallery_path(:category_id => @category.id,
-                                                :id => gallery.id ) %>&nbsp;&nbsp;|&nbsp;&nbsp;
-          <%= link_to "Delete", admin_gallery_path(:category_id => @category.id,
-                                                      :id => gallery.id ), :method => :delete,
-                                :confirm => "Are you sure?" %>
-        </div>
-      </div>
-    <% end %>
+<div class="col-md-12 content">
+  <h2>'<%= @category.title.humanize %>' Images</h2>
+  <div class="col-md-12">
+    <p><%= raw msg_flash(flash) %></p>
+    <p>
+      <%= link_to "Back", admin_list_gallery_category_path(@category.category_type) %>&nbsp;&nbsp;|&nbsp;&nbsp;
+      <%= link_to "Add new gallery", admin_new_gallery_path %>
+    </p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @galleries.each_with_index do |gallery, x| %>
+          <tr>
+            <th scope="row"><%= @no+x+1 %></th>
+            <td><%= image_tag  gallery.gallery_image.url(:thumb) %></td>
+            <td><%= gallery.title %></td>
+            <td><%= gallery.description %></td>
+            <td>
+              <%= link_to "Edit", admin_edit_gallery_path(:category_id => @category.id, :id => gallery.id ),
+                                    :class => "btn btn-success" %>
+              <%= link_to "Delete", admin_gallery_path(:category_id => @category.id, :id => gallery.id ),
+                                      :method => :delete,
+                                      :confirm => "Are you sure?", :class => "btn btn-warning" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
     <div class="admin-row">
       <%= will_paginate @galleries, :link_separator => " | ",
                                  :previous_label => "&laquo; previous",
                                  :next_label => "next &raquo;" %>
 
     </div>
-    <div class="clear"></div>
   </div>
 </div>

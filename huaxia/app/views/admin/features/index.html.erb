@@ -1,40 +1,42 @@
-<div id="content">
-  <div class="content-title">Listing News</div>
-  <div class="admin-content-layer">
-    <%= raw msg_flash(flash) %>
-    <%= link_to "Add new news", admin_new_feature_path %><br /><br /><br />
-    <div class="admin-row border">
-      <div class="no">No</div>
-      <div class="feature-title">Title</div>
-      <div class="sort-desc">Short Description</div>
-      <div class="destination">Destination</div>
-      <div class="color">Color</div>
-      <div class="action">Action</div>
-    </div>
-    <% @features.each_with_index do |feature, x| %>
-      <div class="admin-row border">
-        <div class="admin-feature no"><%= x+1 %></div>
-        <div class="admin-feature feature-title"><%= feature.title %></div>
-        <div class="admin-feature sort-desc">
-          <%= truncate(feature.short_description, :length => 150) %>
-        </div>
-        <div class="admin-feature destination"><%= feature.destination %></div>
-        <div class="admin-feature color">
-          <div class="display"  style="background-color:#<%= feature.color %>">&nbsp; </div>
-        </div>
-        <div class="admin-feature action">
-          <%= link_to "Edit", admin_edit_feature_path(feature) %>&nbsp;&nbsp;|&nbsp;&nbsp;
-          <%= link_to "Delete", admin_feature_path(feature.id ), :method => :delete,
-                                :confirm => "Are you sure?" %>
-        </div>
-      </div>
-    <% end %>
+<div class="col-md-12 content">
+  <h2>News</h2>
+  <div class="col-md-12">
+    <p><%= raw msg_flash(flash) %></p>
+    <p>
+      <%= link_to "Add new news", admin_new_feature_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
+      <%= link_to "Manage news categories", admin_feature_categories_path %>
+    </p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Short Description</th>
+          <th>Category</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @features.each_with_index do |feature, x| %>
+          <tr>
+            <th scope="row"><%= @no+x+1 %></th>
+            <td><%= feature.title %></td>
+            <td><%= truncate(feature.short_description, :length => 150) %></td>
+            <td><%= feature.try(:feature_category).try(:name) %></td>
+            <td>
+              <%= link_to "Edit", admin_edit_feature_path(feature), :class => "btn btn-success" %>
+              <%= link_to "Delete", admin_feature_path(feature), :method => :delete,
+                                    :confirm => "Are you sure?", :class => "btn btn-warning" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
     <div class="admin-row">
       <%= will_paginate @features, :link_separator => " | ",
                                  :previous_label => "&laquo; previous",
                                  :next_label => "next &raquo;" %>
 
     </div>
-    <div class="clear"></div>
   </div>
 </div>

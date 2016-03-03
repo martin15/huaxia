@@ -3,7 +3,11 @@ class Admin::CategoriesController < Admin::ApplicationController
 
   def index
     params[:page] = params[:page].to_i == 0 ? 1 : params[:page] unless params[:page].nil?
-    @categories = Category.includes("galleries").
+    if params[:type].nil?
+      redirect_to admin_list_gallery_category_path(:type => 'city')
+      return
+    end
+    @categories = Category.where("category_type = '#{params[:type]}'").includes("galleries").
                                 paginate(:page => params[:page], :per_page => 12,
                                          :order => "created_at DESC" )
   end

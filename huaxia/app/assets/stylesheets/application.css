@@ -11,33 +11,1021 @@
  *= require_self
  *= require jquery.qtip.css
  */
- 
+body {
+  font: 12px Verdana, arial, sans-serif;
+  background-color: #fffbef;
+}
+nav{
+  margin-bottom: 30px;
+}
+
+nav .container{
+  padding-left: 15px!important;
+  padding-right: 15px!important;
+}
+
+.header{
+  background: rgba(0, 0, 0, 0) url(../assets/header_footer.jpg) no-repeat scroll top center;
+  padding: 10px;
+  background-size: 100%;
+}
+
+.img-center {
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: 'Impact';
+  src: url('../assets/fonts/impact.ttf');
+}
+
+
+@font-face {
+  font-family: 'EraSmd';
+  src: url('../assets/fonts/ERASMD.TTF');
+}
+
+
+@font-face {
+  font-family: 'Majalla';
+  src: url('../assets/fonts/majalla.ttf');
+}
+
+#menu-nav ul li, a.navbar-brand{
+  font-family: 'EraSmd';
+  font-size: 17px;
+  font-weight: bold;
+  color: #8d8c94;
+}
+
+#menu-nav ul li a, a.navbar-brand{
+  color: #8d8c94;
+  border-bottom: 5px solid #fffbef;
+  padding-left: 14px;
+  padding-right: 13px;
+}
+
+a.navbar-brand{
+  padding-bottom: 20px!important;
+}
+
+.nav > li > a{
+  padding-bottom: 10px!important;
+}
+
+#menu-nav ul li a:hover, a.navbar-brand:hover, .active-menu{
+  color: #a61e22!important;
+  border-bottom-color: #a61e22!important;
+  background-color: #fffbef!important;
+}
+
+/*.content, .content p{
+  font-family: 'Majalla';
+  font-size: 20px;
+}
+
+.content h2{
+  font-size: 40px;
+}*/
+
+footer{
+  background-color: #a61e22;
+  color: #fffbef;
+  padding: 30px 0;
+  margin-top: 80px;
+  font-family: 'EraSmd';
+}
+
+.upper-image{
+  position: absolute;
+  top: -74px;
+  width: 150px;
+}
+
+.contact-us-image{
+  background: rgba(0, 0, 0, 0) url(../assets/contact.png) no-repeat scroll top center;
+}
+
+.contact-us-fot-header{
+  position: relative;
+/*  top: -120px;*/
+  text-align: right;
+  font-size: 33px;
+}
+
+.contact-us-fot-content{
+  position: relative;
+/*  top: -120px;*/
+  text-align: right
+}
+
+.active, .active a{
+  color: #a61e22;
+  text-decoration: underline;
+}
+
+.padding_t_b_5{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/**************** FOOTER ***************************/
+.nav-footer{
+  margin-bottom: 40px;
+  margin-top: 15px;
+}
+
+.nav-footer ul{ list-style: none outside none }
+.nav-footer ul li {
+  border-right: 1px solid #fffbef;
+  float: left;
+  line-height: 10px;
+  margin-right: 10px;
+  padding-right: 10px;
+  color: #fffbef;
+  font-family: 'EraSmd';
+  font-size: 14px
+}
+
+li.none-border{
+  border: medium none!important;
+}
+
+.copyright{
+  font-size: 12px;
+}
+
+
+.category-gallery, .book-box{
+  margin-bottom: 30px;
+  background: #fff none repeat scroll 0 0;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 28px;
+}
+
+.no-margin-right{
+  margin-right: 0!important;
+}
+
+.category-gallery .title{
+  padding-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.univ-logo-thumb, .ppit, .tour-travel, .student-association{
+  margin-bottom: 20px;
+  background: #fff none repeat scroll 0 0;
+  overflow: hidden;
+  position: relative;
+  padding: 15px;
+  width: 100%;
+}
+
+.tour-travel{
+  background: #f0e5d2!important;
+}
+
+.tour-travel > .image{
+  padding-left: 0px!important;
+}
+
+.tour-travel-title, .book-title{
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.univ-logo-thumb img{
+  margin: 0 auto 20px;
+}
+
+.ppit a{
+  margin: auto;
+}
+
+.univ-logo-thumb a.univ-name, a.student-association-name{
+  text-align: center;
+}
+
+a.student-association-name{
+  font-size: 15px;
+  margin-top: 30px;
+}
+
+.univ-address{
+  margin: 20px 0 20px;
+}
+
+.univ-phone{
+  margin: 0 0 20px;
+}
+
+.univ-back_button{
+  margin-top: 20px;
+}
+
+
+#top-link-block.affix-top {
+    position: absolute; /* allows it to "slide" up into view */
+    bottom: -82px; /* negative of the offset - height of link element */
+    left: 10px; /* padding from the left side of the window */
+}
+#top-link-block.affix {
+    position: fixed; /* keeps it on the bottom once in view */
+    bottom: 18px; /* height of link element */
+    left: 10px; /* padding from the left side of the window */
+}
+
+
+.list-univ-by-province h3{
+  margin-top: 0px;
+  padding-top: 20px;
+}
+
+.list-univ-by-province ul > li > a, .list-univ-by-province ul > li > span{
+  font-size: 14px;
+}
+
+.list-univ-by-province ul > li > a:hover{
+  color: #a61e22;
+  text-decoration: underline;
+}
+
+.list-univ-by-province ul > li{
+  margin-bottom: 5px;
+}
+
+.list-univ-by-province ul.child > li > a{
+  font-size: 13px;
+}
+
+.list-univ-by-province ul li ul.child{
+  display: none;
+  margin-top: 10px;
+}
+
+.list-univ-by-province ul li ul.child li{
+  background: url("../assets/arrow-list.png") no-repeat;
+  background-position: center left;
+  padding-left: 23px;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+.mini-table-main, .mini-table-main a {
+  background-color: #c2272d;
+  color: #fff !important;
+  padding: 10px;
+  text-transform:uppercase;
+}
+
+.mini-table-head {
+  font-size: 17px;
+  padding: 15px;
+}
+
+.mini-table-mid{
+  background-color: #fff;
+  color: #000 !important;
+  padding: 10px;
+  height: 245px;
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.mini-table-mid > ul > li{
+  background: url("../assets/arrow-list.png") no-repeat;
+  background-position: center left;
+  padding-left: 20px;
+  margin-bottom: 5px;
+}
+
+.mini-table-foot{
+  font-size: 12px;
+  height: 40px;
+  text-align: right;
+}
+
+/*ga tau kepake apa ga yg di bawah 2 biji*/
+
+.mini-table-mid span.image{
+  float: left;
+  margin: 0 10px 5px 0;
+}
+
+.mini-table-mid span.desc{
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+}
+/* samppe sini*/
+
+.book-price{
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.price-stripe{
+  text-decoration:line-through;
+  color: #777;
+  margin-right: 10px;
+}
+
+.discount-price{
+  font-size: 14px;
+  font-weight: bold;
+  color: #a61e22;
+}
+
+.book-desc{
+  font-size: 13px;
+}
+
+
+select.custom_select{
+  -moz-appearance: none;
+  background: #f9f9f9 url("../assets/select.png") no-repeat scroll right center;
+  cursor: pointer;
+  text-indent: 0.01px;
+  text-overflow: "";
+  font-size: 13px;
+}
+
+.ticket-search-bar, .univ-search-bar{
+  margin-bottom: 30px;
+}
+
+.dot-bg{
+  background: url("../assets/dot.png") repeat-x;
+  background-position:20px 10px;
+}
+
+.dot-bg-position{
+  position:relative;
+  height:25px;
+  top:25px;
+}
+
+.tour-travel-back-link, .tour-travel-back-link a{
+  text-align: right;
+  color: #a61e22;
+  text-decoration: underline;
+}
+
+.airline-route-dot{
+  -moz-user-select: none;
+  color: #ccc;
+  cursor: default;
+  font-size: 23px;
+  font-weight: bolder;
+  left: 70px;
+  letter-spacing: 3px;
+  line-height: 12px;
+  position: absolute;
+  top: 0;
+}
+
+.airline-route-circle{
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: bolder;
+  height: 24px;
+  line-height: 24px;
+  margin: 2px auto;
+  text-align: center;
+  width: 24px;
+  background-color: #33cb98;
+  color: #fff;
+}
+
+.city-name{
+  text-align: center;
+}
+
+.study-in-china a{
+  text-decoration: underline;
+  color: #a61e22;
+}
+
+.panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+    color: grey;         /* adjust as needed */
+}
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+}
+
+.study-in-china > .panel-group > .panel-default > .panel-heading {
+    background-color: #f0e5d2;
+    border-color: #ddd;
+    color: #333;
+}
+
+a.accordion-toggle{
+  color: #000;
+  text-decoration: none;
+}
+
+.student-a-left{
+  text-align: center;
+}
+
+.program-image{
+  float: left;
+  margin-bottom: 15px;
+  margin-right: 30px;
+}
+
+
+#guilin, #guangxi{
+  left: 57%;
+  top: 82%;
+  height: 9.5%;
+  width: 10%;
+  border-radius:35px;
+}
+
+#hainan{
+  left:62%;
+  top: 95.5%;
+  height: 4%;
+  width: 5%;
+  border-bottom-right-radius: 40px;
+  border-top-left-radius: 30px;
+}
+
+#hunan{
+  left:63%;
+  top: 72%;
+  height: 9%;
+  width: 8%;
+}
+
+#wuhan, #hubei{
+  left:63%;
+  top: 64%;
+  height: 7%;
+  width: 12%;
+  border-top-right-radius:75px;
+}
+
+#chongqing {
+  height: 3%;
+  left: 55%;
+  top: 69%;
+  width: 9%;
+  -ms-transform: rotate(-40deg); /* IE 9 */
+  -webkit-transform: rotate(-40deg); /* Safari */
+  transform: rotate(-40deg); /* Standard syntax */
+
+}
+
+#nanjing, #jiangsu {
+  height: 8%;
+  left: 76%;
+  top: 58%;
+  width: 8%;
+  border-top-right-radius:50px;
+  border-bottom-right-radius:5px;
+  border-bottom-left-radius:75px;
+}
+
+#shanghai {
+  height: 1.5%;
+  left: 84%;
+  top: 64.5%;
+  width: 2%;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 15px;
+}
+
+#guizhou {
+  height: 10%;
+  left: 53%;
+  top: 74%;
+  width: 9%;
+  border-top-left-radius: 75px;
+  border-bottom-right-radius: 75px;
+}
+
+#shandong {
+  height: 8%;
+  left: 72%;
+  top: 50%;
+  width: 11%;
+  z-index: 1000;
+  border-top-left-radius: 55px;
+  border-bottom-right-radius: 75px;
+}
+
+#shijiazhuang {
+  height: 13%;
+  left: 69%;
+  top: 41%;
+  width: 9%;
+  z-index: 500;
+  border-bottom-right-radius: 100px;
+}
+
+#beijing {
+  height: 3%;
+  left: 72%;
+  top: 43.4%;
+  width: 3%;
+  z-index: 1000;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
+}
+
+#taiwan {
+  height: 8%;
+  left: 85%;
+  top: 79.5%;
+  width: 3%;
+  border-top-left-radius: 75px;
+  border-bottom-left-radius: 75px;
+  border-bottom-right-radius: 5px;
+}
+
+
+
+
+
+
+
+
+.text-right { text-align:right; }
+
+.border_bottom{
+  border-bottom: 2px solid #f0e5d2;
+}
+
+.margin_b_0{
+  margin-bottom: 0px!important;
+}
+
+.margin_b_10{
+  margin-bottom: 10px!important;
+}
+
+.margin_b_20{
+  margin-bottom: 20px!important;
+}
+
+.margin_b_30{
+  margin-bottom: 30px!important;
+}
+
+.padding_b_20{
+  padding-bottom: 20px!important;
+}
+
+.no-padding-right{
+  padding-right: 0px!important;
+}
+
+.no-padding-left{
+  padding-left: 0px!important;
+}
+
+.no-padding-lr{
+  padding-left: 0px!important;
+  padding-right: 0px!important;
+}
+
+@media (max-width: 767px) {
+  .navbar-collapse{
+    margin-left:20px;
+    width:100%;
+    background-color:#fff;
+  }
+  #menu-nav ul li a{
+    margin-left:30px;
+    border-color:#fff!important;
+  }
+  #menu-nav ul li a:hover{
+    background-color:#fff!important;
+  }
+  .category-gallery{
+    padding: 15px;
+  }
+  .student-a-left{
+    text-align:left;
+  }
+  .container{
+    padding-left: 10px;
+    padding-right:10px;
+  }
+  .col-xs-12{
+    padding-left: 10px;
+    padding-right:10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .header{ padding-top: 65px;
+           padding-bottom: 60px;
+  }
+  #menu-nav ul li, a.navbar-brand{
+    font-family: 'EraSmd';
+    font-size: 12px;
+    font-weight: bold;
+    color: #8d8c94;
+  }
+  #menu-nav ul li a, a.navbar-brand{
+    color: #8d8c94;
+    border-bottom: 5px solid #fffbef;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  #guilin, #guangxi{
+    left: 57%;
+    top: 82%;
+    height: 9.5%;
+    width: 10%;
+    border-radius:35px;
+  }
+  #hainan{
+    left:62%;
+    top: 95.5%;
+    height: 4%;
+    width: 5%;
+    border-bottom-right-radius: 40px;
+    border-top-left-radius: 30px;
+  }
+  #wuhan, #hubei{
+    left:63%;
+    top: 65%;
+    height: 7%;
+    width: 12%;
+    border-top-right-radius:75px;
+  }
+  #beijing {
+    height: 3%;
+    left: 72%;
+    top: 46.4%;
+    width: 3%;
+    z-index: 1000;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+  }
+  #nanjing, #jiangsu {
+    height: 8%;
+    left: 76%;
+    top: 60%;
+    width: 7.5%;
+    border-top-right-radius:50px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:75px;
+  }
+  #chongqing {
+    height: 3%;
+    left: 55%;
+    top: 70%;
+    width: 9%;
+    -ms-transform: rotate(-40deg); /* IE 9 */
+    -webkit-transform: rotate(-40deg); /* Safari */
+    transform: rotate(-40deg); /* Standard syntax */
+  }
+  #taiwan {
+    height: 8%;
+    left: 85%;
+    top: 79.5%;
+    width: 3%;
+    border-top-left-radius: 75px;
+    border-bottom-left-radius: 75px;
+    border-bottom-right-radius: 5px;
+  }
+  #shanghai {
+    height: 1.5%;
+    left: 83.6%;
+    top: 66.5%;
+    width: 2%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 15px;
+  }
+  #hunan{
+    left:63%;
+    top: 73%;
+    height: 9%;
+    width: 8%;
+  }
+  #shandong {
+    height: 8%;
+    left: 72%;
+    top: 52%;
+    width: 11%;
+    z-index: 1000;
+    border-top-left-radius: 55px;
+    border-bottom-right-radius: 75px;
+  }
+  #shijiazhuang {
+    height: 13%;
+    left: 69%;
+    top: 44%;
+    width: 9%;
+    z-index: 500;
+    border-bottom-right-radius: 100px;
+  }
+  #guizhou {
+    height: 10%;
+    left: 53%;
+    top: 74%;
+    width: 9%;
+    border-top-left-radius: 75px;
+    border-bottom-right-radius: 75px;
+  }
+}
+
+@media (min-width: 992px) {
+  .header{ padding-top: 110px;
+           padding-bottom: 65px;
+  }
+  #menu-nav ul li, a.navbar-brand{
+    font-family: 'EraSmd';
+    font-size: 17px;
+    font-weight: bold;
+    color: #8d8c94;
+  }
+  #menu-nav ul li a, a.navbar-brand{
+    color: #8d8c94;
+    border-bottom: 5px solid #fffbef;
+    padding-left: 14px;
+    padding-right: 13px;
+  }
+  #guilin, #guangxi{
+    left: 57%;
+    top: 82%;
+    height: 9.5%;
+    width: 10%;
+    border-radius:35px;
+  }
+  #hainan{
+    left:62%;
+    top: 95.5%;
+    height: 4%;
+    width: 5%;
+    border-bottom-right-radius: 40px;
+    border-top-left-radius: 30px;
+  }
+  #wuhan, #hubei{
+    left:63%;
+    top: 65%;
+    height: 7%;
+    width: 12%;
+    border-top-right-radius:75px;
+  }
+  #beijing {
+    height: 3%;
+    left: 72%;
+    top: 44.4%;
+    width: 3%;
+    z-index: 1000;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+  }
+  #nanjing, #jiangsu {
+    height: 8%;
+    left: 76%;
+    top: 58%;
+    width: 7.5%;
+    border-top-right-radius:50px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:75px;
+  }
+  #chongqing {
+    height: 3%;
+    left: 55%;
+    top: 69%;
+    width: 9%;
+    -ms-transform: rotate(-40deg); /* IE 9 */
+    -webkit-transform: rotate(-40deg); /* Safari */
+    transform: rotate(-40deg); /* Standard syntax */
+  }
+  #taiwan {
+    height: 8%;
+    left: 85%;
+    top: 79.5%;
+    width: 3%;
+    border-top-left-radius: 75px;
+    border-bottom-left-radius: 75px;
+    border-bottom-right-radius: 5px;
+  }
+  #shanghai {
+    height: 1.5%;
+    left: 83.6%;
+    top: 65%;
+    width: 2%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 15px;
+  }
+  #hunan{
+    left:63%;
+    top: 72%;
+    height: 9%;
+    width: 8%;
+  }
+  #shandong {
+    height: 8%;
+    left: 72%;
+    top: 50.5%;
+    width: 11%;
+    z-index: 1000;
+    border-top-left-radius: 55px;
+    border-bottom-right-radius: 75px;
+  }
+  #shijiazhuang {
+    height: 13%;
+    left: 69%;
+    top: 42%;
+    width: 9%;
+    z-index: 500;
+    border-bottom-right-radius: 100px;
+  }
+  #guizhou {
+    height: 10%;
+    left: 53%;
+    top: 74%;
+    width: 9%;
+    border-top-left-radius: 75px;
+    border-bottom-right-radius: 75px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header{ padding-top: 115px;
+           padding-bottom: 65px;
+  }#guilin, #guangxi{
+    left: 57%;
+    top: 82%;
+    height: 9.5%;
+    width: 10%;
+    border-radius:35px;
+  }
+
+  #hainan{
+    left:62%;
+    top: 95.5%;
+    height: 4%;
+    width: 5%;
+    border-bottom-right-radius: 40px;
+    border-top-left-radius: 30px;
+  }
+
+  #hunan{
+    left:63%;
+    top: 72%;
+    height: 9%;
+    width: 8%;
+  }
+
+  #wuhan, #hubei{
+    left:63%;
+    top: 64%;
+    height: 7%;
+    width: 12%;
+    border-top-right-radius:75px;
+  }
+
+  #chongqing {
+    height: 3%;
+    left: 55%;
+    top: 69%;
+    width: 9%;
+    -ms-transform: rotate(-40deg); /* IE 9 */
+    -webkit-transform: rotate(-40deg); /* Safari */
+    transform: rotate(-40deg); /* Standard syntax */
+
+  }
+
+  #nanjing, #jiangsu {
+    height: 8%;
+    left: 76%;
+    top: 58%;
+    width: 8%;
+    border-top-right-radius:50px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:75px;
+  }
+
+  #shanghai {
+    height: 1.5%;
+    left: 84%;
+    top: 64.5%;
+    width: 2%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 15px;
+  }
+
+  #guizhou {
+    height: 10%;
+    left: 53%;
+    top: 74%;
+    width: 9%;
+    border-top-left-radius: 75px;
+    border-bottom-right-radius: 75px;
+  }
+
+  #shandong {
+    height: 8%;
+    left: 72%;
+    top: 50%;
+    width: 11%;
+    z-index: 1000;
+    border-top-left-radius: 55px;
+    border-bottom-right-radius: 75px;
+  }
+
+  #shijiazhuang {
+    height: 13%;
+    left: 69%;
+    top: 41%;
+    width: 9%;
+    z-index: 500;
+    border-bottom-right-radius: 100px;
+  }
+
+  #beijing {
+    height: 3%;
+    left: 72%;
+    top: 43.4%;
+    width: 3%;
+    z-index: 1000;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+  }
+
+  #taiwan {
+    height: 8%;
+    left: 85%;
+    top: 79.5%;
+    width: 3%;
+    border-top-left-radius: 75px;
+    border-bottom-left-radius: 75px;
+    border-bottom-right-radius: 5px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .header{ padding-top: 215px;
+           padding-bottom: 135px;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+8d8c94 --> menu
+808483 --> judul
+f0e5d2 --> coklat tua
+
+a61e22 --> link hover
+a61e22 --> footer
+*/
+
+
+
 *{margin:0;padding:0;}
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
-blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
-font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl,
-dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot,
-thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit;
-                    font-style: inherit; font-size: 100%; font-family: inherit;
-                    vertical-align: baseline; }
 :focus { outline: 0; }
-ol, ul { list-style: none; }
+ul { list-style: none; }
 table { border-collapse: collapse; border-spacing: 0; }
-tr, td, th{ border: 1px black solid; padding: 5px; }
 caption, th, td { text-align: left; font-weight: normal; vertical-align:middle;}
 blockquote:before, blockquote:after,
 q:before, q:after { content: ""; }
 blockquote, q { quotes: "" ""; }
 a img, a:hover img { border:none; }
-h1,h2,h3,h4,h5,h6 { margin:0px 0px 10px 0px; padding:0px;
-                    font-weight:normal; font-family: Verdana,Arial,Helvetica,sans-serif; }
 a { text-decoration:none; cursor:pointer; outline:none;color:black;}
-a:hover { text-decoration:none; }
+a:hover { text-decoration:underline; color:#a61e22 }
 .clear { clear:both; margin:0px; padding:0px; height:0px; line-height:0; font-size:0; }
 .left { float:left; width:auto; border:none; }
 .right { float:right; }
 .center { text-align:center; }
-.text-right { text-align:right; }
 .text-left { text-align:left!important; }
 strong{font-weight:bold;}
 small{font-size:10px; color:white;}
@@ -45,9 +1033,9 @@ small{font-size:10px; color:white;}
 .clearfix { display: inline-block; }
 * html .clearfix { height:1%; }
 html, body {height: 100%;}
-.container {width: 1020px; margin: 0 auto; min-height: 100%; background-color: #fafafa;box-shadow:0 0 6px rgba(0, 0, 0, 0.2)}
+
 h3 {font-size: 20px;}
-p { font-size: 13px; line-height: 1.6em; margin-bottom: 13px;}
+p { font-size: 13px; line-height: 1.6em; margin-bottom: 13px; word-wrap:break-word;}
 body {font: 12px Verdana, arial, sans-serif;}
 /*@font-face {
   font-family:"Lobster1.4";
@@ -74,43 +1062,7 @@ body {font: 12px Verdana, arial, sans-serif;}
 }
 
 
-/**************** FOOTER ***************************/
-#footer{
-  clear: both;
-  padding:20px;
-  height: 160px;
-}
 
-#footer em{
-  background-color: #C3CAFF;
-  display: block;
-  height: 2px;
-}
-
-.nav-footer{
-  float: left;
-  width: 700px;
-  margin-top: 20px;
-}
-
-.nav-footer ul{ list-style: none outside none }
-.nav-footer ul li {
-    border-right: 1px solid #000;
-    float: left;
-    line-height: 10px;
-    margin-right: 5px;
-    padding-right: 5px;
-}
-
-li.none-border{
-    border: medium none!important;
-}
-
-.contact-us-footer{
-  float: left;
-  width: 250px;
-  margin-top: 20px;
-}
 
 /*************** SUB MENU ************/
 ul.down-menu{
@@ -335,92 +1287,6 @@ ul.list-gallery li span:hover{
   cursor: pointer;
 }
 
-#guilin, #guangxi{
-  left: 340px;
-  top: 415px;
-  height: 50px;
-  width: 90px;
-}
-
-#hainan{
-  left:390px;
-  top: 493px;
-  height: 32px;
-  width: 37px;
-}
-
-#hunan{
-  left:400px;
-  top: 355px;
-  height: 50px;
-  width: 50px;
-}
-
-#wuhan, #hubei{
-  left:405px;
-  top: 322px;
-  height: 40px;
-  width: 65px;
-}
-
-#chongqing {
-  height: 30px;
-  left: 348px;
-  top: 338px;
-  width: 40px;
-}
-
-#nanjing, #jiangsu {
-  height: 50px;
-  left: 502px;
-  top: 275px;
-  width: 34px;
-}
-
-#shanghai {
-  height: 13px;
-  left: 535px;
-  top: 315px;
-  width: 14px;
-}
-
-#guizhou {
-  height: 57px;
-  left: 336px;
-  top: 366px;
-  width: 63px;
-}
-
-#shandong {
-  height: 42px;
-  left: 465px;
-  top: 234px;
-  width: 48px;
-  z-index: 1000;
-}
-
-#shijiazhuang {
-  height: 78px;
-  left: 438px;
-  top: 178px;
-  width: 56px;
-  z-index: 500;
-}
-
-#beijing {
-  height: 22px;
-  left: 457px;
-  top: 190px;
-  width: 20px;
-  z-index: 1000;
-}
-
-#taiwan {
-  height: 50px;
-  left: 543px;
-  top: 402px;
-  width: 20px;
-}
 
 .list-univ-at-map{
   display: none
@@ -459,51 +1325,6 @@ ul.list-gallery li span:hover{
 
 .content-left .gxnu-more a:hover{
   color: #858585;
-}
-
-.mini-table{
-  width: 270px;
-  margin-right: 20px;
-  float: left;
-  margin-bottom: 20px;
-}
-
-.mini-table-main, .mini-table-main a {
-  background-color: #c2272d;
-  color: #fff !important;
-  padding: 10px;
-  text-transform:uppercase;
-}
-
-.mini-table-head {
-  font-size: 17px;
-  height: 40px;
-}
-
-.mini-table-mid{
-  background-color: #fff; 
-  color: #000 !important;
-  padding: 10px;
-  height: 245px;
-  font-size: 13px;
-  overflow: hidden;
-}
-
-.mini-table-mid span.image{
-  float: left;
-  margin: 0 10px 5px 0;
-}
-
-.mini-table-mid span.desc{
-  height: 150px;
-  position: relative;
-  overflow: hidden;
-}
-
-.mini-table-low{
-  font-size: 12px;
-  height: 15px;
-  text-align: right;
 }
 
 .content-right{
@@ -719,43 +1540,6 @@ p.ad-info{
 }
 
 
-.category-gallery, .book-box{
-  float: left;
-  width: 242px;
-  height: 250px;
-  margin-right: 16px;
-}
-
-.category-gallery{
-  height: 275px!important;
-}
-
-.no-margin-right{
-  margin-right: 0!important;
-}
-
-.category-gallery .pic{
-  float: left;
-  width: 240px;
-  height: 180px;
-  border: 1px solid black;
-  margin-bottom: 10px;
-}
-
-.category-gallery .pic img{
-    display: block;
-    margin: auto;
-    width: 240px;
-}
-
-.category-gallery .title{
-  float: left;
-  width: 190px;
-  height: 50px;
-  padding-right: 20px;
-  font-size: 14px;
-}
-
 .univ-detail{
   float:left;
   height: auto;
@@ -769,11 +1553,11 @@ p.ad-info{
   width:760px;
 }
 
-.list-univ-by-province{
+/*.list-univ-by-province{
   float:left;
   height: auto;
   width:175px;
-}
+}*/
 
 .univ-logo{
   float: left;
@@ -781,11 +1565,6 @@ p.ad-info{
   margin-bottom: 15px;
 }
 
-.feature-image{
-  float: left;
-  width: 410px;
-  margin-bottom: 15px;
-}
 
 .univ-title{
   float: left;
@@ -808,31 +1587,8 @@ p.ad-info{
   margin-bottom: 5px;
 }
 
-.univ-desc{
-  width: 560px;
-}
-
 .news-information{
   position: relative;
-}
-
-.list-univ-by-province-title{
-  float: left;
-  width: 175px;
-  font-size: 21px;
-  margin-bottom: 10px;
-}
-
-.list-univ-by-province ul li ul.child{
-  display: none;
-  margin-top: 10px;
-}
-
-.list-univ-by-province ul li ul.child li{
-  background: url("../assets/arrow-list.png") no-repeat;
-  background-position: center left;
-  padding-left: 23px;
-  margin-bottom: 5px;
 }
 
 .book-box{

@@ -1,0 +1,39 @@
+<div class="col-md-12 content">
+  <h2>Categories</h2>
+  <div class="col-md-12">
+    <p><%= raw msg_flash(flash) %></p>
+    <p><%= link_to "Add new news category", admin_new_feature_category_path %></p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>color</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @feature_categories.each_with_index do |feature_category, x| %>
+          <tr>
+            <th scope="row"><%= @no+x+1 %></th>
+            <td><%= feature_category.name %></td>
+            <td>
+              <div class="display" style="background-color:#<%= feature_category.color %>">&nbsp; </div>
+            </td>
+            <td>
+              <%= link_to "Edit", admin_edit_feature_category_path(feature_category), :class => "btn btn-success" %>
+              <%= link_to "Delete", admin_feature_category_path(feature_category.id ), :method => :delete,
+                                    :confirm => "Are you sure?", :class => "btn btn-warning" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="admin-row">
+      <%= will_paginate @feature_categories, :link_separator => " | ",
+                                 :previous_label => "&laquo; previous",
+                                 :next_label => "next &raquo;" %>
+
+    </div>
+  </div>
+</div>

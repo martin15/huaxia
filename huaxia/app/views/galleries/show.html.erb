@@ -1,41 +1,32 @@
 <% content_for :javascript_includes do %>
-  <%= stylesheet_link_tag "jquery.ad-gallery.css" %>
-  <%= javascript_include_tag "jquery.ad-gallery.js" %>
+  <%= stylesheet_link_tag "pgwslideshow_light.css" %>
+  <%= javascript_include_tag "pgwslideshow.js" %>
 <% end %>
 
 <script type="text/javascript">
-  $(function() {
-    <%#*$('img.image1').data('ad-desc', 'Whoa! This description is set through elm.data("ad-desc") instead of using the longdesc attribute.<br>And it contains <strong>H</strong>ow <strong>T</strong>o <strong>M</strong>eet <strong>L</strong>adies... <em>What?</em> That aint what HTML stands for? Man...');%>
-    <%#*$('img.image1').data('ad-title', 'Title through $.data');%>
-    <%#*$('img.image4').data('ad-desc', 'This image is wider than the wrapper, so it has been scaled down');%>
-    <%#*$('img.image5').data('ad-desc', 'This image is higher than the wrapper, so it has been scaled down');%>
-    var galleries = $('.ad-gallery').adGallery();
+  $(document).ready(function() {
+      $('.pgwSlideshow').pgwSlideshow({
+        autoSlide: true,
+        intervalDuration: 10000,
+        mainClassName: 'pgwSlideshowLight'
+      });
   });
- </script>
+</script>
 
-<div id="content">
+<div class="col-md-12 content">
   <% title = @category.title == "summer_winter_camp" ? "summer/winter camp" : @category.title %>
-  <div class="content-title">About 
-     <%= title == "GXNU" ? title : title.titleize %></div>
-  <div class="content-layer">
-    <div id="gallery" class="ad-gallery">
-      <div class="ad-image-wrapper"></div>
-      <div class="ad-controls"></div>
-      <div class="ad-nav">
-        <div class="ad-thumbs">
-          <ul class="ad-thumb-list">
-            <% @images.each do |image| %>
-              <li>
-                <%= link_to (image_tag image.gallery_image.url(:thumb),
-                              :title => image.title.humanize, :alt => image.description),
-                            image.gallery_image.url(:big) %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="category-gallery-description">
+  <h2>ABOUT <%= title == "GXNU" ? title : title.titleize.upcase %></h2>
+  <div class="col-xs-12 col-sm-12 col-md-12">
+    <ul class="pgwSlideshow">
+      <% @images.each do |image| %>
+        <li>
+          <%= image_tag image.gallery_image.url(:big),
+                        :alt => image.title.humanize, :data => {:description => image.description} %>
+        </li>
+      <% end %>
+    </ul>
+    
+    <div class="col-xs-12 col-sm-12 col-md-12">
       <%= raw(@category.description) %>
     </div>
   </div>

@@ -1,0 +1,46 @@
+<div class="col-md-12 content">
+  <h2><%= @information.title.humanize %></h2>
+  <div class="col-md-12">
+    <p><%= raw msg_flash(flash) %></p>
+    <p><%= link_to "Add New Child Info", admin_new_child_informations_path(@information.permalink) %></p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <%=  raw "<th>Order</th>" if @information.permalink.include?("step-by-step") %>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @child_informations.each_with_index do |information, x| %>
+          <tr>
+            <th scope="row"><%= x+1 %></th>
+            <td><%= information.title.humanize %></td>
+            <%= raw "<td>#{information.order_no}</td>" if @information.permalink.include?("step-by-step") %>
+            <td>
+              <% unless ["tiket-pesawat"].include?(information.permalink) %>
+                <%= link_to 'Edit', admin_edit_child_informations_path(
+                                    :child_id => information.permalink, :id => @information.permalink),
+                                    :class => "btn btn-success" %>
+                <% unless information.permalink.include?("step-by-step") %>
+                  <%= link_to "Delete", admin_child_information_path(
+                                      :child_id => information.permalink, :id => @information.permalink),
+                                      :method => :delete, :confirm => "Are you sure?",
+                                      :class => "btn btn-warning" %>
+                <% end %>
+              <% end %>
+              <% if information.permalink.include?("step-by-step") %>
+                <%= link_to 'List Child information', admin_information_path(information.permalink),
+                                                    :class => "btn btn-info" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="admin-row">
+      <%= link_to "Back To Information List", admin_informations_path %><br /><br /><br />
+    </div>
+  </div>
+</div>

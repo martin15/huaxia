@@ -3,9 +3,9 @@ class Admin::UniversitiesController < Admin::ApplicationController
 
   def index
     params[:page] = params[:page].to_i == 0 ? 1 : params[:page] unless params[:page].nil?
-    @universities = University.paginate(:page => params[:page], :per_page => 10,
-                                         :order => "created_at DESC" )
-    @no = params[:page].nil? ? 0 : (params[:page].to_i-1) * 10
+    @universities = University.paginate(:page => params[:page], :per_page => 20,
+                                         :order => "name" )
+    @no = params[:page].nil? ? 0 : (params[:page].to_i-1) * 20
   end
 
   def new

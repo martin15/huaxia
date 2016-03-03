@@ -57,11 +57,12 @@ $(document).ready(function(){
 
 function display_sub_menu(province){
   var my_self = $("ul.child#"+province)
-  if(my_self.is(':hidden')){
-    $(my_self).show("slow");
-  }else{
-    $('ul.child').hide("slow");
-  }
+//  if(my_self.is(':hidden')){
+//    $(my_self).show("slow");
+//  }else{
+//    $('ul.child').hide("slow");
+//  }
+     my_self.toggle(300);
   $('ul.child').not(my_self).hide("slow");
 
 }

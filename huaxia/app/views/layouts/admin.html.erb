@@ -1,43 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
   <title>Admin Huaxia</title>
-  <%= stylesheet_link_tag "application", "admin" %>
-  <%= javascript_include_tag "jquery-1.7.1.min.js", "application.js" %>
+  <%= stylesheet_link_tag "bootstrap.css", "admin","application" %>
+  <%= javascript_include_tag "jquery-1.9.1.js", "bootstrap.js", "application.js" %>
   <%= yield :javascript_includes %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">
-    <div id="header">
-      <%#= link_to (image_tag "gxnu_logo.png", :style => "margin-left:50px"),
-                   "http://www.gxnu.edu.cn‎", :target => "blank" %>
-      <div class="header-logo">
-        <%#= link_to (image_tag "gnxu_text_logo.png"),
-                   "http://www.gxnu.edu.cn", :target => "blank" %>
-        <%= link_to (image_tag "huaxia_logo.png", :style => "float:right"), admin_path %>
+  <header class="header">
+    <%= image_tag "logo.png", :class => "img-responsive img-center" %>
+  </header>
+  <nav>
+    <div class="container">
+      <div class="navbar-default">
+        <button data-target="#menu-nav" data-toggle="collapse" class="navbar-toggle" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "Huaxia ICEC", admin_path, :class => "navbar-brand #{active_menu('home')}" %>
       </div>
-      <div id="nav-menu">
-        <ul class='down-menu admin-down-menu'>
-          <li><%= link_to "Home", admin_path %></li>
-          <li><%= link_to "Information", admin_informations_path %></li>
-          <li><%= link_to "Gallery", admin_gallery_categories_path %></li>
-          <li><%= link_to "Universities", admin_universities_path %></li>
-          <li><%= link_to "Banner", admin_banners_path %></li>
-          <li><%= link_to "Books", admin_books_path %></li>
-          <li><%= link_to "News", admin_features_path %></li>
+      <div class="collapse navbar-collapse" id="menu-nav">
+        <ul class="nav navbar-nav admin">
+          <li><%= link_to "Informations", admin_informations_path, :class => "#{active_menu('informations')}" %></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle <%= "#{active_menu('galleries')}"%>" data-toggle="dropdown" href="#" role="button"
+              aria-haspopup="true" aria-expanded="false">
+                Galleries <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <% Category.list_type.each do |category| %>
+                  <%= link_to category[0], admin_list_gallery_category_path(:type => category[1]) %>
+                <% end %>
+              </li>
+            </ul>
+          </li>
+          <li><%= link_to "Universities", admin_universities_path, :class => "#{active_menu('about_us')}" %></li>
+          <li><%= link_to "Banners", admin_banners_path, :class => "#{active_menu('about_us')}" %></li>
+          <li><%= link_to "Books", admin_books_path, :class => "#{active_menu('books')}" %></li>
+          <li><%= link_to "Programs", admin_features_path, :class => "#{active_menu('features')}" %></li>
+          <li><%= link_to "Student Associations", admin_student_associations_path, :class => "#{active_menu('student_associations')}" %></li>
+          <li><%= link_to "Airlines", admin_airlines_path, :class => "#{active_menu('airlines')}" %></li>
+          <li><%= link_to "Upload File", admin_uploaded_files_path, :class => "#{active_menu('uploaded_files')}" %></li>
           <li><%= link_to "Logout", logout_path %></li>
-
         </ul>
       </div>
     </div>
+  </nav>
 
+  <div class="container">
     <%= yield %>
-
-    <div id="footer">
-
-    </div>
   </div>
+
+  <footer>
+    <div class="container">
+      <div class="hidden-xs hidden-xm col-md-8 admin">
+        <div class="hidden-xs hidden-xm col-md-12 nav-footer">
+          <ul>
+            <%= link_to raw("<li>Informations</li>"), admin_informations_path %>
+            <%= link_to raw("<li>Galleries</li>"), admin_list_gallery_category_path("city") %>
+            <%= link_to raw("<li>Universities</li>"), admin_universities_path %>
+            <%= link_to raw("<li>Banners</li>"), admin_banners_path %>
+            <%= link_to raw("<li>Books</li>"),admin_books_path %>
+            <%= link_to raw("<li>Programs</li>"), admin_features_path %>
+            <%= link_to raw("<li>Student Associations</li>"), admin_student_associations_path %>
+            <%= link_to raw("<li>Airlines</li>"), admin_airlines_path %>
+            <%= link_to raw("<li class='none-border'>Upload File</li>"), admin_uploaded_files_path %>
+          </ul><br />
+        </div>
+        <div class="hidden-xs hidden-xm col-md-12 copyright">
+          Copyright ©  <%= Date.today.year %>, huaxia-icec.com - all rights reserved
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-12" style="display:inline-table">
+        <%= image_tag "contact.png", :class => "upper-image", :style => "float:left" %>
+        <div class="contact-us-fot-header">Contact Us</div>
+        <div class="contact-us-fot-content">
+          Huaxia ICEC<br />
+          Jenderal Sudirman Street, Ruko Kapitol CC3<br />
+          Bandung 40241<br />
+          Phone : Office: 022-4214535<br />
+          E-mail : huaxia.icec@gmail.com<br />
+        </div>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>

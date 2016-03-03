@@ -1,32 +1,25 @@
-<div id="content">
-  <div class="content-title">Listing Gallery Categories</div>
-  <div class="admin-content-layer">
-    <%= raw msg_flash(flash) %>
-    <%= link_to "Add new Gallery", admin_new_gallery_categories_path %><br /><br /><br />
-    <% @categories.each_with_index do |category, x| %>
-      <% nm = "no-margin-right" if (x+1)%3 == 0 %>
-      <div class="admin-category-gallery <%= nm %>">
-        <div class="pic">
-          <%= link_to (image_tag category.icon_image.url(:big)), 
-                      admin_galleries_path(category.id) %>
-        </div>
-        <div class="title">
-          <%= link_to category.title.humanize, admin_galleries_path(category.id) %>
-          <%= "(#{category.galleries.count})" %>
-        </div>
-        <div class="action">
-          <%= link_to "Edit", admin_edit_gallery_categories_path(category.id) %>&nbsp;&nbsp;|&nbsp;&nbsp;
-          <%= link_to "Delete", admin_delete_gallery_categories_path(category.id),
+<div class="col-md-12 content">
+  <h2><%= params[:type].humanize.upcase %> Galleries</h2>
+  <p><%= raw msg_flash(flash) %></p>
+  <p><%= link_to "Add new Gallery", admin_new_gallery_categories_path %></p>
+  <div class="row">
+    <% @categories.each do |category| %>
+      <div class="col-xs-6 col-sm-6 col-md-4">
+        <div class="col-md-12 category-gallery">
+          <%= link_to (image_tag category.icon_image.url(:big), :class => "img-responsive img-rounded"),
+                        admin_galleries_path(category.id) %>
+          <div class="title">
+            <%= link_to "#{category.title.humanize} (#{category.galleries.count})",
+                        admin_galleries_path(category.id) %>
+          </div>
+          <div class="title">
+            <%= link_to "Edit", admin_edit_gallery_categories_path(category.id) %>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <%= link_to "Delete", admin_delete_gallery_categories_path(category.id),
                                 :method => :delete, :confirm => "Are you sure?" %>
+          </div>
         </div>
       </div>
     <% end %>
-    <div class="admin-row">
-      <%= will_paginate @categories, :link_separator => " | ",
-                                 :previous_label => "&laquo; previous",
-                                 :next_label => "next &raquo;" %>
-
-    </div>
-    <div class="clear"></div>
   </div>
 </div>
+

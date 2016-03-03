@@ -1,11 +1,14 @@
 class Book < ActiveRecord::Base
   attr_accessible :name, :price, :description, :available, :book_image, :permalink,
-                  :book_type
+                  :book_type, :discount_price, :book_category_id
   has_permalink :name, :update => true
 
   has_attached_file :book_image, :styles => { :thumb => "100x100>",
                                               :medium => "200x200",
                                               :big => "400x400" }
+
+  belongs_to :book_category
+
   validates_attachment_presence :book_image
   validates :name, :presence => true,
                    :length => {:minimum => 1, :maximum => 254}
@@ -31,5 +34,13 @@ class Book < ActiveRecord::Base
      [Book::TYPE[:buku_umum], "buku_umum"],
      [Book::TYPE[:kamus], "kamus"],
      [Book::TYPE[:dan_lain_lain], "dan_lain_lain"]]
+  end
+
+  def self.discount_book
+    self.where("discount_price > 0")
+  end
+
+  def available?
+    return self.available ? "Yes" : "No"
   end
 end

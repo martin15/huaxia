@@ -1,0 +1,57 @@
+<div class="col-md-12 content">
+  <h2>UNIVERSITIES</h2>
+  <div class="col-md-12">
+    <div class="list-univ-by-province hidden-xs col-sm-3 col-md-3">
+      <h3>List Province</h3>
+      <div class="col-md-12">
+        <ul>
+          <% @provinces.each do |province, cities| %>
+            <li><%= link_to province, "javascript:void(0)",
+                                  :onclick => "display_sub_menu('#{province}');" %>
+              <ul class="child" id="<%= province %>">
+                <% cities.each do |city| %>
+                  <li>
+                    <% if @city == city.city %>
+                      <span class="active"><%= @city %></span>
+                    <% else %>
+                      <%= link_to city.city, universities_path(city.city) %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
+
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-9 col-md-9">
+      <%= render :partial => "search" %>
+      <h2>Hasil Pencarian untuk '<%= params[:name] %>'</h2>
+      <% @universities.each do |university| %>
+        <div class="col-xs-6 col-sm-4 col-md-4">
+          <div class="univ-logo-thumb img-rounded well">
+            <%= link_to (image_tag university.logo_image.url(:medium), :class => "img-responsive img-rounded"),
+                          university_path(university.city, university.permalink) %>
+            <%= link_to university.name.humanize, university_path(university.city, university.permalink),
+                        :class => "col-xs-12 col-sm-12 col-md-12 univ-name" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+$( document ).ready(function() {
+    var heights = $(".well").map(function() {
+        return $(this).height();
+    }).get(),
+
+    maxHeight = Math.max.apply(null, heights);
+
+    $(".well").height(maxHeight);
+    $("ul.child#<%= @province %>").show();
+});
+
+</script>

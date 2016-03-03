@@ -1,0 +1,42 @@
+<div class="col-md-12 content">
+  <h2>Route</h2>
+  <div class="col-md-12">
+    <p><%= raw msg_flash(flash) %></p>
+    <p><%= link_to "Add new route", new_routes_admin_airline_path(@airline.id) %></p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Origin</th>
+          <th>Transit</th>
+          <th>Destination</th>
+          <th>Estimation Time</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @routes.each_with_index do |route, x| %>
+          <tr>
+            <th scope="row"><%= @no+x+1 %></th>
+            <td><%= route.origin %></td>
+            <td><%= route.transit %></td>
+            <td><%= route.destination %></td>
+            <td><%= route.estimation_time %></td>
+            <td>
+              <%= link_to "Edit", edit_routes_admin_airline_path(
+                               :id =>@airline.id, :id_route => route.id), :class => "btn btn-success" %>
+              <%= link_to "Delete", route_admin_airline_path(:id =>@airline.id,
+                                :id_route => route.id), :method => :delete,
+                                :confirm => "Are you sure?", :class => "btn btn-warning" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="admin-row">
+      <%= will_paginate @routes, :link_separator => " | ",
+                                 :previous_label => "&laquo; previous",
+                                 :next_label => "next &raquo;" %>
+    </div>
+  </div>
+</div>

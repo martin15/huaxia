@@ -1,37 +1,61 @@
-<div id="content">
-  <div class="content-title"><%= @university.name.humanize.titleize %></div>
-  <div class="content-layer">
-    <div class="univ-detail">
-      <% if @university.logo_image.file? %>
-        <div class="univ-logo"><%= image_tag @university.logo_image.url(:medium) %></div>
-      <% end %>
-      <div class="univ-title">Address</div>
-      <div class="univ-value">&nbsp;:&nbsp;<%= @university.address %></div>
-      <div class="univ-title">Phone</div>
-      <div class="univ-value">&nbsp;:&nbsp;<%= @university.phone %></div>
-      <div class="univ-title">Province</div>
-      <div class="univ-value">&nbsp;:&nbsp;<%= @university.province %></div>
-      <div class="univ-title">CIty</div>
-      <div class="univ-value">&nbsp;:&nbsp;<%= @university.city %></div>
-      <div class="univ-desc text-area"><%= raw @university.description %></div>
+
+<script>
+    if ( ($(window).height() + 100) < $(document).height() ) {
+      $('#top-link-block').removeClass('hidden').affix({
+          // how far to scroll down before link "slides" into view
+          offset: {top:100}
+      });
+    }
+</script>
+<div  class="col-md-12 content">
+  <div class="col-md-12">
+    <div class="list-univ-by-province hidden-xs col-sm-3 col-md-3">
+      <h3>University List by Province</h3>
+      <div class="col-md-12">
+        <ul>
+          <% @universities_by_city.each do |province, universities| %>
+            <% temp_province = province.gsub(" ", "-") %>
+            <li><%= link_to province, "javascript:void(0)",
+                                  :onclick => "display_sub_menu('#{temp_province}');" %>
+              <ul class="child" id="<%= temp_province %>">
+                <% universities.each do |univ| %>
+                  <li><%= link_to univ.name %></li>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-    <div class="list-univ-by-province">
-      <div class="list-univ-by-province-title">List University</div>
-      <ul>
-        <% @universities_by_city.each do |province, universities| %>
-          <% temp_province = province.gsub(" ", "-") %>
-          <li><%= link_to province, "javascript:void(0)",
-                                :onclick => "display_sub_menu('#{temp_province}');",
-                                :style => "font-size:15px;" %>
-            <ul class="child" id="<%= temp_province %>">
-              <% universities.each do |univ| %>
-                <li><%= link_to univ.name %></li>
-              <% end %>
-            </ul>
-          </li>
-        <% end %>
-      </ul>
+    <div class="col-xs-12 col-sm-9 col-md-9">
+      <%= render :partial => "search" %>
+      <h2><%= "#{@university.city.humanize.titleize} - #{@university.name.humanize.titleize}" %></h2>
+      <% if @university.logo_image.file? %>
+        <%= image_tag @university.logo_image.url(:medium), :class => "img-responsive" %>
+      <% end %>
+      <div class="univ-address">
+        <%= @university.address %><br />
+        <%= @university.province %><br />
+        <%= @university.city %><br />
+      </div>
+      <% unless @university.phone.nil? %>
+        <div class="univ-phone">
+          Phone : <%= @university.phone %>
+        </div>
+      <% end %>
+      <div class="text-area"><%= raw @university.description %></div>
     </div>
   </div>
-  <div class="clear"></div>
 </div>
+<div  class="col-md-12 univ-back_button">
+  <%= link_to raw("<span class='glyphicon glyphicon-arrow-left' aria-hidden='true'></span> List Universities"),
+              universities_path, :class => "btn btn-default", :role => "button"  %>
+</div>
+<span id="top-link-block" style="display:none;">
+    <a href="#top" class="well well-sm"  onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+        <i class="glyphicon glyphicon-chevron-up"></i> Back to Top
+    </a>
+</span>
+
+
+
