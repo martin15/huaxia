@@ -23,6 +23,7 @@ module ApplicationHelper
     unless url.include?("http://") 
       return "http://#{url}"
     end
+    return url
   end
 
   def order_item

@@ -20,8 +20,8 @@ nav{
 }
 
 nav .container{
-  padding-left: 15px!important;
-  padding-right: 15px!important;
+  padding-left: 0px!important;
+  padding-right: 0px!important;
 }
 
 .header{
@@ -45,24 +45,31 @@ nav .container{
   src: url('../assets/fonts/ERASMD.TTF');
 }
 
-
 @font-face {
   font-family: 'Majalla';
   src: url('../assets/fonts/majalla.ttf');
 }
 
-#menu-nav ul li, a.navbar-brand{
+#menu-nav{
+  background-color: #fffbef;
+  text-align: center;
+}
+
+a.navbar-brand{
   font-family: 'EraSmd';
-  font-size: 17px;
+  font-size: 18px;
   font-weight: bold;
   color: #8d8c94;
+  border: none;
+  float: left!important;
+  margin-left: 25px;
 }
 
 #menu-nav ul li a, a.navbar-brand{
   color: #8d8c94;
   border-bottom: 5px solid #fffbef;
-  padding-left: 14px;
-  padding-right: 13px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 a.navbar-brand{
@@ -609,9 +616,25 @@ a.accordion-toggle{
     width:100%;
     background-color:#fff;
   }
+  #menu-nav{
+    width:93%;
+    background-color: #f8f8f8;
+  }
+  #menu-nav ul{
+    width:100%;
+    background-color: #f8f8f8;
+  }
+  #menu-nav ul li{
+    font-family: 'EraSmd';
+    font-size: 13px;
+    font-weight: bold;
+    color: #8d8c94;
+  }
   #menu-nav ul li a{
     margin-left:30px;
-    border-color:#fff!important;
+    margin-right:20px;
+    border-color:#f8f8f8!important;
+    text-align:left;
   }
   #menu-nav ul li a:hover{
     background-color:#fff!important;
@@ -636,17 +659,25 @@ a.accordion-toggle{
   .header{ padding-top: 65px;
            padding-bottom: 60px;
   }
-  #menu-nav ul li, a.navbar-brand{
+  #menu-nav ul li{
     font-family: 'EraSmd';
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
     color: #8d8c94;
   }
-  #menu-nav ul li a, a.navbar-brand{
+  #menu-nav ul li a{
     color: #8d8c94;
     border-bottom: 5px solid #fffbef;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+  #menu-nav .navbar-nav {
+    display: inline-block!important;
+    float: none!important;
+    vertical-align: top;
+  }
+  #menu-nav .navbar-collapse {
+    text-align: center;
   }
   #guilin, #guangxi{
     left: 57%;
@@ -753,17 +784,19 @@ a.accordion-toggle{
   .header{ padding-top: 110px;
            padding-bottom: 65px;
   }
-  #menu-nav ul li, a.navbar-brand{
+  #menu-nav ul li{
     font-family: 'EraSmd';
-    font-size: 17px;
+    font-size: 15px;
     font-weight: bold;
     color: #8d8c94;
+    margin: 0 auto;
   }
-  #menu-nav ul li a, a.navbar-brand{
+  #menu-nav ul li a{
     color: #8d8c94;
     border-bottom: 5px solid #fffbef;
-    padding-left: 14px;
-    padding-right: 13px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top:20px;
   }
   #guilin, #guangxi{
     left: 57%;
@@ -869,14 +902,29 @@ a.accordion-toggle{
 @media (min-width: 1200px) {
   .header{ padding-top: 115px;
            padding-bottom: 65px;
-  }#guilin, #guangxi{
+  }
+  
+  #menu-nav ul li{
+    font-family: 'EraSmd';
+    font-size: 16px;
+    font-weight: bold;
+    color: #8d8c94;
+    margin: 0 auto;
+  }
+  #menu-nav ul li a{
+    color: #8d8c94;
+    border-bottom: 5px solid #fffbef;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top:20px;
+  }
+  #guilin, #guangxi{
     left: 57%;
     top: 82%;
     height: 9.5%;
     width: 10%;
     border-radius:35px;
   }
-
   #hainan{
     left:62%;
     top: 95.5%;

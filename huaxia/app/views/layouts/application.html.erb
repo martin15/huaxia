@@ -19,55 +19,57 @@
   <nav>
     <div class="container">
       <div class="navbar-default">
+        <%= link_to "Huaxia ICEC", root_path, :class => "navbar-toggle navbar-brand",
+                    :style => "border-bottom-color: #fffbef;" %>
         <button data-target="#menu-nav" data-toggle="collapse" class="navbar-toggle" type="button">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "Huaxia ICEC", root_path, :class => "navbar-brand #{active_menu('home')}" %>
-      </div>
-      <div class="collapse navbar-collapse" id="menu-nav">
-        <ul class="nav navbar-nav">
-          <li><%= link_to "About Us", about_us_path, :class => "#{active_menu('about_us')}" %></li>
-          <li><%= link_to "Study In China", study_in_china_path, :class => "#{active_menu('info_study')}" %></li>
-          <li class="dropdown">
-            <a class="dropdown-toggle <%= "#{active_menu('galleries')}"%>" data-toggle="dropdown" href="#" role="button"
-              aria-haspopup="true" aria-expanded="false">
-                Galleries <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <% Category.list_type.each do |category| %>
-                  <%= link_to category[0], categories_path(category[1]) %>
-                <% end %>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <%= link_to "Universities", universities_path("Guilin"),
-                        :class => "#{active_menu('universities')}" %>
-          </li>
-          <li><%= link_to "Programs", programs_path, :class => "#{active_menu('features')}" %></li>
-          <li class="dropdown">
-            <a class="dropdown-toggle <%= "#{active_menu('books')}"%>" data-toggle="dropdown" href="#" role="button"
-              aria-haspopup="true" aria-expanded="false" class="four">
-                Books <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <% BookCategory.all.each do |book_type| %>
-                  <%= link_to book_type.name, books_path(book_type.permalink) %>
-                <% end %>
-              </li>
-            </ul>
-          </li>
-          <li class="student-a-left">
-            <%= link_to raw("Student<br />Association"), student_associations_path,
-                            :class => "#{active_menu('student_associations')}", :style => "padding-top:0px;" %>
-          </li>
-          <li><%= link_to "Tour & Travel", tour_travels_path, :class => "#{active_menu('tour_travels')}" %></li>
-        </ul>
+        <div class="collapse navbar-collapse" id="menu-nav" style="padding-right:0px">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Huaxia ICEC", root_path, :class => "#{active_menu('home')}" %></li>
+            <li><%= link_to "About Us", about_us_path, :class => "#{active_menu('about_us')}" %></li>
+            <li><%= link_to "Study In China", study_in_china_path, :class => "#{active_menu('info_study')}" %></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle <%= "#{active_menu('galleries')}"%>" data-toggle="dropdown" href="#" role="button"
+                aria-haspopup="true" aria-expanded="false">
+                  Galleries <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <% Category.list_type.each do |category| %>
+                    <%= link_to category[0], categories_path(category[1]) %>
+                  <% end %>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <%= link_to "Universities", universities_path("Guilin"),
+                          :class => "#{active_menu('universities')}" %>
+            </li>
+            <li><%= link_to "Programs", programs_path, :class => "#{active_menu('features')}" %></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle <%= "#{active_menu('books')}"%>" data-toggle="dropdown" href="#" role="button"
+                aria-haspopup="true" aria-expanded="false" class="four">
+                  Books <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <% BookCategory.all.each do |book_type| %>
+                    <%= link_to book_type.name, books_path(book_type.permalink) %>
+                  <% end %>
+                </li>
+              </ul>
+            </li>
+            <li class="student-a-left">
+              <%= link_to raw("Student<br />Association"), student_associations_path,
+                              :class => "#{active_menu('student_associations')}", :style => "padding-top:0px;" %>
+            </li>
+            <li><%= link_to "Tour & Travel", tour_travels_path, :class => "#{active_menu('tour_travels')}" %></li>
+          </ul>
+        </div>
       </div>
     </div>    
   </nav>
