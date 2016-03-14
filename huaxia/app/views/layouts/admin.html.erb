@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Admin Huaxia</title>
+  <title>Admin HuaXia ICEC</title>
   <%= stylesheet_link_tag "bootstrap.css", "admin","application" %>
   <%= javascript_include_tag "jquery-1.9.1.js", "bootstrap.js", "application.js" %>
   <%= yield :javascript_includes %>
@@ -19,16 +19,18 @@
   <nav>
     <div class="container">
       <div class="navbar-default">
+        <%= link_to "HuaXia ICEC", admin_path, :class => "navbar-toggle navbar-brand",
+                    :style => "border-bottom-color: #fffbef;" %>
         <button data-target="#menu-nav" data-toggle="collapse" class="navbar-toggle" type="button">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "Huaxia ICEC", admin_path, :class => "navbar-brand #{active_menu('home')}" %>
       </div>
       <div class="collapse navbar-collapse" id="menu-nav">
         <ul class="nav navbar-nav admin">
+          <li><%= link_to "HuaXia ICEC", admin_path, :class => "#{active_menu('dashboard')}" %></li>
           <li><%= link_to "Informations", admin_informations_path, :class => "#{active_menu('informations')}" %></li>
           <li class="dropdown">
             <a class="dropdown-toggle <%= "#{active_menu('galleries')}"%>" data-toggle="dropdown" href="#" role="button"
@@ -62,8 +64,8 @@
 
   <footer>
     <div class="container">
-      <div class="hidden-xs hidden-xm col-md-8 admin">
-        <div class="hidden-xs hidden-xm col-md-12 nav-footer">
+      <div class="row hidden-xs hidden-xm col-md-8 admin no-margin-right no-padding-right">
+        <div class="row hidden-xs hidden-xm col-md-12 nav-footer no-margin-right no-padding-right">
           <ul>
             <%= link_to raw("<li>Informations</li>"), admin_informations_path %>
             <%= link_to raw("<li>Galleries</li>"), admin_list_gallery_category_path("city") %>
@@ -84,7 +86,7 @@
         <%= image_tag "contact.png", :class => "upper-image", :style => "float:left" %>
         <div class="contact-us-fot-header">Contact Us</div>
         <div class="contact-us-fot-content">
-          Huaxia ICEC<br />
+          HuaXia ICEC<br />
           Jenderal Sudirman Street, Ruko Kapitol CC3<br />
           Bandung 40241<br />
           Phone : Office: 022-4214535<br />

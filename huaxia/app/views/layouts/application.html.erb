@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Huaxia</title>
+  <title>HuaXia ICEC</title>
   <%= stylesheet_link_tag "light/light.css", "nivo-slider.css", "bootstrap.css", "application" %>
   <%= javascript_include_tag "jquery-1.9.1.js", "bootstrap.js", "application.js", "jquery.nivo.slider.js" %>
   <%= yield :javascript_includes %>
@@ -19,7 +19,7 @@
   <nav>
     <div class="container">
       <div class="navbar-default">
-        <%= link_to "Huaxia ICEC", root_path, :class => "navbar-toggle navbar-brand",
+        <%= link_to "HuaXia ICEC", root_path, :class => "navbar-toggle navbar-brand",
                     :style => "border-bottom-color: #fffbef;" %>
         <button data-target="#menu-nav" data-toggle="collapse" class="navbar-toggle" type="button">
           <span class="sr-only">Toggle navigation</span>
@@ -29,39 +29,18 @@
         </button>
         <div class="collapse navbar-collapse" id="menu-nav" style="padding-right:0px">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Huaxia ICEC", root_path, :class => "#{active_menu('home')}" %></li>
+            <li><%= link_to "HuaXia ICEC", root_path, :class => "#{active_menu('home')}" %></li>
             <li><%= link_to "About Us", about_us_path, :class => "#{active_menu('about_us')}" %></li>
             <li><%= link_to "Study In China", study_in_china_path, :class => "#{active_menu('info_study')}" %></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle <%= "#{active_menu('galleries')}"%>" data-toggle="dropdown" href="#" role="button"
-                aria-haspopup="true" aria-expanded="false">
-                  Galleries <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <% Category.list_type.each do |category| %>
-                    <%= link_to category[0], categories_path(category[1]) %>
-                  <% end %>
-                </li>
-              </ul>
-            </li>
+            <li><%= link_to "Galleries", categories_path('city'), :class => "#{active_menu('galleries')}" %></li>
             <li>
               <%= link_to "Universities", universities_path("Guilin"),
                           :class => "#{active_menu('universities')}" %>
             </li>
             <li><%= link_to "Programs", programs_path, :class => "#{active_menu('features')}" %></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle <%= "#{active_menu('books')}"%>" data-toggle="dropdown" href="#" role="button"
-                aria-haspopup="true" aria-expanded="false" class="four">
-                  Books <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <% BookCategory.all.each do |book_type| %>
-                    <%= link_to book_type.name, books_path(book_type.permalink) %>
-                  <% end %>
-                </li>
-              </ul>
+            <li>
+              <%= link_to "Books", books_path(BookCategory.first.permalink),
+                  :class => "#{active_menu('books')}" %>
             </li>
             <li class="student-a-left">
               <%= link_to raw("Student<br />Association"), student_associations_path,
@@ -80,22 +59,22 @@
 
   <footer>
     <div class="container">
-      <div class="hidden-xs hidden-xm col-md-8">
-        <div class="hidden-xs hidden-xm col-md-12 nav-footer">
+      <div class="row hidden-xs hidden-xm col-md-8 no-margin-right no-padding-right">
+        <div class=" row hidden-xs hidden-xm col-md-12 nav-footer no-margin-right no-padding-right">
           <ul>
             <%= link_to raw("<li>Home</li>"), root_path %>
             <%= link_to raw("<li>About Us</li>"), about_us_path %>
-            <%= link_to raw("<li>Registration</li>"),study_in_china_path %>
-            <%#= link_to raw("<li>Study In China</li>"),
-              (@temp_info .nil? ? "#" : (info_path(@temp_info.permalink))) %>
+            <%= link_to raw("<li>Study In China</li>"),study_in_china_path %>
             <%= link_to raw("<li>Galleries</li>"), categories_path("city") %>
-            <%= link_to raw("<li>Universities</li>"), universities_path("Guangxi") %>
+            <%= link_to raw("<li>Universities</li>"), universities_path("Guilin") %>
             <%= link_to raw("<li>Programs</li>"), programs_path %>
-            <%= link_to raw("<li class='none-border'>Books</li>"),
-                        books_path("buku_ajar_tk") %>
+            <%= link_to raw("<li>Books</li>"), books_path(BookCategory.first.permalink) %>
+            <%= link_to raw("<li>Student<br />Association</li>"), student_associations_path %>
+            <%= link_to raw("<li class='none-border'>Tour & Travel</li>"),
+                        tour_travels_path %>
           </ul><br />
         </div>
-        <div class="hidden-xs hidden-xm col-md-12 copyright">
+        <div class="row hidden-xs hidden-xm col-md-12 copyright">
           Copyright ©  <%= Date.today.year %>, huaxia-icec.com - all rights reserved
         </div>
       </div>
@@ -103,7 +82,7 @@
         <%= image_tag "contact.png", :class => "upper-image", :style => "float:left" %>
         <div class="contact-us-fot-header">Contact Us</div>
         <div class="contact-us-fot-content">
-          Huaxia ICEC<br />
+          HuaXia ICEC<br />
           Jenderal Sudirman Street, Ruko Kapitol CC3<br />
           Bandung 40241<br />
           Phone : Office: 022-4214535<br />

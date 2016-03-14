@@ -1,5 +1,5 @@
 <div class="col-md-12 content">
-  <h2>STUDENT ASSOCIATIONS</h2>
+  <%#*<h2>STUDENT ASSOCIATIONS</h2>%>
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-4">
       <%= link_to (image_tag "ppit-logo.png", :class => "img-responsive"), "http://ppitiongkok.org/", :terget => "blank" %>
@@ -11,7 +11,7 @@
             <%= link_to (image_tag student_association.logo.url(:medium),
                         :class => "img-responsive img-rounded"),
                         target_url(student_association.url), :target => "blank" %>
-            <%= link_to student_association.name.humanize, target_url(student_association.url),
+            <%#= link_to student_association.name.humanize, target_url(student_association.url),
                         :target => "blank", :class => "col-xs-12 col-sm-12 col-md-12 student-association-name" %>
           </div>
         </div>

@@ -13,7 +13,7 @@
  */
 body {
   font: 12px Verdana, arial, sans-serif;
-  background-color: #fffbef;
+  background-color: #fefce5;
 }
 nav{
   margin-bottom: 30px;
@@ -50,8 +50,13 @@ nav .container{
   src: url('../assets/fonts/majalla.ttf');
 }
 
+@font-face {
+  font-family: 'Cambria';
+  src: url('../assets/fonts/cambria.ttc');
+}
+
 #menu-nav{
-  background-color: #fffbef;
+  background-color: #fefce5;
   text-align: center;
 }
 
@@ -67,7 +72,7 @@ a.navbar-brand{
 
 #menu-nav ul li a, a.navbar-brand{
   color: #8d8c94;
-  border-bottom: 5px solid #fffbef;
+  border-bottom: 5px solid #fefce5;
   padding-left: 12px;
   padding-right: 12px;
 }
@@ -83,7 +88,7 @@ a.navbar-brand{
 #menu-nav ul li a:hover, a.navbar-brand:hover, .active-menu{
   color: #a61e22!important;
   border-bottom-color: #a61e22!important;
-  background-color: #fffbef!important;
+  background-color: #fefce5!important;
 }
 
 /*.content, .content p{
@@ -97,7 +102,7 @@ a.navbar-brand{
 
 footer{
   background-color: #a61e22;
-  color: #fffbef;
+  color: #fefce5;
   padding: 30px 0;
   margin-top: 80px;
   font-family: 'EraSmd';
@@ -144,14 +149,15 @@ footer{
 
 .nav-footer ul{ list-style: none outside none }
 .nav-footer ul li {
-  border-right: 1px solid #fffbef;
+  border-right: 1px solid #fefce5;
   float: left;
   line-height: 10px;
-  margin-right: 10px;
-  padding-right: 10px;
-  color: #fffbef;
+  margin-right: 9px;
+  padding-right: 9px;
+  color: #fefce5;
   font-family: 'EraSmd';
-  font-size: 14px
+  font-size: 12px;
+  text-align: center;
 }
 
 li.none-border{
@@ -572,6 +578,7 @@ a.accordion-toggle{
 
 
 .text-right { text-align:right; }
+.text-center { text-align:center; }
 
 .border_bottom{
   border-bottom: 2px solid #f0e5d2;
@@ -611,6 +618,9 @@ a.accordion-toggle{
 }
 
 @media (max-width: 767px) {
+  .header{ padding-top: 50px;
+           padding-bottom: 50px;
+  }
   .navbar-collapse{
     margin-left:20px;
     width:100%;
@@ -625,7 +635,7 @@ a.accordion-toggle{
     background-color: #f8f8f8;
   }
   #menu-nav ul li{
-    font-family: 'EraSmd';
+    font-family: 'Cambria';
     font-size: 13px;
     font-weight: bold;
     color: #8d8c94;
@@ -656,18 +666,18 @@ a.accordion-toggle{
 }
 
 @media (min-width: 768px) {
-  .header{ padding-top: 65px;
-           padding-bottom: 60px;
+  .header{ padding-top: 100px;
+           padding-bottom: 80px;
   }
   #menu-nav ul li{
-    font-family: 'EraSmd';
-    font-size: 11px;
+    font-family: 'Cambria';
+    font-size: 13px;
     font-weight: bold;
     color: #8d8c94;
   }
   #menu-nav ul li a{
     color: #8d8c94;
-    border-bottom: 5px solid #fffbef;
+    border-bottom: 5px solid #fefce5;
     padding-left: 7px;
     padding-right: 7px;
   }
@@ -781,19 +791,19 @@ a.accordion-toggle{
 }
 
 @media (min-width: 992px) {
-  .header{ padding-top: 110px;
-           padding-bottom: 65px;
+  .header{ padding-top: 140px;
+           padding-bottom: 120px;
   }
   #menu-nav ul li{
-    font-family: 'EraSmd';
-    font-size: 15px;
+    font-family: 'Cambria';
+    font-size: 17px;
     font-weight: bold;
     color: #8d8c94;
     margin: 0 auto;
   }
   #menu-nav ul li a{
     color: #8d8c94;
-    border-bottom: 5px solid #fffbef;
+    border-bottom: 5px solid #fefce5;
     padding-left: 10px;
     padding-right: 10px;
     padding-top:20px;
@@ -900,20 +910,20 @@ a.accordion-toggle{
 }
 
 @media (min-width: 1200px) {
-  .header{ padding-top: 115px;
-           padding-bottom: 65px;
+  .header{ padding-top: 165px;
+           padding-bottom: 140px;
   }
   
   #menu-nav ul li{
-    font-family: 'EraSmd';
-    font-size: 16px;
+    font-family: 'Cambria';
+    font-size: 18px;
     font-weight: bold;
     color: #8d8c94;
     margin: 0 auto;
   }
   #menu-nav ul li a{
     color: #8d8c94;
-    border-bottom: 5px solid #fffbef;
+    border-bottom: 5px solid #fefce5;
     padding-left: 13px;
     padding-right: 13px;
     padding-top:20px;

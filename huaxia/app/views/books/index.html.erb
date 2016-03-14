@@ -1,6 +1,27 @@
 <div class="col-md-12 content">
-  <h2><%= @book_category.name.humanize.titleize %></h2>
-  <div class="row">
+  <h2><%#= @book_book_type.name.humanize.titleize %></h2>
+  <div class="visible-xs hidden-sm hidden-md hidden-lg">
+    <% BookCategory.all.each_with_index do |book_type, x| %>
+      <% if book_type.permalink == @book_category.permalink %>
+        <span class="active"><%= book_type.permalink.humanize %></span>
+      <% else %>
+        <%= link_to link_to book_type.name, books_path(book_type.permalink) %>
+      <% end %>
+      <%= " |" unless BookCategory.all.size == x+1 %>
+    <% end %><br /><br /><br />
+  </div>
+  <div class="hidden-xs col-sm-3 col-md-3">
+    <% BookCategory.all.each do |book_type| %>
+      <div class="col-md-12 padding_t_b_5">
+        <% if book_type.permalink == @book_category.permalink %>
+          <span class="active"><%= book_type.permalink.humanize %></span><br />
+        <% else %>
+          <%= link_to book_type.name, books_path(book_type.permalink) %><br />
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="row col-xs-12 col-sm-9 col-md-9">
     <% @books.each do |book| %>
       <div class="col-xs-12 col-sm-6 col-md-6">
         <div class="tour-travel img-rounded well">
