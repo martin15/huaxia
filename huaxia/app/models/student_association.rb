@@ -7,4 +7,13 @@ class StudentAssociation < ActiveRecord::Base
                                         :big => "500x500" }
 
 
+  def logo_position
+    return "" unless self.logo.exists?
+    geo = Paperclip::Geometry.from_file(self.logo.to_file(:medium))
+    h = geo.height
+    w = geo.width
+    if w < h
+      "small-center-image"
+    end
+  end
 end

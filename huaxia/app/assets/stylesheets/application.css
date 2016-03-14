@@ -663,6 +663,10 @@ a.accordion-toggle{
     padding-left: 10px;
     padding-right:10px;
   }
+  .small-center-image{
+    height: 125px;
+    margin: 0 auto;
+  }
 }
 
 @media (min-width: 768px) {
@@ -688,6 +692,10 @@ a.accordion-toggle{
   }
   #menu-nav .navbar-collapse {
     text-align: center;
+  }
+  .small-center-image{
+    height: 150px;
+    margin: 0 auto;
   }
   #guilin, #guangxi{
     left: 57%;
@@ -808,6 +816,10 @@ a.accordion-toggle{
     padding-right: 10px;
     padding-top:20px;
   }
+  .small-center-image{
+    height: 175px;
+    margin: 0 auto;
+  }
   #guilin, #guangxi{
     left: 57%;
     top: 82%;
@@ -927,6 +939,10 @@ a.accordion-toggle{
     padding-left: 13px;
     padding-right: 13px;
     padding-top:20px;
+  }
+  .small-center-image{
+    height: 200px;
+    margin: 0 auto;
   }
   #guilin, #guangxi{
     left: 57%;
