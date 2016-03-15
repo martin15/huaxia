@@ -1,23 +1,75 @@
 <div class="col-md-12 content">
-  <%#*<h2>PROGRAMS</h2>%>
-  <% @program_categories.each do |program_category| %>
-    <div class="col-xs-12 col-sm-6 col-md-4 margin_b_30">
-        <div class="col-md-12 mini-table-head well-height" style="background-color:#<%= program_category.color %>">
-          <%= program_category.name.humanize.titleize %>
+  <h2><%#= @program_category.title.upcase %></h2>
+  <div class="visible-xs hidden-sm hidden-md hidden-lg">
+    <% @program_categories.each_with_index do |program_category, x| %>
+      <% if program_category.permalink == @program_category.permalink %>
+        <span class="active"><%= program_category.name.humanize.titleize %></span>
+      <% else %>
+        <%= link_to program_category.name.humanize, programs_path(program_category.permalink) %>
+      <% end %>
+      <%= " |" unless @program_categories.size == x+1 %>
+    <% end %><br /><br /><br />
+  </div>
+  <div class=" hidden-xs col-sm-3 col-md-3">
+    <% @program_categories.each do |program_category| %>
+      <div class="col-md-12 padding_t_b_5 margin_b_10">
+        <% if program_category.permalink == @program_category.permalink %>
+          <span class="active"><%= program_category.name.humanize.titleize %></span><br />
+        <% else %>
+          <%= link_to program_category.name.humanize, programs_path(program_category.permalink) %><br />
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-xs-12 col-sm-9 col-md-9 programs-header">
+    <div class="panel-group" id="accordion">
+      <% @programs.each_with_index do |program, x| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <%= link_to program.title.humanize, "#collapse-#{x+1}", :class => "accordion-toggle",
+                          :data => {:toggle => "collapse", :parent => "#accordion"} %>
+            </h4>
+          </div>
+          <div id="collapse-<%= x+1 %>" class="panel-collapse collapse">
+            <div class="panel-body no-padding-lr margin_l_40_r_20">
+              <% if program.feature_image.file? %>
+                <span class="thumbnail program-image">
+                  <%= image_tag program.feature_image.url(:medium), :class => "img-responsive" %>
+                </span>
+              <% end %>
+              <div class="news-information"><%= raw program.description %></div>
+            </div>
+          </div>
         </div>
-        <div class="col-md-12 mini-table-mid">
-          <ul>
-            <% program_category.features.each do |program| %>
-              <li><%= link_to program.title, program_path(program.permalink) %></li>
-            <% end %>
-          </ul>
-        </div>
-        <div class="col-md-12 mini-table-foot" style="background-color:#<%= program_category.color %>">
-          &nbsp;
-        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
+
+<!--
+
+
+<div class="col-md-12 content">
+  <%#*<h2>PROGRAMS</h2>%>
+  <%# @program_categories.each do |program_category| %>
+    <%#*<div class="col-xs-12 col-sm-6 col-md-4 margin_b_30">%>
+        <%#*<div class="col-md-12 mini-table-head well-height" style="background-color:#<%= program_category.color %>">%>
+          <%#= program_category.name.humanize.titleize %>
+        <%#*</div>%>
+        <%#*<div class="col-md-12 mini-table-mid">%>
+          <%#*<ul>%>
+            <%# program_category.features.each do |program| %>
+              <%#*<li><%= link_to program.title, program_path(program.permalink) %></li>%>
+            <%# end %>
+          <%#*</ul>%>
+        <%#*</div>%>
+        <%#*<div class="col-md-12 mini-table-foot" style="background-color:#<%= program_category.color %>">%>
+          <%#*&nbsp;%>
+        <%#*</div>%>
+    <%#*</div>%>
+  <%# end %>
+<%#*</div>%>
 
 <script>
 $( document ).ready(function() {
@@ -31,3 +83,4 @@ $( document ).ready(function() {
 });
 
 </script>
+-->

@@ -1,5 +1,5 @@
 class StudentAssociation < ActiveRecord::Base
-  attr_accessible :name, :city, :url, :permalink, :logo
+  attr_accessible :name, :city, :url, :permalink, :logo, :description
   has_permalink :name, :update => true
 
   has_attached_file :logo, :styles => { :thumb => "100x100>",
@@ -15,5 +15,20 @@ class StudentAssociation < ActiveRecord::Base
     if w < h
       "small-center-image"
     end
+  end
+
+  def self.default
+    ppit_pusat = where("name like '%pusat%'").first
+    return ppit_pusat unless ppit_pusat.nil?
+    return StudentAssociation.first
+  end
+
+  def self.ordered_list
+    @student_associations = []
+    ppit_pusat = where("name like '%pusat%'").first
+    return StudentAssociation.order("name") if ppit_pusat.nil?
+    @student_associations << ppit_pusat
+    @other = StudentAssociation.where("id <> #{ppit_pusat.id}").order("name")
+    return @student_associations + @other
   end
 end

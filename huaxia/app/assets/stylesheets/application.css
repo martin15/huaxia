@@ -139,6 +139,7 @@ footer{
 .padding_t_b_5{
   padding-top: 5px;
   padding-bottom: 5px;
+  font-size: 15px;
 }
 
 /**************** FOOTER ***************************/
@@ -289,6 +290,14 @@ a.student-association-name{
   font-size: 13px;
 }
 
+.programs span, .programs a{
+  background: url("../assets/arrow-list.png") no-repeat;
+  background-position: center left;
+  padding-left: 23px;
+  margin-bottom: 5px;
+  float: left;
+}
+
 .mini-table-main, .mini-table-main a {
   background-color: #c2272d;
   color: #fff !important;
@@ -419,7 +428,7 @@ select.custom_select{
   text-align: center;
 }
 
-.study-in-china a{
+.study-in-china a, .programs-header a{
   text-decoration: underline;
   color: #a61e22;
 }
@@ -584,8 +593,18 @@ a.accordion-toggle{
   border-bottom: 2px solid #f0e5d2;
 }
 
+
+.margin_l_40_r_20{
+  margin-left: 40px!important;
+  margin-right: 20px!important;
+}
+
 .margin_b_0{
   margin-bottom: 0px!important;
+}
+
+.margin_b_5{
+  margin-bottom: 5px!important;
 }
 
 .margin_b_10{

@@ -5,7 +5,7 @@ Huaxia::Application.routes.draw do
 
   resources :about_us, :only => [:index]
   get "about_us/:child_info" => "about_us#index", :as => "about_us_child_info"
-  resources :student_associations, :only => [:index]
+  #resources :student_associations, :only => [:index]
   resources :tour_travels, :only => [:index]
   get "tour_travels/:child_info" => "tour_travels#index", :as => "tour_travel_child_info"
   get "tour_travels/:child_info/:airline" => "tour_travels#airline_detail", :as => "tour_travel_airline_detail"
@@ -21,10 +21,11 @@ Huaxia::Application.routes.draw do
   get "universities/:city" => "universities#index", :as => "universities"
   get "universities/:city/:permalink" => "universities#show", :as => "university"
   post "universities/search_result" => "universities#search_result", :as => "university_search_result"
-  get "programs" => "features#index", :as => "programs"
-  get "programs/:permalink" => "features#show", :as => "program"
+  get "programs/:category_permalink" => "features#index", :as => "programs"
+  #get "programs/:permalink" => "features#show", :as => "program"
   get "books/:book_type" => "books#index", :as => "books"
   get "book/:book_type/:permalink" => "books#show", :as => "book"
+  get "student_associations/:permalink" => "student_associations#index", :as => "student_associations"
 
   get "login" => "sessions#new", :as => "login"
   get "logout" => "sessions#destroy", :as => "logout"

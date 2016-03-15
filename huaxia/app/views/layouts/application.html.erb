@@ -37,13 +37,15 @@
               <%= link_to "Universities", universities_path("Guilin"),
                           :class => "#{active_menu('universities')}" %>
             </li>
-            <li><%= link_to "Programs", programs_path, :class => "#{active_menu('features')}" %></li>
+            <li><%= link_to "Programs", programs_path(FeatureCategory.first.permalink),
+                            :class => "#{active_menu('features')}" %></li>
             <li>
               <%= link_to "Books", books_path(BookCategory.first.permalink),
                   :class => "#{active_menu('books')}" %>
             </li>
             <li class="student-a-left">
-              <%= link_to raw("Student<br />Association"), student_associations_path,
+              <%= link_to raw("Student<br />Association"), 
+                              student_associations_path(StudentAssociation.default.permalink),
                               :class => "#{active_menu('student_associations')}", :style => "padding-top:0px;" %>
             </li>
             <li><%= link_to "Tour & Travel", tour_travels_path, :class => "#{active_menu('tour_travels')}" %></li>
@@ -67,9 +69,10 @@
             <%= link_to raw("<li>Study In China</li>"),study_in_china_path %>
             <%= link_to raw("<li>Galleries</li>"), categories_path("city") %>
             <%= link_to raw("<li>Universities</li>"), universities_path("Guilin") %>
-            <%= link_to raw("<li>Programs</li>"), programs_path %>
+            <%= link_to raw("<li>Programs</li>"), programs_path(FeatureCategory.first.permalink) %>
             <%= link_to raw("<li>Books</li>"), books_path(BookCategory.first.permalink) %>
-            <%= link_to raw("<li>Student<br />Association</li>"), student_associations_path %>
+            <%= link_to raw("<li>Student<br />Association</li>"), 
+                        student_associations_path(StudentAssociation.default.permalink) %>
             <%= link_to raw("<li class='none-border'>Tour & Travel</li>"),
                         tour_travels_path %>
           </ul><br />
