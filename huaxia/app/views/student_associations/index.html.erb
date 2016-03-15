@@ -25,10 +25,12 @@
   </div>
   <div class="col-xs-12 col-sm-9 col-md-9">
     <div class="col-xs-12 col-sm-5 col-md-6 margin_b_20">
-      <%= link_to (image_tag @student_association.logo.url(:medium),
+      <div class="student-association img-rounded">
+        <%= link_to (image_tag @student_association.logo.url(:medium),
                           :class => "img-responsive img-rounded #{@student_association.logo_position}"),
                           target_url(@student_association.url), :target => "blank" %>
 
+      </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 no-padding-right">
       <p class="margin_b_5">
