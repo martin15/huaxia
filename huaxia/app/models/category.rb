@@ -10,7 +10,7 @@ class Category < ActiveRecord::Base
   TYPE = {
       :city => "City",
       :university => "University",
-      :huaxia_program => "HUAXIA Program"
+      :huaxia_program => "HuaXia Program"
     }
   def self.list_type
     [[Category::TYPE[:city], "city"],
