@@ -5,7 +5,7 @@
   <div class="row">
     <% @categories.each do |category| %>
       <div class="col-xs-6 col-sm-6 col-md-4">
-        <div class="col-md-12 category-gallery">
+        <div class="col-md-12 category-gallery well">
           <%= link_to (image_tag category.icon_image.url(:big), :class => "img-responsive img-rounded"),
                         admin_galleries_path(category.id) %>
           <div class="title">
@@ -23,3 +23,15 @@
   </div>
 </div>
 
+<script>
+$( document ).ready(function() {
+    var heights = $(".well").map(function() {
+        return $(this).height();
+    }).get(),
+
+    maxHeight = Math.max.apply(null, heights);
+
+    $(".well").height(maxHeight);
+});
+
+</script>
