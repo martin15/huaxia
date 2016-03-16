@@ -2,7 +2,7 @@ class FeatureCategory < ActiveRecord::Base
   attr_accessible :name, :color, :permalink
   has_permalink :name, :update => true
 
-  has_many :features
+  has_many :features, :order => :order_no
 
   validates :color, :presence => true
   validates :name, :presence => true,

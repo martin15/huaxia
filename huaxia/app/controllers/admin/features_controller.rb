@@ -3,8 +3,19 @@ class Admin::FeaturesController < Admin::ApplicationController
 
   def index
     params[:page] = params[:page].to_i == 0 ? 1 : params[:page] unless params[:page].nil?
-    @features = Feature.paginate(:page => params[:page], :per_page => 10,
+
+    if params[:category].nil?
+      @features = Feature.paginate(:page => params[:page], :per_page => 10,
                                          :order => "updated_at DESC" )
+    else
+      @category = FeatureCategory.find_by_permalink(params[:category])
+      if @category.nil?
+        redirect_to admin_features_path
+        return
+      end
+      @features = @category.features.paginate(:page => params[:page], :per_page => 10,
+                                         :order => "order_no" )
+    end
     @no = params[:page].nil? ? 0 : (params[:page].to_i-1) * 10
   end
 

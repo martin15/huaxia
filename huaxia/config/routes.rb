@@ -52,8 +52,9 @@ Huaxia::Application.routes.draw do
     resources :student_associations
     resources :universities
     resources :uploaded_files
-    
+
     get  "list_news" => "features#index", :as => "features"
+    get  "list_news_by_category/:category" => "features#index", :as => "features_by_category"
     post "list_news" => "features#create", :as => "features"
     get  "news/new" => "features#new", :as => "new_feature"
     get  "news/:id/edit" => "features#edit", :as => "edit_feature"

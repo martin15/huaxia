@@ -8,8 +8,6 @@ class FeaturesController < ApplicationController
       return
     end
     @programs = @program_category.features
-    puts @programs.inspect
-    puts "\\\\\\"
   end
 
   def show
