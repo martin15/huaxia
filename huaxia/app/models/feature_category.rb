@@ -1,5 +1,5 @@
 class FeatureCategory < ActiveRecord::Base
-  attr_accessible :name, :color, :permalink
+  attr_accessible :name, :color, :permalink, :order_no
   has_permalink :name, :update => true
 
   has_many :features, :order => :order_no

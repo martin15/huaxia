@@ -1,7 +1,7 @@
 class FeaturesController < ApplicationController
 
   def index
-    @program_categories = FeatureCategory.all
+    @program_categories = FeatureCategory.order("order_no")
     @program_category = FeatureCategory.find_by_permalink(params[:category_permalink])
     if @program_category.nil? || params[:category_permalink].nil?
       redirect_to programs_path(@program_categories.first.permalink)

@@ -3,7 +3,7 @@ class Admin::FeatureCategoriesController < Admin::ApplicationController
 
   def index
     params[:page] = params[:page].to_i == 0 ? 1 : params[:page] unless params[:page].nil?
-    @feature_categories = FeatureCategory.paginate(:page => params[:page], :per_page => 10,
+    @feature_categories = FeatureCategory.order("order_no").paginate(:page => params[:page], :per_page => 10,
                                          :order => "name" )
     @no = params[:page].nil? ? 0 : (params[:page].to_i-1) * 10
   end
