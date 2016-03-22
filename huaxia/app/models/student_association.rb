@@ -1,5 +1,5 @@
 class StudentAssociation < ActiveRecord::Base
-  attr_accessible :name, :city, :url, :permalink, :logo, :description
+  attr_accessible :name, :city, :url, :permalink, :logo, :description, :order_no
   has_permalink :name, :update => true
 
   has_attached_file :logo, :styles => { :thumb => "100x100>",
@@ -18,17 +18,7 @@ class StudentAssociation < ActiveRecord::Base
   end
 
   def self.default
-    ppit_pusat = where("name like '%pusat%'").first
-    return ppit_pusat unless ppit_pusat.nil?
-    return StudentAssociation.first
+    StudentAssociation.order(:order_no).first
   end
 
-  def self.ordered_list
-    @student_associations = []
-    ppit_pusat = where("name like '%pusat%'").first
-    return StudentAssociation.order("name") if ppit_pusat.nil?
-    @student_associations << ppit_pusat
-    @other = StudentAssociation.where("id <> #{ppit_pusat.id}").order("name")
-    return @student_associations + @other
-  end
 end

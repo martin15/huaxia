@@ -37,7 +37,7 @@
               <%= link_to "Universities", universities_path("Guilin"),
                           :class => "#{active_menu('universities')}" %>
             </li>
-            <li><%= link_to "Programs", programs_path(FeatureCategory.first.permalink),
+            <li><%= link_to "Programs", programs_path(FeatureCategory.default.permalink),
                             :class => "#{active_menu('features')}" %></li>
             <li>
               <%= link_to "Books", books_path(BookCategory.first.permalink),

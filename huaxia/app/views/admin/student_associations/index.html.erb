@@ -10,6 +10,7 @@
           <th>Name</th>
           <th>City</th>
           <th>URL</th>
+          <th>Order No</th>
           <th>&nbsp;</th>
         </tr>
       </thead>
@@ -20,6 +21,7 @@
             <td><%= student_association.name %></td>
             <td><%= student_association.city %></td>
             <td><%= student_association.url %></td>
+            <td><%= student_association.order_no %></td>
             <td>
               <%= link_to "Edit", edit_admin_student_association_path(student_association.id),
                                   :class => "btn btn-success" %>

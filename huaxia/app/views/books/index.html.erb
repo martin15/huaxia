@@ -51,6 +51,9 @@
         </div>
       </div>
     <% end %>
+    <%= will_paginate @books, :link_separator => " | ",
+                                 :previous_label => "&laquo; previous",
+                                 :next_label => "next &raquo;" %>
   </div>
 
 </div>

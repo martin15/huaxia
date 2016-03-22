@@ -11,4 +11,8 @@ class FeatureCategory < ActiveRecord::Base
   def self.list_type
      self.order("name").map{|x| [x.name, x.id]}
   end
+
+  def self.default
+    FeatureCategory.order(:order_no).first
+  end
 end
