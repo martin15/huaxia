@@ -31,7 +31,8 @@
                           :data => {:toggle => "collapse", :parent => "#accordion"} %>
             </h4>
           </div>
-          <div id="collapse-<%= x+1 %>" class="panel-collapse collapse">
+          <div id="collapse-<%= x+1 %>"
+               class="panel-collapse collapse <%= open_accordion(program, @program) %>">
             <div class="panel-body no-padding-lr margin_l_40_r_20">
               <% if program.feature_image.file? %>
                 <span class="thumbnail program-image">

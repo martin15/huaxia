@@ -33,4 +33,9 @@ module ApplicationHelper
     ["Transit", "transit"]]
 
   end
+
+  def open_accordion(program, selected_program)
+    return if selected_program.nil?
+    "in" if program.id == selected_program.id
+  end
 end
