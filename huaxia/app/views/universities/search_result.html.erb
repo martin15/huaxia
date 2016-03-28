@@ -28,16 +28,24 @@
     <div class="col-xs-12 col-sm-9 col-md-9">
       <%= render :partial => "search" %>
       <h2>Hasil Pencarian untuk '<%= params[:name] %>'</h2>
-      <% @universities.each do |university| %>
-        <div class="col-xs-6 col-sm-4 col-md-4">
-          <div class="univ-logo-thumb img-rounded well">
+      <div class="masonry-university">
+        <% @universities.each do |university| %>
+          <div class="item univ-logo-thumb img-rounded">
             <%= link_to (image_tag university.logo_image.url(:medium), :class => "img-responsive img-rounded"),
-                          university_path(university.city, university.permalink) %>
+                            university_path(university.city, university.permalink) %>
             <%= link_to university.name.humanize, university_path(university.city, university.permalink),
-                        :class => "col-xs-12 col-sm-12 col-md-12 univ-name" %>
+                          :class => "col-xs-12 col-sm-12 col-md-12 univ-name" %>
           </div>
-        </div>
-      <% end %>
+          <%#*<div class="col-xs-6 col-sm-4 col-md-4">%>
+            <%#*<div class="univ-logo-thumb img-rounded well">%>
+              <%#= link_to (image_tag university.logo_image.url(:medium), :class => "img-responsive img-rounded"),
+                            university_path(university.city, university.permalink) %>
+              <%#= link_to university.name.humanize, university_path(university.city, university.permalink),
+                          :class => "col-xs-12 col-sm-12 col-md-12 univ-name" %>
+            <%#*</div>%>
+          <%#*</div>%>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
