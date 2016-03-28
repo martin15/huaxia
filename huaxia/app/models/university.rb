@@ -2,6 +2,7 @@ class University < ActiveRecord::Base
   attr_accessible :name, :address, :phone, :province, :city, :description, :permalink,
                   :logo_image
   has_permalink :name, :update => true
+  has_many :university_details
   has_attached_file :logo_image,
                     :styles => { :thumb => "100>x100", :medium => "200x200>" }
 

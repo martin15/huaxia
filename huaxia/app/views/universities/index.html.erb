@@ -1,3 +1,7 @@
+<% content_for :javascript_includes do %>
+  <%#= javascript_include_tag "masonry.js" %>
+<% end %>
+
 <div class="col-md-12 content">
   <%#*<h2>UNIVERSITIES</h2>%>
   <div class="col-xs-12 col-sm-12 col-md-12">
@@ -29,31 +33,25 @@
       <div class="row">
         <%= render :partial => "search" %>
         <h2><%= @city.humanize.titleize %></h2>
-        <% @universities.each do |university| %>
-          <div class="col-xs-12 col-sm-4 col-md-4">
-            <div class="univ-logo-thumb img-rounded well">
-              <%= link_to (image_tag university.logo_image.url(:medium), :class => "img-responsive img-rounded"),
-                            university_path(@city, university.permalink) %>
-              <%= link_to university.name.humanize, university_path(@city, university.permalink),
-                          :class => "col-xs-12 col-sm-12 col-md-12 univ-name" %>
-            </div>
-          </div>
-        <% end %>
+        <div class="masonry-university">
+          <% @universities.each do |university| %>
+              <div class="item univ-logo-thumb img-rounded">
+                <%= link_to (image_tag university.logo_image.url(:medium), :class => "img-responsive img-rounded"),
+                              university_path(@city, university.permalink) %>
+                <%= link_to university.name.humanize, university_path(@city, university.permalink),
+                            :class => "col-xs-12 col-sm-12 col-md-12 univ-name" %>
+              </div>
+            <%#*<div class="col-xs-12 col-sm-4 col-md-4">%>
+              <%#*<div class="univ-logo-thumb img-rounded well">%>
+                <%#= link_to (image_tag university.logo_image.url(:medium), :class => "img-responsive img-rounded"),
+                              university_path(@city, university.permalink) %>
+                <%#= link_to university.name.humanize, university_path(@city, university.permalink),
+                            :class => "col-xs-12 col-sm-12 col-md-12 univ-name" %>
+              <%#*</div>%>
+            <%#*</div>%>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<script>
-$( document ).ready(function() {
-    var heights = $(".well").map(function() {
-        return $(this).height();
-    }).get(),
-
-    maxHeight = Math.max.apply(null, heights);
-
-    $(".well").height(maxHeight);
-    $("ul.child#<%= @province %>").show();
-});
-
-</script>

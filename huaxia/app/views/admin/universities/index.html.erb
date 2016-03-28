@@ -23,6 +23,7 @@
             <td><%= university.province %></td>
             <td><%= university.city %></td>
             <td>
+              <%= link_to "Details", admin_university_university_details_path(university), :class => "btn btn-default" %>
               <%= link_to "Edit", edit_admin_university_path(university), :class => "btn btn-success" %>
               <%= link_to "Delete", admin_university_path(university.id ), :method => :delete,
                                     :confirm => "Are you sure?", :class => "btn btn-warning" %>

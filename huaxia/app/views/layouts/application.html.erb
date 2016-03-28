@@ -37,8 +37,8 @@
               <%= link_to "Universities", universities_path("Guilin"),
                           :class => "#{active_menu('universities')}" %>
             </li>
-            <li><%= link_to "Programs", programs_path(FeatureCategory.default.permalink),
-                            :class => "#{active_menu('features')}" %></li>
+            <li><%= link_to raw("News & <br />Programs"), programs_path(FeatureCategory.default.permalink),
+                            :class => "#{active_menu('features')}", :style => "padding-top:0px;" %></li>
             <li>
               <%= link_to "Books", books_path(BookCategory.first.permalink),
                   :class => "#{active_menu('books')}" %>
@@ -69,7 +69,7 @@
             <%= link_to raw("<li>Study In China</li>"),study_in_china_path %>
             <%= link_to raw("<li>Galleries</li>"), categories_path("city") %>
             <%= link_to raw("<li>Universities</li>"), universities_path("Guilin") %>
-            <%= link_to raw("<li>Programs</li>"), programs_path(FeatureCategory.first.permalink) %>
+            <%= link_to raw("<li>News & <br/ >Programs</li>"), programs_path(FeatureCategory.first.permalink) %>
             <%= link_to raw("<li>Books</li>"), books_path(BookCategory.first.permalink) %>
             <%= link_to raw("<li>Student<br />Association</li>"), 
                         student_associations_path(StudentAssociation.default.permalink) %>

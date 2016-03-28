@@ -184,6 +184,10 @@ li.none-border{
   margin-right: 0!important;
 }
 
+.category-gallery .img-responsive{
+  width: 100%!important;
+}
+
 .category-gallery .title{
   padding-top: 15px;
   font-size: 14px;
@@ -198,6 +202,25 @@ li.none-border{
   padding: 15px;
   width: 100%;
 }
+
+.masonry-university {
+  -moz-column-count: 3;
+}
+
+.mansory-gallery {
+  -moz-column-count: 2;
+}
+
+.item {
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 1px solid #e3e3e3;
+}
+
+
+
 
 .tour-travel{
   background: #f0e5d2!important;
@@ -691,6 +714,9 @@ a.accordion-toggle{
     height: 125px;
     margin: 0 auto;
   }
+  .masonry-university, .mansory-gallery {
+    -moz-column-count: 1;
+  }
 }
 
 @media (min-width: 768px) {
@@ -720,6 +746,9 @@ a.accordion-toggle{
   .small-center-image{
     height: 150px;
     margin: 0 auto;
+  }
+  .masonry-university {
+    -moz-column-count: 2;
   }
   #guilin, #guangxi{
     left: 57%;
@@ -843,6 +872,9 @@ a.accordion-toggle{
   .small-center-image{
     height: 175px;
     margin: 0 auto;
+  }
+  .masonry-university {
+    -moz-column-count: 3;
   }
   #guilin, #guangxi{
     left: 57%;
@@ -1686,7 +1718,7 @@ p.ad-info{
 }
 
 .news-information{
-  position: relative;
+/*  position: relative;*/
 }
 
 .book-box{

@@ -42,7 +42,25 @@
           Phone : <%= @university.phone %>
         </div>
       <% end %>
-      <div class="text-area"><%= raw @university.description %></div>
+      <div class="text-area">
+        <div class="panel-group" id="accordion">
+        <% @university_details.each_with_index do |university_detail, x| %>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <%= link_to university_detail.title.humanize, "#collapse-#{x+1}", :class => "accordion-toggle",
+                            :data => {:toggle => "collapse", :parent => "#accordion"} %>
+              </h4>
+            </div>
+            <div id="collapse-<%= x+1 %>" class="panel-collapse collapse">
+              <div class="panel-body">
+                <%= raw university_detail.description %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      </div>
     </div>
   </div>
 </div>

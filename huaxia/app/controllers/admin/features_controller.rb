@@ -1,5 +1,5 @@
 class Admin::FeaturesController < Admin::ApplicationController
-  before_filter :find_feature, :only => [:destroy, :edit, :update]
+  before_filter :find_feature, :only => [:destroy, :edit, :update, :show]
 
   def index
     params[:page] = params[:page].to_i == 0 ? 1 : params[:page] unless params[:page].nil?
@@ -21,6 +21,11 @@ class Admin::FeaturesController < Admin::ApplicationController
 
   def new
     @feature = Feature.new
+  end
+
+  def show
+    redirect_to admin_features_path if !@feature.permalink.include?("step-by-step") && @feature.is_parent?
+    @child_features = @feature.child_features
   end
 
   def create

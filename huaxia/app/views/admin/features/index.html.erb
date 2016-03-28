@@ -27,6 +27,11 @@
                      admin_features_by_category_path(feature.try(:feature_category).try(:permalink))) unless feature.try(:feature_category).try(:name).nil? %></td>
             <td><%= feature.order_no %></td>
             <td>
+              <% if feature.try(:feature_category).try(:permalink) == "penyetaraan-ijazah" &&
+                    feature.permalink.include?("step-by-step") %>
+                <%= link_to 'List Child', admin_feature_path(feature.id),
+                                                    :class => "btn btn-info" %>
+              <% end %>
               <%= link_to "Edit", admin_edit_feature_path(feature), :class => "btn btn-success" %>
               <%= link_to "Delete", admin_feature_path(feature), :method => :delete,
                                     :confirm => "Are you sure?", :class => "btn btn-warning" %>

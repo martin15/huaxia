@@ -18,6 +18,7 @@ class UniversitiesController < ApplicationController
     if @university.nil?
       redirect_to root_path
     end
+    @university_details = @university.university_details
     @universities_by_city = University.select(
                             [:name, :permalink, :province, :city]).
                             group_by{ |h| h.province }

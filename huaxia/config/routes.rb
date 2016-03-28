@@ -50,7 +50,9 @@ Huaxia::Application.routes.draw do
     resources :books
     resources :informations
     resources :student_associations
-    resources :universities
+    resources :universities do
+      resources :university_details
+    end
     resources :uploaded_files
 
     get  "list_news" => "features#index", :as => "features"
@@ -58,6 +60,7 @@ Huaxia::Application.routes.draw do
     post "list_news" => "features#create", :as => "features"
     get  "news/new" => "features#new", :as => "new_feature"
     get  "news/:id/edit" => "features#edit", :as => "edit_feature"
+    get  "news/:id" => "features#show", :as => "feature"
     put  "news/:id" => "features#update", :as => "feature"
     delete  "news/:id" => "features#destroy", :as => "feature"
     delete  "news/:id/delete_image" => "features#destroy_image", :as => "feature_delete_image"

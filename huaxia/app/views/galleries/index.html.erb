@@ -24,18 +24,28 @@
     <% end %>
   </div>
   <div class="row col-xs-12 col-sm-9 col-md-9">
-    <% @categories.each do |category| %>
-      <div class="col-xs-6 col-sm-6 col-md-6">
-        <div class="col-md-12 category-gallery well">
-          <%= link_to (image_tag category.icon_image.url(:big), :class => "img-responsive img-rounded"),
-                        category_path(category.permalink) %>
-          <div class="title">
-            <%= link_to "#{category.title.humanize} (#{category.galleries.count})",
-                        category_path(category.permalink) %>
+    <div class="mansory-gallery">
+      <% @categories.each do |category| %>
+          <div class="item category-gallery img-rounded">
+            <%= link_to (image_tag category.icon_image.url(:big), :class => "img-responsive img-rounded"),
+                          category_path(category.permalink) %>
+            <div class="title">
+              <%= link_to "#{category.title.humanize} (#{category.galleries.count})",
+                          category_path(category.permalink) %>
+            </div>
           </div>
-        </div>
-      </div>
-    <% end %>
+        <%#*<div class="col-xs-6 col-sm-6 col-md-6">%>
+          <%#*<div class="col-md-12 category-gallery well">%>
+            <%#= link_to (image_tag category.icon_image.url(:big), :class => "img-responsive img-rounded"),
+                          category_path(category.permalink) %>
+            <%#*<div class="title">%>
+              <%#= link_to "#{category.title.humanize} (#{category.galleries.count})",
+                          category_path(category.permalink) %>
+            <%#*</div>%>
+          <%#*</div>%>
+        <%#*</div>%>
+      <% end %>
+    </div>
   </div>
 </div>
 

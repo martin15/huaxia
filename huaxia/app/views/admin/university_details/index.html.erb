@@ -1,0 +1,43 @@
+<div class="col-md-12 content">
+  <h2><%= @university.name %></h2>
+  <div class="col-md-12">
+    <p><%= raw msg_flash(flash) %></p>
+    <p>
+      <%= link_to "Add new university detail", new_admin_university_university_detail_path %>&nbsp;|&nbsp;
+      <%= link_to "University list", admin_universities_path %>
+    </p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Order No</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @university_details.each_with_index do |university_detail, x| %>
+          <tr>
+            <th scope="row"><%= @no+x+1 %></th>
+            <td><%= university_detail.title %></td>
+            <td><%= university_detail.order_no %></td>
+            <td>
+              <%= link_to "Edit", edit_admin_university_university_detail_path(
+                                    :university_id => @university, :id => university_detail),
+                                  :class => "btn btn-success" %>
+              <%= link_to "Delete", admin_university_university_detail_path(
+                                    :university_id => @university, :id => university_detail),
+                                    :method => :delete,
+                                    :confirm => "Are you sure?", :class => "btn btn-warning" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="admin-row">
+      <%= will_paginate @university_details, :link_separator => " | ",
+                                 :previous_label => "&laquo; previous",
+                                 :next_label => "next &raquo;" %>
+    </div>
+  </div>
+</div>
