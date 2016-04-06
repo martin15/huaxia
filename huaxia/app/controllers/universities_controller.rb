@@ -17,6 +17,7 @@ class UniversitiesController < ApplicationController
     @university = University.find_by_city_and_permalink(params[:city], params[:permalink])
     if @university.nil?
       redirect_to root_path
+      return
     end
     @university_details = @university.university_details
     @universities_by_city = University.select(
