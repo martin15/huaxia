@@ -34,8 +34,11 @@
       <% end %>
       <div class="univ-address">
         <%= @university.address %><br />
-        <%= @university.province %><br />
+        <% unless @university.website.nil? %>
+          <%= link_to @university.website, target_url(@university.website) %><br />
+        <% end %>
         <%= @university.city %><br />
+        <%= @university.province %><br />
       </div>
       <% unless @university.phone.nil? %>
         <div class="univ-phone">

@@ -1,13 +1,14 @@
 <div class="col-md-12 content">
-  <h2><%#= @book_book_type.name.humanize.titleize %></h2>
+  <h2><%= @book_category.name.humanize.upcase %></h2>
   <div class="visible-xs hidden-sm hidden-md hidden-lg">
     <% BookCategory.all.each_with_index do |book_type, x| %>
       <% if book_type.permalink == @book_category.permalink %>
-        <span class="active"><%= book_type.permalink.humanize %></span>
+        <span class="active line-height-sub-menu"><%= book_type.permalink.humanize %></span>
       <% else %>
-        <%= link_to link_to book_type.name, books_path(book_type.permalink) %>
+        <%= link_to link_to book_type.name, books_path(book_type.permalink),
+                    :class=>"line-height-sub-menu" %>
       <% end %>
-      <%= " |" unless BookCategory.all.size == x+1 %>
+      <%= raw "&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;" unless BookCategory.all.size == x+1 %>
     <% end %><br /><br /><br />
   </div>
   <div class="hidden-xs col-sm-3 col-md-3">

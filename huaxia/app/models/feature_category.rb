@@ -1,8 +1,10 @@
 class FeatureCategory < ActiveRecord::Base
-  attr_accessible :name, :color, :permalink, :order_no
+  attr_accessible :name, :color, :permalink, :order_no, :sub_menu_icon
   has_permalink :name, :update => true
 
   has_many :features, :order => :order_no
+
+  has_attached_file :sub_menu_icon, :styles => { :icon => "50x50>" }
 
   validates :color, :presence => true
   validates :name, :presence => true,

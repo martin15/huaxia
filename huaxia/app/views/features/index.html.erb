@@ -1,22 +1,27 @@
 <div class="col-md-12 content">
-  <h2><%#= @program_category.title.upcase %></h2>
+  <h2><%= @program_category.name.upcase %></h2>
   <div class="visible-xs hidden-sm hidden-md hidden-lg">
     <% @program_categories.each_with_index do |program_category, x| %>
       <% if program_category.permalink == @program_category.permalink %>
-        <span class="active"><%= program_category.name.humanize.titleize %></span>
+        <span class="active line-height-sub-menu"><%= program_category.name.humanize.titleize %></span>
       <% else %>
-        <%= link_to program_category.name.humanize, programs_path(program_category.permalink) %>
+        <%= link_to program_category.name.humanize, programs_path(program_category.permalink),
+                    :class=>"line-height-sub-menu" %>
       <% end %>
-      <%= " |" unless @program_categories.size == x+1 %>
+      <%= raw "&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;" unless @program_categories.size == x+1 %>
     <% end %><br /><br /><br />
   </div>
   <div class=" hidden-xs col-sm-3 col-md-3">
     <% @program_categories.each do |program_category| %>
       <div class="col-md-12 padding_t_b_5 margin_b_10">
         <% if program_category.permalink == @program_category.permalink %>
-          <span class="active"><%= program_category.name.humanize.titleize %></span><br />
+          <span class="active">
+            <%= raw(display_icon(program_category.sub_menu_icon)) %>
+            <%= program_category.name.humanize.titleize %>
+          </span><br />
         <% else %>
-          <%= link_to program_category.name.humanize, programs_path(program_category.permalink) %><br />
+          <%= link_to raw("#{display_icon(program_category.sub_menu_icon)}#{program_category.name.humanize}"),
+                      programs_path(program_category.permalink) %><br />
         <% end %>
       </div>
     <% end %>
@@ -27,7 +32,9 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <%= link_to program.title.humanize, "#collapse-#{x+1}", :class => "accordion-toggle",
+              <%= link_to raw("#{display_icon(program.sub_menu_icon)}#{program.title.humanize}"),
+                          "#collapse-#{x+1}", 
+                          :class => "#{accordion_with_image(program.sub_menu_icon)}",
                           :data => {:toggle => "collapse", :parent => "#accordion"} %>
             </h4>
           </div>

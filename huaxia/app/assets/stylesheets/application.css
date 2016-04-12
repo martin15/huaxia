@@ -463,6 +463,14 @@ select.custom_select{
     float: right;        /* adjust as needed */
     color: grey;         /* adjust as needed */
 }
+.panel-heading .accordion-toggle-with-icon:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+    color: grey;         /* adjust as needed */
+    margin-top: 8px;
+}
 .panel-heading .accordion-toggle.collapsed:after {
     /* symbol for "collapsed" panels */
     content: "\e080";    /* adjust as needed, taken from bootstrap.css */
@@ -607,7 +615,18 @@ a.accordion-toggle{
 
 
 
+.sub-menu-font{
+  font-size: 14px;
+}
 
+.line-height-sub-menu{
+  line-height: 2
+}
+.sub-menu-icon{
+  height: 30px;
+  max-width: 30px;
+  margin-right: 5px;
+}
 
 .text-right { text-align:right; }
 .text-center { text-align:center; }
@@ -629,6 +648,10 @@ a.accordion-toggle{
 
 .margin_b_0{
   margin-bottom: 0px!important;
+}
+
+.margin_t_5{
+  margin-top: 5px!important;
 }
 
 .margin_b_5{

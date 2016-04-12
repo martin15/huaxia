@@ -8,6 +8,7 @@
         <tr>
           <th>#</th>
           <th>Name</th>
+          <th>Icon</th>
           <th>Order No</th>
           <th>color</th>
           <th>&nbsp;</th>
@@ -18,6 +19,7 @@
           <tr>
             <td scope="row"><%= @no+x+1 %></td>
             <td><%= feature_category.name %></td>
+            <td><%= image_tag feature_category.sub_menu_icon.url(:icon) %></td>
             <td><%= feature_category.order_no %></td>
             <td>
               <div class="display" style="background-color:#<%= feature_category.color %>">&nbsp; </div>

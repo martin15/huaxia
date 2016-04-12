@@ -1,7 +1,5 @@
 <div class="col-md-12 content">
-  <%#*<h2>%>
-<%#= params[:type].humanize.upcase %>
-    <%#*GALLERIES</h2>%>
+  <h2><%= params[:type].humanize.upcase %> GALLERIES</h2>
   <div class="visible-xs hidden-sm hidden-md hidden-lg">
     <% Category.list_type.each_with_index do |category, x| %>
       <% if category[0].humanize == params[:type].humanize %>

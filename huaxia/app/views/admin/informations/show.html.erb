@@ -8,6 +8,7 @@
         <tr>
           <th>#</th>
           <th>Title</th>
+          <th>Icon</th>
           <%=  raw "<th>Order</th>" if @information.permalink.include?("step-by-step") %>
           <th>&nbsp;</th>
         </tr>
@@ -17,6 +18,7 @@
           <tr>
             <th scope="row"><%= x+1 %></th>
             <td><%= information.title.humanize %></td>
+            <td><%= image_tag information.sub_menu_icon.url(:icon) %></td>
             <%= raw "<td>#{information.order_no}</td>" if @information.permalink.include?("step-by-step") %>
             <td>
               <% unless ["tiket-pesawat"].include?(information.permalink) %>

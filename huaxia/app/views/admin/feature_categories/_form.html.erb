@@ -35,6 +35,18 @@
     <%= f.text_field :order_no, :class => "form-control" %>
   </div>
 </div>
+<div class="form-group margin_b_0">
+  <%= f.label :sub_menu_icon, "Icon *", :class => "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.file_field :sub_menu_icon, :class => "control-label btn btn-default btn-file" %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-2">&nbsp;</div>
+  <div class="col-sm-10">
+    please input image with size 50x50 (width x height)
+  </div>
+</div>
 <div class="form-group margin_b_30">
   <%= f.label :color, "Color *", :class => "col-sm-2 control-label" %>
   <div class="col-sm-10">

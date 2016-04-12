@@ -1,23 +1,26 @@
 <div class="col-md-12 content">
-  <h2><%#= @child_info.title.upcase %></h2>
+  <h2><%= @child_info.title.upcase %></h2>
   <div class="visible-xs hidden-sm hidden-md hidden-lg">
     <% @list_child_info.each_with_index do |child_info, x| %>
       <% if child_info.permalink == @child_info.permalink %>
-        <span class="active"><%= child_info.title.humanize %></span>
+        <span class="active line-height-sub-menu"><%= child_info.title.humanize %></span>
       <% else %>
         <%= link_to child_info.title.humanize,
-                    study_in_china_child_info_path(child_info.permalink) %>
+                    study_in_china_child_info_path(child_info.permalink), :class=>"line-height-sub-menu" %>
       <% end %>
-      <%= " |" unless @list_child_info.size == x+1 %>
+      <%= raw "&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;" unless @list_child_info.size == x+1 %>
     <% end %><br /><br /><br />
   </div>
   <div class=" hidden-xs col-sm-3 col-md-3">
     <% @list_child_info.each do |child_info| %>
       <div class="col-md-12 padding_t_b_5">
         <% if child_info.permalink == @child_info.permalink %>
-          <span class="active"><%= child_info.title.humanize %></span><br />
+          <span class="active">
+            <%= raw(display_icon(child_info.sub_menu_icon)) %>
+            <%= child_info.title.humanize %>
+          </span><br />
         <% else %>
-          <%= link_to child_info.title.humanize,
+          <%= link_to raw("#{display_icon(child_info.sub_menu_icon)}#{child_info.title.humanize}"),
                       study_in_china_child_info_path(child_info.permalink) %><br />
         <% end %>
       </div>
@@ -30,7 +33,8 @@
           <div class="panel panel-default">
             <div class="panel-heading">
               <h4 class="panel-title">
-                <%= link_to info.title.humanize, "#collapse-#{x+1}", :class => "accordion-toggle",
+                <%= link_to raw("#{display_icon(info.sub_menu_icon)}#{info.title.humanize}"),
+                            "#collapse-#{x+1}", :class => "#{accordion_with_image(info.sub_menu_icon)}",
                             :data => {:toggle => "collapse", :parent => "#accordion"} %>
               </h4>
             </div>

@@ -1,12 +1,14 @@
 class Book < ActiveRecord::Base
   attr_accessible :name, :price, :description, :available, :book_image, :permalink,
-                  :book_type, :discount_price, :book_category_id
+                  :book_type, :discount_price, :book_category_id, :sub_menu_icon
   has_permalink :name, :update => true
 
   has_attached_file :book_image, :styles => { :thumb => "100x100>",
                                               :medium => "200x200",
                                               :big => "400x400" }
 
+  has_attached_file :sub_menu_icon, :styles => { :icon => "50x50>" }
+  
   belongs_to :book_category
 
   validates_attachment_presence :book_image

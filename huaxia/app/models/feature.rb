@@ -1,7 +1,8 @@
 class Feature < ActiveRecord::Base
   attr_accessor :delete_image
   attr_accessible :title, :short_description, :destination, :color, :permalink, :display_at_home,
-                  :description, :feature_image, :feature_category_id, :delete_image, :order_no
+                  :description, :feature_image, :feature_category_id, :delete_image, :order_no,
+                  :sub_menu_icon
   has_permalink :title, :update => true
 
   has_many :child_features, :class_name => "Feature", :foreign_key => :parent_id
@@ -11,6 +12,9 @@ class Feature < ActiveRecord::Base
   has_attached_file :feature_image, :styles => {:thumb => "200x200>", :medium => "400x400>",
                                                 :large => "600x600>"
   }
+
+  has_attached_file :sub_menu_icon, :styles => { :icon => "50x50>" }
+
   validates :title, :presence => true,
             :length => {:minimum => 1, :maximum => 254}
 

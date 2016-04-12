@@ -11,6 +11,7 @@
         <tr>
           <th>#</th>
           <th>Title</th>
+          <th>Icon</th>
           <th>Short Description</th>
           <th>Category</th>
           <th>Order No</th>
@@ -22,6 +23,7 @@
           <tr>
             <th scope="row"><%= @no+x+1 %></th>
             <td><%= feature.title %></td>
+            <td><%= image_tag feature.sub_menu_icon.url(:icon) %></td>
             <td><%= truncate(feature.short_description, :length => 150) %></td>
             <td><%= link_to(feature.try(:feature_category).try(:name),
                      admin_features_by_category_path(feature.try(:feature_category).try(:permalink))) unless feature.try(:feature_category).try(:name).nil? %></td>

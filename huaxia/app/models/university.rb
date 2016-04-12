@@ -1,6 +1,6 @@
 class University < ActiveRecord::Base
   attr_accessible :name, :address, :phone, :province, :city, :description, :permalink,
-                  :logo_image
+                  :logo_image, :website
   has_permalink :name, :update => true
   has_many :university_details
   has_attached_file :logo_image,

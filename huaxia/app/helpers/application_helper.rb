@@ -38,4 +38,15 @@ module ApplicationHelper
     return if selected_program.nil?
     "in" if program.id == selected_program.id
   end
+
+  def display_icon(icon)
+    if icon.exists?
+      return(image_tag icon.url(:icon), :class => "sub-menu-icon")
+    end
+  end
+
+  def accordion_with_image(icon)
+    return icon.exists? ? "accordion-toggle-with-icon" : "accordion-toggle"
+  end
+
 end
