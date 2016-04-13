@@ -45,6 +45,20 @@ module ApplicationHelper
     end
   end
 
+  def display_icon_and_text(child_info)
+    str = ""
+    if child_info.sub_menu_icon.exists?
+      str = "<span class='icon-side-menu'>
+              #{image_tag child_info.sub_menu_icon.url(:icon), :class => "sub-menu-icon"}
+             </span>"
+    end
+    if child_info.class == FeatureCategory
+      str += "<span class='text-side-menu'>#{child_info.name.humanize}</span>"
+    else
+      str += "<span class='text-side-menu'>#{child_info.title.humanize}</span>"
+    end
+  end
+
   def accordion_with_image(icon)
     return icon.exists? ? "accordion-toggle-with-icon" : "accordion-toggle"
   end

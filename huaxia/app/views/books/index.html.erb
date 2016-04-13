@@ -1,5 +1,5 @@
 <div class="col-md-12 content">
-  <h2><%= @book_category.name.humanize.upcase %></h2>
+  <h2>BOOKS<%#= @book_category.name.humanize.upcase %></h2>
   <div class="visible-xs hidden-sm hidden-md hidden-lg">
     <% BookCategory.all.each_with_index do |book_type, x| %>
       <% if book_type.permalink == @book_category.permalink %>

@@ -1,5 +1,5 @@
 <div class="col-md-12 content">
-  <h2><%= params[:type].humanize.upcase %> GALLERIES</h2>
+  <h2><%#= params[:type].humanize.upcase %> GALLERIES</h2>
   <div class="visible-xs hidden-sm hidden-md hidden-lg">
     <% Category.list_type.each_with_index do |category, x| %>
       <% if category[0].humanize == params[:type].humanize %>
@@ -14,9 +14,14 @@
     <% Category.list_type.each do |category| %>
       <div class="col-md-12 padding_t_b_5 margin_b_5">
         <% if category[0].humanize == params[:type].humanize %>
-          <span class="active"><%= category[0] %></span><br />
+          <span class="active">
+            <%= image_tag "#{category[0].gsub(/\s/,'_').downcase}.png", :class => "sub-menu-icon" %>
+            <%= category[0] %>
+          </span><br />
         <% else %>
-          <%= link_to category[0], categories_path(category[1]) %><br />
+          <%= link_to raw("#{image_tag "#{category[0].gsub(/\s/,'_').downcase}.png", :class => "sub-menu-icon"}
+                       #{category[0]}"),
+                      categories_path(category[1]) %><br />
         <% end %>
       </div>
     <% end %>

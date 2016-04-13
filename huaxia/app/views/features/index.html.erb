@@ -1,5 +1,5 @@
 <div class="col-md-12 content">
-  <h2><%= @program_category.name.upcase %></h2>
+  <h2>NEWS & PROGRAMS <%#= @program_category.name.upcase %></h2>
   <div class="visible-xs hidden-sm hidden-md hidden-lg">
     <% @program_categories.each_with_index do |program_category, x| %>
       <% if program_category.permalink == @program_category.permalink %>
@@ -16,11 +16,11 @@
       <div class="col-md-12 padding_t_b_5 margin_b_10">
         <% if program_category.permalink == @program_category.permalink %>
           <span class="active">
-            <%= raw(display_icon(program_category.sub_menu_icon)) %>
-            <%= program_category.name.humanize.titleize %>
+            <span class="icon-side-menu"><%= raw(display_icon(program_category.sub_menu_icon)) %></span>
+            <span class="icon-side-menu"><%= program_category.name.humanize.titleize %></span>
           </span><br />
         <% else %>
-          <%= link_to raw("#{display_icon(program_category.sub_menu_icon)}#{program_category.name.humanize}"),
+          <%= link_to raw(display_icon_and_text(program_category)),
                       programs_path(program_category.permalink) %><br />
         <% end %>
       </div>

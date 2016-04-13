@@ -100,6 +100,10 @@ a.navbar-brand{
   font-size: 40px;
 }*/
 
+h2{
+  font-size: 25px;
+}
+
 footer{
   background-color: #a61e22;
   color: #fefce5;
@@ -218,6 +222,17 @@ li.none-border{
   -webkit-box-sizing: border-box;
   border: 1px solid #e3e3e3;
 }
+
+span.icon-side-menu{
+  width: 35px;
+  float: left;
+}
+span.text-side-menu{
+  width: 150px;
+  float: left;
+  font-size: 16px;
+}
+
 
 
 
