@@ -13,7 +13,7 @@
   </div>
   <div class=" hidden-xs col-sm-3 col-md-3">
     <% @list_child_info.each do |child_info| %>
-      <div class="col-md-12 padding_t_b_5">
+      <div class="col-md-12 padding_t_b_5 margin_b_10">
         <% if child_info.permalink == @child_info.permalink %>
           <span class="active">
             <span class="icon-side-menu"><%= raw(display_icon(child_info.sub_menu_icon)) %></span>

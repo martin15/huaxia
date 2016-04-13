@@ -17,7 +17,7 @@
         <% if program_category.permalink == @program_category.permalink %>
           <span class="active">
             <span class="icon-side-menu"><%= raw(display_icon(program_category.sub_menu_icon)) %></span>
-            <span class="icon-side-menu"><%= program_category.name.humanize.titleize %></span>
+            <span class="text-side-menu"><%= program_category.name.humanize.titleize %></span>
           </span><br />
         <% else %>
           <%= link_to raw(display_icon_and_text(program_category)),
