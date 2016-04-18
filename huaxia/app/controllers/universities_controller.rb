@@ -26,7 +26,7 @@ class UniversitiesController < ApplicationController
   end
 
   def search_result
-    @universities = University.where("name like '%#{params[:name]}%'")
+    @universities = University.where("#{params[:search_by]} like '%#{params[:name]}%'")
     @provinces = University.select([:province,:city]).group([:province,:city] ).group_by{ |h| h.province }
   end
 end

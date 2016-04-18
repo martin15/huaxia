@@ -1,4 +1,14 @@
 <div class="col-md-12 content">
+  <% flash.each do |key, value| %>
+    <% unless value.blank? %>
+      <div class="alert alert-<%= flash_type(key) %> alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <%= value %>
+      </div>
+    <% end %>
+  <% end %>
   <h2>STUDY IN CHINA<%#= @child_info.title.upcase %></h2>
   <div class="visible-xs hidden-sm hidden-md hidden-lg">
     <% @list_child_info.each_with_index do |child_info, x| %>
@@ -47,7 +57,46 @@
         <% end %>
       </div>
     <% else %>
-      <%= raw @child_info.content %>
+      <%= raw @child_info.content %><br />
+      <% if @child_info.permalink.include?("pendaftaran") %>
+      <div class="clear" ></div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+           <%= form_for @registration_file, :url => upload_registration_form_path(@child_info.permalink),
+                        :html => {:class => "form-horizontal", :multipart => true} do |f| %>
+            <%= f.error_messages %>
+            <div class="form-group">
+              <%= f.label :sender_name, "Name *", :class => "col-xs-12 col-sm-3 col-md-2" %>
+              <div class="col-xs-12 col-sm-9 col-md-10">
+                <%= f.text_field :sender_name, :class => "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :email, "Email *", :class => "col-xs-12 col-sm-3 col-md-2" %>
+              <div class="col-xs-12 col-sm-9 col-md-10">
+                <%= f.text_field :email, :class => "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :attachment, "FIle *", :class => "col-xs-12 col-sm-3 col-md-2" %>
+              <div class="col-xs-12 col-sm-9 col-md-10">
+                <%= f.file_field :attachment, :class => "control-label btn btn-default btn-file" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-12 col-sm-3 col-md-2">&nbsp;</div>
+              <div class="col-xs-12 col-sm-9 col-md-10">
+                <%= recaptcha_tags %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-12 col-sm-3 col-md-2">&nbsp;</div>
+              <div class="col-xs-12 col-sm-9 col-md-10">
+                <%= f.submit "Upload File", :class => "btn btn-success" %>
+              </div>
+            </div>
+           <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

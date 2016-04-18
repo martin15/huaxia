@@ -1,0 +1,48 @@
+<div class="col-md-12 content">
+  <h2>Registration File</h2>
+  <div class="col-md-12">
+    <p><%= raw msg_flash(flash) %></p>
+    <p><%= link_to "Uploaded File", admin_uploaded_files_path %></p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Sender Name</th>
+          <th>Email</th>
+          <th>File Name</th>
+          <th>Uploaded Date</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @registration_files.each_with_index do |registration_file, x| %>
+          <tr>
+            <th scope="row"><%= @no+x+1 %></th>
+            <td><%= registration_file.sender_name %></td>
+            <td><%= registration_file.email %></td>
+            <td>
+              <% if registration_file.attachment.file? %>
+                <%= registration_file.attachment.url %>
+              <% else %>
+                File Not Found
+              <% end %>
+            </td>
+            <td><%= registration_file.created_at.try(:strftime, "%d %b %Y") %></td>
+            <td>
+              <%= link_to "Download", registration_file.attachment.url, :class => "btn btn-success" %>
+              <%= link_to "Delete", admin_registration_file_path(registration_file), :method => :delete,
+                                    :confirm => "Are you sure?", :class => "btn btn-warning" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody> 
+    </table>
+    <div class="admin-row">
+      <%= will_paginate @registration_files, :link_separator => " | ",
+                                 :previous_label => "&laquo; previous",
+                                 :next_label => "next &raquo;" %>
+
+    </div>
+  </div>
+</div>
+

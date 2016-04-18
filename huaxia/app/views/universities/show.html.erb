@@ -33,9 +33,8 @@
         <%= image_tag @university.logo_image.url(:medium), :class => "img-responsive" %>
       <% end %>
       <div class="univ-address">
-        <%= @university.address %><br />
-        <%= @university.city %><br />
-        <%= @university.province %><br />
+        <%= @university.address %><br /><br />
+        <%= @university.city %>, <%= @university.province %><br /><br />
         <% unless @university.website.nil? %>
           <%= link_to @university.website, target_url(@university.website) %><br />
         <% end %>

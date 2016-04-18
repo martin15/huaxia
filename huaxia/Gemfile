@@ -16,6 +16,7 @@ gem 'exception_notification', '2.4.1'
 gem 'dynamic_form'
 gem 'permalink_fu'
 gem 'jquery-qtip2-rails'
+gem 'recaptcha', '0.3.1', :require => 'recaptcha/rails'
 
 
 # Gems used only for assets and not required

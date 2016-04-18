@@ -2,7 +2,10 @@
   <h2>Attachment File</h2>
   <div class="col-md-12">
     <p><%= raw msg_flash(flash) %></p>
-    <p><%= link_to "Add new uploaded file", new_admin_uploaded_file_path %></p>
+    <p>
+      <%= link_to "Add new uploaded file", new_admin_uploaded_file_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
+      <%= link_to "Registration Form", admin_registration_files_path %>
+    </p>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -28,7 +31,7 @@
       </tbody> 
     </table>
     <div class="admin-row">
-      <%= will_paginate @airlines, :link_separator => " | ",
+      <%= will_paginate @uploaded_files, :link_separator => " | ",
                                  :previous_label => "&laquo; previous",
                                  :next_label => "next &raquo;" %>
 

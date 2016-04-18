@@ -1,12 +1,21 @@
+<% content_for :javascript_includes do %>
+  <%= stylesheet_link_tag "bootstrap-select.css" %>
+  <%= javascript_include_tag "bootstrap-select.js" %>
+<% end %>
+
 <div class="col-xs-12 col-sm-12 col-md-12 univ-search-bar">
   <div class="row">
     <%= form_tag university_search_result_path do %>
-      <div class="col-xs-12 col-sm-4 col-md-3 no-padding-lr text-right">
-        <p>Nama Universitas :</p>
+      <div class="col-xs-12 col-sm-4 col-md-3 no-padding-lr">
+        <%= select_tag "search_by", options_for_select([["Nama", "name"],["Kota", "city"],
+                                                       ["Provinsi", "province"]], params[:search_by]),
+                                    :class => "selectpicker form-control" %>
       </div>
       <div class="col-xs-12 col-sm-8 col-md-8">
         <div class="input-group">
-          <%= text_field_tag "name", params[:name], :class => "form-control", :placeholder => "Search for..." %>
+          
+          <%= text_field_tag "name", params[:name], :class => "form-control", 
+                             :placeholder => "Cari..." %>
           <span class="input-group-btn">
             <%= submit_tag "Cari", :class => "btn btn-default" %>
           </span>

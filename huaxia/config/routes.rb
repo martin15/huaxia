@@ -13,6 +13,7 @@ Huaxia::Application.routes.draw do
 
   resources :testimonials, :only => [:index, :show]
   get "study_in_china" => "info_study#index", :as => "study_in_china"
+  post "study_in_china/upload_registration_form/:child_info" => "info_study#upload_registration_form", :as => "upload_registration_form"
   get "study_in_china/:child_info" => "info_study#index", :as => "study_in_china_child_info"
 #  get "hsk" => "hsk#index", :as => "hsk"
   get "learning_mandarin" => "learning_mandarin#index", :as => "learning_mandarin"
@@ -49,6 +50,7 @@ Huaxia::Application.routes.draw do
     resources :book_categories
     resources :books
     resources :informations
+    resources :registration_files
     resources :student_associations
     resources :universities do
       resources :university_details

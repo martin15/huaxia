@@ -63,4 +63,11 @@ module ApplicationHelper
     return icon.exists? ? "accordion-toggle-with-icon" : "accordion-toggle"
   end
 
+  def flash_type(type)
+     return 'danger' if type.to_s == 'recaptcha_error'
+     return 'danger' if type.to_s == 'alert'
+     return 'danger' if type.to_s == 'error'
+     return 'success' if type.to_s == 'notice'
+  end
+
 end
