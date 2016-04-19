@@ -62,7 +62,7 @@
         <% end %>
       </div>
     <% else %>
-      <% if @child_info.permalink.include?("pendaftaran") %>
+      <% if @child_info.permalink == "pendaftaran" %>
         <div class="col-xs-12 col-sm-12 col-md-12">
            <%= form_for @registration_file, :url => upload_registration_form_path(@child_info.permalink),
                         :html => {:class => "form-horizontal", :multipart => true} do |f| %>

@@ -80,7 +80,7 @@
                                "#", :data => {:toggle=>"modal", :target => "#myModal"} %>
                 </span>
               <% end %>
-              <% if program.permalink.include?("pendaftaran") %>
+              <% if program.permalink == "pendaftaran-beasiswa" %>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                    <%= form_for @registration_file, :url => program_upload_registration_form_path(@program_category.permalink),
                                 :html => {:class => "form-horizontal", :multipart => true} do |f| %>
