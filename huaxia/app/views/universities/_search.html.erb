@@ -7,8 +7,9 @@
   <div class="row">
     <%= form_tag university_search_result_path do %>
       <div class="col-xs-12 col-sm-4 col-md-3 no-padding-lr">
-        <%= select_tag "search_by", options_for_select([["Nama", "name"],["Kota", "city"],
-                                                       ["Provinsi", "province"]], params[:search_by]),
+        <%= select_tag "search_by", options_for_select([["Cari Berdasarkan", nil],
+                                                        ["Nama Universitas", "name"],["Kota", "city"],
+                                                        ["Provinsi", "province"]], params[:search_by]),
                                     :class => "selectpicker form-control" %>
       </div>
       <div class="col-xs-12 col-sm-8 col-md-8">

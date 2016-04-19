@@ -14,6 +14,13 @@ class Admin::RegistrationFilesController < Admin::ApplicationController
     redirect_to admin_registration_files_path
   end
 
+  def download_registration_forms
+    @registration_files = RegistrationFile.all
+    respond_to do |format|
+      format.xls
+    end
+  end
+
   private
     def find_registration_file
       @registration_file = RegistrationFile.find_by_id(params[:id])

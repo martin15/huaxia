@@ -1,0 +1,65 @@
+<table class="table table-hover" border="1">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nama</th>
+      <th>Email</th>
+      <th>TTL</th>
+      <th>Passport</th>
+      <th>Passport Exp</th>
+      <th>Beasiswa</th>
+      <th>Universitas 1</th>
+      <th>Universitas 2</th>
+      <th>Universitas lain</th>
+      <th>Program</th>
+      <th>Jurusan</th>
+      <th>Level HSK</th>
+      <th>TOEFL Score</th>
+      <th>FC Legalisir Ijazah</th>
+      <th>FC Legalisir Translate  Ijazah</th>
+      <th>FC Legalisir Raport/Transkrip</th>
+      <th>FC Legalisir Translate Raport/Transkrip</th>
+      <th>Passport</th>
+      <th>Pas Foto</th>
+      <th>Medical Check Up</th>
+      <th>Study Plan</th>
+      <th>Surat Rekomendasi</th>
+      <th>HSK</th>
+      <th>Proposal Disertasi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @registration_files.each_with_index do |registration_file, x| %>
+      <tr>
+        <th scope="row"><%= x+1 %></th>
+        <td><%= registration_file.sender_name %></td>
+        <td><%= registration_file.email %></td>
+        <td>
+          <%= registration_file.birthday_place %>&nbsp;/&nbsp;
+          <%= registration_file.birthday.try(:strftime, "%d %b %Y") %>
+        </td>
+        <td><%= registration_file.passport_number %></td>
+        <td><%= registration_file.passport_exipred_date.try(:strftime, "%d %b %Y") %></td>
+        <td><%= registration_file.beasiswa.blank? ? "no" : registration_file.beasiswa %></td>
+        <td><%= registration_file.try(:univ_1).try(:name) %></td>
+        <td><%= registration_file.try(:univ_2).try(:name) %></td>
+        <td><%= registration_file.other_university %></td>
+        <td><%= registration_file.program %></td>
+        <td><%= registration_file.major %></td>
+        <td><%= registration_file.hsk_level %></td>
+        <td><%= registration_file.toefl_score %></td>
+        <td><%= registration_file.fc_legalisir_ijazah %></td>
+        <td><%= registration_file.fc_legalisir_translate_ijazah %></td>
+        <td><%= registration_file.fc_legalisir_raport_transkip %></td>
+        <td><%= registration_file.fc_legalisir__translate_raport_transkip %></td>
+        <td><%= registration_file.passport %></td>
+        <td><%= registration_file.pas_foto %></td>
+        <td><%= registration_file.medical_check_up %></td>
+        <td><%= registration_file.study_plan %></td>
+        <td><%= registration_file.surat_rekomendasi %></td>
+        <td><%= registration_file.hsk %></td>
+        <td><%= registration_file.proposal_disertasi %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

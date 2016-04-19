@@ -32,6 +32,7 @@ class InfoStudyController < ApplicationController
     if verify_recaptcha
       if @registration_file.save
         flash[:notice] = "File successfully uploaded"
+        RegistrationConfirmationMailer.after_registration(@registration_file, the_domain).deliver_now
         @info = Information.where("permalink like 'pendaftaran%'")[0]
         if @info.nil?
           redirect_to study_in_china_path

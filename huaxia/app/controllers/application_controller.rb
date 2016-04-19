@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
     @temp_univ = @universities.empty? ? nil : @universities.first.first
   end
 
+  def the_domain
+    host = request.host == "localhost" ? "#{request.host}:#{request.port}" : request.host
+    return host
+  end
 end

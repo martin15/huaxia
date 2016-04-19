@@ -22,6 +22,7 @@ Huaxia::Application.routes.draw do
   get "universities/:city" => "universities#index", :as => "universities"
   get "universities/:city/:permalink" => "universities#show", :as => "university"
   post "universities/search_result" => "universities#search_result", :as => "university_search_result"
+  post "programs/upload_registration_form/:category_permalink" => "features#upload_registration_form", :as => "program_upload_registration_form"
   get "programs/:category_permalink" => "features#index", :as => "programs"
   #get "programs/:permalink" => "features#show", :as => "program"
   get "books/:book_type" => "books#index", :as => "books"
@@ -50,7 +51,9 @@ Huaxia::Application.routes.draw do
     resources :book_categories
     resources :books
     resources :informations
-    resources :registration_files
+    resources :registration_files, :only => [:index, :destroy]
+    get "registration_files/download_registration_forms" => "registration_files#download_registration_forms",
+        :as => "download_registration_forms"
     resources :student_associations
     resources :universities do
       resources :university_details

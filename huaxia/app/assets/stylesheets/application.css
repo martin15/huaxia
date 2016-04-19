@@ -476,7 +476,8 @@ select.custom_select{
     font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
     content: "\e114";    /* adjust as needed, taken from bootstrap.css */
     float: right;        /* adjust as needed */
-    color: grey;         /* adjust as needed */
+    color: grey
+        ;         /* adjust as needed */
 }
 .panel-heading .accordion-toggle-with-icon:after {
     /* symbol for "opening" panels */
@@ -486,7 +487,9 @@ select.custom_select{
     color: grey;         /* adjust as needed */
     margin-top: 8px;
 }
-.panel-heading .accordion-toggle.collapsed:after {
+
+.panel-heading .accordion-toggle.collapsed:after,
+.panel-heading .accordion-toggle-with-icon.collapsed:after {
     /* symbol for "collapsed" panels */
     content: "\e080";    /* adjust as needed, taken from bootstrap.css */
 }
@@ -625,7 +628,14 @@ a.accordion-toggle{
   border-bottom-right-radius: 5px;
 }
 
+.small_font{
+  font-size: 9px;
+  font-style: italic;
+}
 
+.field_with_errors > .form-control{
+  border-color: red;
+}
 
 
 
@@ -788,6 +798,19 @@ a.accordion-toggle{
   .masonry-university {
     -moz-column-count: 2;
   }
+  span.icon-side-menu{
+    width: 35px;
+    float: left;
+  }
+  span.text-side-menu{
+    width: 100px;
+    float: left;
+    font-size: 14px;
+  }
+  .no_p_lr{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
   #guilin, #guangxi{
     left: 57%;
     top: 82%;
@@ -913,6 +936,15 @@ a.accordion-toggle{
   }
   .masonry-university {
     -moz-column-count: 3;
+  }
+  span.icon-side-menu{
+    width: 40px;
+    float: left;
+  }
+  span.text-side-menu{
+    width: 120px;
+    float: left;
+    font-size: 16px;
   }
   #guilin, #guangxi{
     left: 57%;

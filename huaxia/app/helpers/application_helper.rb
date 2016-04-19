@@ -60,7 +60,7 @@ module ApplicationHelper
   end
 
   def accordion_with_image(icon)
-    return icon.exists? ? "accordion-toggle-with-icon" : "accordion-toggle"
+    return icon.exists? ? "accordion-toggle-with-icon collapsed" : "accordion-toggle collapsed"
   end
 
   def flash_type(type)

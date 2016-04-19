@@ -1,0 +1,12 @@
+<h2>User Registration</h2><br />
+
+<p>Hello Admin!</p>
+
+<p>There is a new registration from</p>
+<p>Name : <%= @user.sender_name %></p>
+<p>Email : <%= @user.email %></p>
+
+<br /><br />
+
+<p>For detail information please follow this   <%= link_to "link",
+                                               "#{@domain}/admin/registration_files", :target => "blank" %></p>
