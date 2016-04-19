@@ -12,10 +12,7 @@ class FeaturesController < ApplicationController
       return
     end
     @programs = @program_category.features
-    programs_permalink = @programs.map{|x| x.permalink}
-    if programs_permalink.include?("pendaftaran")
-      @registration_file = RegistrationFile.new()
-    end
+    @registration_file = RegistrationFile.new()
   end
 
   def show
