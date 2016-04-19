@@ -13,8 +13,8 @@ class Category < ActiveRecord::Base
       :huaxia_program => "HuaXia Program"
     }
   def self.list_type
-    [[Category::TYPE[:city], "city"],
-     [Category::TYPE[:university], "university"],
+    [[Category::TYPE[:university], "university"],
+     [Category::TYPE[:city], "city"],
      [Category::TYPE[:huaxia_program], "huaxia_program"]]
   end
 end

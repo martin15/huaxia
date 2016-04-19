@@ -37,7 +37,7 @@ class FeaturesController < ApplicationController
     if verify_recaptcha
       if @registration_file.save
         flash[:notice] = "Registrasi berhasil dilakukan"
-        RegistrationConfirmationMailer.after_registration(@registration_file, the_domain).deliver_now
+        #RegistrationConfirmationMailer.after_registration(@registration_file, the_domain).deliver_now
         unless @program_category.nil?
           redirect_to programs_path(@program_category.permalink)
         else
