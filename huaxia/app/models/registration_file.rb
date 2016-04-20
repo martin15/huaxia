@@ -22,12 +22,13 @@ class RegistrationFile < ActiveRecord::Base
   validates :email, :presence => {:message => "anda tidak boleh kosong"},
                     :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
                                  :message => "format salah"}
-  validates :birthday_place, :presence => {:message => "anda tidak boleh kosong"}
+  #validates :birthday_place, :presence => {:message => "anda tidak boleh kosong"}
   validates :birthday, :presence => {:message => "anda tidak boleh kosong"}
   validates :passport_number, :presence => {:message => "anda tidak boleh kosong"}
   validates :passport_exipred_date, :presence => {:message => "anda tidak boleh kosong"}
   validates :program, :presence => {:message => "anda tidak boleh kosong"}
   validates :major, :presence => {:message => "anda tidak boleh kosong"}
+  validates :major_2, :presence => {:message => "anda tidak boleh kosong"}
   validates :hsk_level, :presence => {:message => "anda tidak boleh kosong"}
   validates :toefl_score, :presence => {:message => "anda tidak boleh kosong"}
 
