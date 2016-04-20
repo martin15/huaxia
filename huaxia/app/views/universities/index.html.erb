@@ -5,13 +5,14 @@
 <div class="col-md-12 content">
   <h2>UNIVERSITIES</h2>
   <div class="col-xs-12 col-sm-12 col-md-12">
-    <div class="list-univ-by-province col-xs-6 col-sm-3 col-md-3">
+    <div class="list-univ-by-province col-xs-6 col-sm-4 col-md-3">
       <h3>Province List</h3>
       <div class="col-xs-12 col-sm-12 col-md-12">
         <ul>
           <% @provinces.each do |province, cities| %>
-            <li><%= link_to province, "javascript:void(0)",
-                                  :onclick => "display_sub_menu('#{province}');" %>
+              <li><%= link_to raw("#{display_icon_for_province(province)} #{province}"),
+                            "javascript:void(0)",
+                            :onclick => "display_sub_menu('#{province}');" %>
               <ul class="child" id="<%= province %>">
                 <% cities.each do |city| %>
                   <li>
@@ -29,7 +30,7 @@
         </ul>
       </div>
     </div>
-    <div class="col-xs-6 col-sm-9 col-md-9">
+    <div class="col-xs-6 col-sm-8 col-md-9">
       <div class="row">
         <%= render :partial => "search" %>
         <h2><%= @city.humanize.titleize %></h2>

@@ -13,11 +13,15 @@
   </div>
   <div class="hidden-xs col-sm-3 col-md-3">
     <% BookCategory.all.each do |book_type| %>
-      <div class="col-md-12 padding_t_b_5">
+      <div class="col-md-12 padding_t_b_5 margin_b_10 no_p_lr">
         <% if book_type.permalink == @book_category.permalink %>
-          <span class="active"><%= book_type.permalink.humanize %></span><br />
+          <span class="active">
+            <span class="icon-side-menu"><%= raw(display_icon(book_type.sub_menu_icon)) %></span>
+            <span class="text-side-menu"><%= book_type.permalink.humanize.titleize %></span>
+          </span><br />
         <% else %>
-          <%= link_to book_type.name, books_path(book_type.permalink) %><br />
+          <%= link_to raw(display_icon_and_text(book_type)),
+                      books_path(book_type.permalink) %><br />
         <% end %>
       </div>
     <% end %>

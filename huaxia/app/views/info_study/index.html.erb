@@ -81,61 +81,62 @@
               </div>
             </div>
             <div class="form-group">
-              <%= f.label :birthday_place, "Tempat *", :class => "col-xs-12 col-sm-3 col-md-3" %>
-              <div class="col-xs-12 col-sm-3 col-md-4">
-                <%= f.text_field :birthday_place, :class => "form-control" %>
-              </div>
-              <%= f.label :birthday, "Tgl Lahir *", :class => "col-xs-12 col-sm-3 col-md-2" %>
-              <div class="col-xs-12 col-sm-3 col-md-3">
+              <%= f.label :birthday, "Tgl Lahir *", :class => "col-xs-12 col-sm-3 col-md-3" %>
+              <div class="col-xs-12 col-sm-3 col-md-9">
                 <%= f.text_field :birthday, :class => "form-control birthday" %>
               </div>
             </div>
             <div class="form-group">
-              <%= f.label :passport_number, "Passport Number *", :class => "col-xs-12 col-sm-3 col-md-3" %>
+              <%= f.label :passport_number, "Paspor Number *", :class => "col-xs-12 col-sm-3 col-md-3" %>
               <div class="col-xs-12 col-sm-9 col-md-9">
                 <%= f.text_field :passport_number, :class => "form-control" %>
               </div>
             </div>
             <div class="form-group">
-              <%= f.label :passport_exipred_date, "Passport Exp Date *", :class => "col-xs-12 col-sm-3 col-md-3" %>
+              <%= f.label :passport_exipred_date, "Exp Paspor *", :class => "col-xs-12 col-sm-3 col-md-3" %>
               <div class="col-xs-12 col-sm-9 col-md-9">
                 <%= f.text_field :passport_exipred_date, :class => "form-control exp_date" %>
               </div>
             </div>
             <div class="form-group">
-              <%= f.label :university_1, "Universitas 1 *", :class => "col-xs-12 col-sm-3 col-md-3" %>
+              <%= f.label :program, "Program Study *", :class => "col-xs-12 col-sm-3 col-md-3" %>
               <div class="col-xs-12 col-sm-9 col-md-9">
+                        <% program_study = params[:registration_file].nil? ? nil : params[:registration_file][:program] %>
+                        <%= f.select :program, options_for_select(program_study_list,
+                                                      program_study),
+                                     {:include_blank => true}, {:class => "selectpicker form-control"} %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :university_1, "Universitas 1 *", :class => "col-xs-12 col-sm-3 col-md-3" %>
+              <div class="col-xs-12 col-sm-9 col-md-4">
                 <% selected_1 = params[:registration_file].nil? ? nil : params[:registration_file][:university_1] %>
                 <%= f.select :university_1, grouped_options_for_select(University.university_list,
                                                       selected_1),
-                             {}, {:class => "selectpicker form-control"} %>
+                             {:include_blank => true}, {:class => "selectpicker form-control"} %>
+              </div>
+              <%= f.label :major, "Jurusan*", :class => "col-xs-12 col-sm-3 col-md-1 no-padding-right no-padding-left" %>
+              <div class="col-xs-12 col-sm-9 col-md-4">
+                <%= f.text_field :major, :class => "form-control" %>
               </div>
             </div>
             <div class="form-group">
               <%= f.label :university_2, "Universitas 2 *", :class => "col-xs-12 col-sm-3 col-md-3" %>
-              <div class="col-xs-12 col-sm-9 col-md-9">
+              <div class="col-xs-12 col-sm-9 col-md-4">
                 <% selected_2 = params[:registration_file].nil? ? nil : params[:registration_file][:university_2] %>
                 <%= f.select :university_2, grouped_options_for_select(University.university_list,
                                                       selected_2),
-                             {}, {:class => "selectpicker form-control"} %>
+                             {:include_blank => true}, {:class => "selectpicker form-control"} %>
+              </div>
+              <%= f.label :major_2, "Jurusan*", :class => "col-xs-12 col-sm-3 col-md-1 no-padding-right no-padding-left" %>
+              <div class="col-xs-12 col-sm-9 col-md-4">
+                <%= f.text_field :major_2, :class => "form-control" %>
               </div>
             </div>
             <div class="form-group">
               <%= f.label :other_university, "Universitas Lainnya", :class => "col-xs-12 col-sm-3 col-md-3" %>
               <div class="col-xs-12 col-sm-9 col-md-9">
                 <%= f.text_field :other_university, :class => "form-control" %>
-              </div>
-            </div>
-            <div class="form-group">
-              <%= f.label :program, "Program Study *", :class => "col-xs-12 col-sm-3 col-md-3" %>
-              <div class="col-xs-12 col-sm-9 col-md-9">
-                <%= f.text_field :program, :class => "form-control" %>
-              </div>
-            </div>
-            <div class="form-group">
-              <%= f.label :major, "Jurusan *", :class => "col-xs-12 col-sm-3 col-md-3" %>
-              <div class="col-xs-12 col-sm-9 col-md-9">
-                <%= f.text_field :major, :class => "form-control" %>
               </div>
             </div>
             <div class="form-group">
@@ -151,36 +152,39 @@
               </div>
             </div>
             <div class="form-group">
-              <%= label_tag "syarat", "Syarat", :class => "col-xs-12 col-sm-3 col-md-3" %>
+              <%= label_tag "syarat", raw("Syarat Dokumen<br />
+                                        <span class='small_font'>(Mohon ceklist syarat dokumen yang sudah 
+                                                ada saat ini)</span>"),
+                              :class => "col-xs-12 col-sm-3 col-md-3" %>
               <div class="col-xs-12 col-sm-9 col-md-9">
                 <div class="checkbox">
                   <label>
                     <%= f.check_box :fc_legalisir_ijazah, {}, 'yes', 'no' %>
-                    Fotocopy Legalisir Ijazah
+                    Fotokopi Legalisir Ijazah
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
                     <%= f.check_box :fc_legalisir_translate_ijazah, {}, 'yes', 'no' %>
-                    Fotocopy Legalisir translate Ijazah
+                    Fotokopi Legalisir Translate Ijazah
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
                     <%= f.check_box :fc_legalisir_raport_transkip, {}, 'yes', 'no' %>
-                    Fotocopy Legalisir raport/transkrip
+                    Fotokopi Legalisir Raport/Transkrip
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
                     <%= f.check_box :fc_legalisir__translate_raport_transkip, {}, 'yes', 'no' %>
-                    Fotocopy Legalisir translate raport/transkrip
+                    Fotokopi Legalisir Translate Raport/Transkrip
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
                     <%= f.check_box :passport, {}, 'yes', 'no' %>
-                     Passport
+                     Fotokopi Paspor
                   </label>
                 </div>
                 <div class="checkbox">
@@ -207,7 +211,9 @@
            <% end %><br /><br />
         </div>
       <% end %>
-      <%= raw @child_info.content %><br />
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <%= raw @child_info.content %><br />
+      </div>
     <% end %>
   </div>
 </div>

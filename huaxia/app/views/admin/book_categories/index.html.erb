@@ -8,6 +8,7 @@
         <tr>
           <th>#</th>
           <th>Name</th>
+          <th>Icon</th>
           <th>&nbsp;</th>
         </tr>
       </thead>
@@ -16,6 +17,7 @@
           <tr>
             <th scope="row"><%= @no+x+1 %></th>
             <td><%= book_category.name %></td>
+            <td><%= image_tag book_category.sub_menu_icon.url(:icon) %></td>
             <td>
               <%= link_to "Edit", edit_admin_book_category_path(book_category), :class => "btn btn-success" %>
               <%= link_to "Delete", admin_book_category_path(book_category.id ), :method => :delete,

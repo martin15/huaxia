@@ -8,6 +8,7 @@
         <tr>
           <th>#</th>
           <th>Name</th>
+          <th>Icon</th>
           <th>City</th>
           <th>URL</th>
           <th>Order No</th>
@@ -19,6 +20,7 @@
           <tr>
             <th scope="row"><%= @no+x+1 %></th>
             <td><%= student_association.name %></td>
+            <td><%= image_tag student_association.sub_menu_icon.url(:icon) %></td>
             <td><%= student_association.city %></td>
             <td><%= student_association.url %></td>
             <td><%= student_association.order_no %></td>

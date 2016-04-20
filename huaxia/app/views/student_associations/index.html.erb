@@ -16,9 +16,12 @@
     <% @student_associations.each do |student_association| %>
       <div class="col-md-12 padding_t_b_5 margin_b_10">
         <% if student_association.permalink == @student_association.permalink %>
-          <span class="active"><%= student_association.name.humanize.titleize %></span><br />
+          <span class="active">
+            <span class="icon-side-menu"><%= raw(display_icon(student_association.sub_menu_icon)) %></span>
+            <span class="text-side-menu"><%= student_association.name.humanize.titleize %></span>
+          </span><br />
         <% else %>
-          <%= link_to student_association.name.humanize, 
+          <%= link_to raw(display_icon_and_text(student_association)),
                       student_associations_path(student_association.permalink) %><br />
         <% end %>
       </div>

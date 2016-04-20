@@ -223,15 +223,7 @@ li.none-border{
   border: 1px solid #e3e3e3;
 }
 
-span.icon-side-menu{
-  width: 40px;
-  float: left;
-}
-span.text-side-menu{
-  width: 145px;
-  float: left;
-  font-size: 16px;
-}
+
 
 
 
@@ -942,7 +934,7 @@ a.accordion-toggle{
     float: left;
   }
   span.text-side-menu{
-    width: 120px;
+    width: 150px;
     float: left;
     font-size: 16px;
   }
@@ -1069,6 +1061,15 @@ a.accordion-toggle{
   .small-center-image{
     height: 200px;
     margin: 0 auto;
+  }
+  span.icon-side-menu{
+    width: 40px;
+    float: left;
+  }
+  span.text-side-menu{
+    width: 175px;
+    float: left;
+    font-size: 16px;
   }
   #guilin, #guangxi{
     left: 57%;

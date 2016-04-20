@@ -7,20 +7,21 @@
       <% else %>
         <%= link_to category[0], categories_path(category[1]) %>
       <% end %>
-      <%= " |" unless Category.list_type.size == x+1 %>
+      <%= raw "&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;" unless Category.list_type.size == x+1 %>
     <% end %><br /><br /><br />
   </div>
   <div class="hidden-xs col-sm-3 col-md-3">
     <% Category.list_type.each do |category| %>
-      <div class="col-md-12 padding_t_b_5 margin_b_5">
+      <div class="col-md-12 padding_t_b_5 margin_b_10 no_p_lr">
         <% if category[0].humanize == params[:type].humanize %>
           <span class="active">
-            <%= image_tag "#{category[0].gsub(/\s/,'_').downcase}.png", :class => "sub-menu-icon" %>
-            <%= category[0] %>
+            <span class="icon-side-menu">
+              <%= image_tag "#{category[0].gsub(/\s/,'_').downcase}.png", :class => "sub-menu-icon" %>
+            </span>
+            <span class="text-side-menu"><%= category[0] %></span>
           </span><br />
         <% else %>
-          <%= link_to raw("#{image_tag "#{category[0].gsub(/\s/,'_').downcase}.png", :class => "sub-menu-icon"}
-                       #{category[0]}"),
+          <%= link_to raw(display_icon_for_gallery(category[0])),
                       categories_path(category[1]) %><br />
         <% end %>
       </div>
