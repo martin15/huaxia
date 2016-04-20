@@ -163,7 +163,7 @@
                       <div class="col-xs-12 col-sm-9 col-md-9">
                         <% hsk_l = params[:registration_file].nil? ? nil : params[:registration_file][:hsk_level] %>
                         <%= f.select :hsk_level, options_for_select(hsk_list, hsk_l),
-                                     {}, {:class => "selectpicker form-control"} %>
+                                     {:include_blank => true}, {:class => "selectpicker form-control"} %>
                       </div>
                     </div>
                     <div class="form-group">
@@ -240,6 +240,12 @@
                         </div>
                         <div class="checkbox">
                           <label>
+                            <%= f.check_box :hskk, {}, 'yes', 'no' %>
+                            HSKK
+                          </label>
+                        </div>
+                        <div class="checkbox">
+                          <label>
                             <%= f.check_box :toefl, {}, 'yes', 'no' %>
                             TOEFL
                           </label>
@@ -289,8 +295,7 @@ $(window).load(function() {
     $('.exp_date').datepicker({
       format: 'yyyy-mm-dd',
       autoclose: true,
-      orientation: 'auto bottom',
-      startDate: '+180d'
+      orientation: 'auto bottom'
     })
     if( $('#myModal').length == 1){
       $('#myModal').modal('show');
