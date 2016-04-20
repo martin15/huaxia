@@ -14,7 +14,7 @@
   </div>
   <div class=" hidden-xs col-sm-3 col-md-3">
     <% @student_associations.each do |student_association| %>
-      <div class="col-md-12 padding_t_b_5 margin_b_10">
+      <div class="col-md-12 padding_t_b_5 margin_b_10 no_p_lr">
         <% if student_association.permalink == @student_association.permalink %>
           <span class="active">
             <span class="icon-side-menu"><%= raw(display_icon(student_association.sub_menu_icon)) %></span>

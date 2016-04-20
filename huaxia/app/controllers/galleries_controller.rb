@@ -7,7 +7,7 @@ class GalleriesController < ApplicationController
       redirect_to root_path
       return
     end
-    @categories = @categories.paginate(:page => params[:page], :per_page => 9,
+    @categories = @categories.paginate(:page => params[:page], :per_page => 30,
                                          :order => "created_at DESC" )
   end
 

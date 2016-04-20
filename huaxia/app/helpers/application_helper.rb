@@ -85,4 +85,8 @@ module ApplicationHelper
     ["Non Degree Bahasa","S1", "Bahasa + S1", "S2", "Bahasa + S2", "S3", "Bahasa + S3"]
   end
 
+  def hsk_list
+    [ "Tidak Punya","1", "2", "3", "4", "5", "6"]
+  end
+
 end
