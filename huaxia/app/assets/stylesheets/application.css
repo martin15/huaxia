@@ -198,7 +198,7 @@ li.none-border{
   text-align: center;
 }
 
-.univ-logo-thumb, .ppit, .tour-travel, .student-association{
+/*.univ-logo-thumb,*/ .ppit, .tour-travel, .student-association{
   margin-bottom: 20px;
   background: #fff none repeat scroll 0 0;
   overflow: hidden;
@@ -212,8 +212,9 @@ li.none-border{
 }
 
 .mansory-gallery {
-  -moz-column-count: 2;
+  -moz-column-count: 3;
 }
+.grid-item { width: 33.33% }
 
 .item {
   width: 100%;
@@ -628,6 +629,15 @@ a.accordion-toggle{
 .field_with_errors > .form-control{
   border-color: red;
 }
+
+.birthMonth, .birthDate{
+  margin-right: 20px;
+}
+
+
+
+
+
 
 
 
@@ -1079,6 +1089,9 @@ a.accordion-toggle{
     width: 175px;
     float: left;
     font-size: 16px;
+  }
+  .fix-height{
+    max-height:200px;
   }
   #guilin, #guangxi{
     left: 57%;

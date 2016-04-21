@@ -1,5 +1,5 @@
 <% content_for :javascript_includes do %>
-  <%= javascript_include_tag "bootstrap-datepicker", "bootstrap-select" %>
+  <%= javascript_include_tag "bootstrap-datepicker", "bootstrap-select", "jquery-birthday-picker" %>
   <%= stylesheet_link_tag "bootstrap-datepicker", "bootstrap-select" %>
 <% end %>
 
@@ -87,7 +87,7 @@
                     <%= f.error_messages %>
                     <%= hidden_field_tag "registration_file[beasiswa]", "yes" %>
                     <div class="form-group">
-                      <%= f.label :sender_name, raw("Nama <span class='small_font'>(sesuai Passport)</span> *"),
+                      <%= f.label :sender_name, raw("Nama <span class='small_font'>(sesuai Paspor)</span> *"),
                                   :class => "col-xs-12 col-sm-3 col-md-3 no-padding-left" %>
                       <div class="col-xs-12 col-sm-9 col-md-9">
                         <%= f.text_field :sender_name, :class => "form-control" %>
@@ -101,8 +101,8 @@
                     </div>
                     <div class="form-group">
                       <%= f.label :birthday, "Tgl Lahir *", :class => "col-xs-12 col-sm-3 col-md-3 no-padding-left" %>
-                      <div class="col-xs-12 col-sm-3 col-md-9">
-                        <%= f.text_field :birthday, :class => "form-control birthday" %>
+                      <div class="col-xs-12 col-sm-3 col-md-9 form-inline">
+                        <div id="birthdayPicker2"></div>
                       </div>
                     </div>
                     <div class="form-group">
@@ -300,6 +300,10 @@ $(window).load(function() {
       orientation: 'auto bottom',
       endDate: '-5340d'
     })
+    $("#birthdayPicker2").birthdayPicker({
+      monthFormat: "long",
+      sizeClass: "col-md-4 no-padding-lr form-control"
+    });
     $('.exp_date').datepicker({
       format: 'yyyy-mm-dd',
       autoclose: true,

@@ -34,9 +34,10 @@
       <div class="row">
         <%= render :partial => "search" %>
         <h2><%= @city.humanize.titleize %></h2>
-        <div class="masonry-university">
+        <div class="masonry- grid">
+          <div class="grid-sizer col-xs-4 col-md-12"></div>
           <% @universities.each do |university| %>
-              <div class="item univ-logo-thumb img-rounded">
+              <div class="grid-item col-md-12 univ-logo-thumb img-rounded">
                 <%= link_to (image_tag university.logo_image.url(:medium), :class => "img-responsive img-rounded"),
                               university_path(@city, university.permalink) %>
                 <%= link_to university.name.humanize, university_path(@city, university.permalink),
@@ -56,3 +57,14 @@
     </div>
   </div>
 </div>
+
+<script>
+$( document ).ready(function() {
+  $('.grid').masonry({
+    itemSelector: '.grid-item',
+    columnWidth: '.grid-sizer',
+    percentPosition: true
+  });
+});
+
+</script>

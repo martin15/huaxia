@@ -27,6 +27,7 @@ class InfoStudyController < ApplicationController
       redirect_to study_in_china_path if @child_info.nil?
     end
     @list_child_info = info.child_info
+    params[:registration_file][:birthday] = params[:birthdayPicker_birthDay]
     @registration_file = RegistrationFile.new(params[:registration_file])
 
     if verify_recaptcha

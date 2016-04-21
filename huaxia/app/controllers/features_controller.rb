@@ -32,6 +32,7 @@ class FeaturesController < ApplicationController
     end
     @programs = @program_category.features
     @program = @programs.where("permalink like '%pendaftaran%'")[0]
+    params[:registration_file][:birthday] = params[:birthdayPicker2_birthDay]
     @registration_file = RegistrationFile.new(params[:registration_file])
 
     if verify_recaptcha
