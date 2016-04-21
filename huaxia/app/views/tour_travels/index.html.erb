@@ -1,37 +1,39 @@
 <div class="col-md-12 content">
+  <% if session[:user_id].nil? %>
   <h3>Mohon maaf...Konten sedang diperbaharui....</h3>
-  <!--
-  <%#*<h2><%#= @child_info.title.upcase %></h2>%>
-  <%#*<div class="visible-xs hidden-sm hidden-md hidden-lg">%>
-    <%# @list_child_info.each_with_index do |child_info, x| %>
-      <%# if child_info.permalink == @child_info.permalink %>
-        <%#*<span class="active"><%= child_info.title.humanize %></span>%>
-      <%# else %>
-        <%#= link_to child_info.title.humanize,
+  <% else %>
+  <h2><%#= @child_info.title.upcase %></h2>
+  <div class="visible-xs hidden-sm hidden-md hidden-lg">
+    <% @list_child_info.each_with_index do |child_info, x| %>
+      <% if child_info.permalink == @child_info.permalink %>
+        <span class="active"><%= child_info.title.humanize %></span>
+      <% else %>
+        <%= link_to child_info.title.humanize,
                     tour_travel_child_info_path(child_info.permalink) %>
-      <%# end %>
-      <%#= " |" unless @list_child_info.size == x+1 %>
-    <%# end %><br /><br /><br />
-  <%#*</div>%>
-  <%#*<div class="hidden-xs col-sm-3 col-md-3">%>
-    <%# @list_child_info.each do |child_info| %>
-      <%#*<div class="col-md-12 padding_t_b_5">%>
-        <%# if child_info.permalink == @child_info.permalink %>
-          <%#*<span class="active"><%= child_info.title.humanize %></span><br />%>
-        <%# else %>
-          <%#= link_to child_info.title.humanize,
+      <% end %>
+      <%= " |" unless @list_child_info.size == x+1 %>
+    <% end %><br /><br /><br />
+  </div>
+  <div class="hidden-xs col-sm-3 col-md-3">
+    <% @list_child_info.each do |child_info| %>
+      <div class="col-md-12 padding_t_b_5">
+        <% if child_info.permalink == @child_info.permalink %>
+          <span class="active"><%= child_info.title.humanize %></span><br />
+        <% else %>
+          <%= link_to child_info.title.humanize,
                       tour_travel_child_info_path(child_info.permalink) %><br />
-        <%# end %>
-      <%#*</div>%>
-    <%# end %>
-  <%#*</div>%>
-  <%#*<div class="col-xs-12 col-sm-9 col-md-9">%>
-    <%# if !@airlines.blank? && params[:child_info] == "tiket-pesawat" %>
-      <%#= render :partial => "airlines", :locals => { :airlines => @airlines} %>
-    <%# else %>
-      <%#= raw @child_info.content %>
-    <%# end %>
-  <%#*</div>%>
-  -->
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-xs-12 col-sm-9 col-md-9">
+    <% if !@airlines.blank? && params[:child_info] == "tiket-pesawat" %>
+      <%= render :partial => "airlines", :locals => { :airlines => @airlines} %>
+    <% else %>
+      <%= raw @child_info.content %>
+    <% end %>
+  </div>
+  <% end %>
+
 </div>
 
