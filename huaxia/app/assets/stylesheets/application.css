@@ -207,6 +207,10 @@ li.none-border{
   width: 100%;
 }
 
+.univ-logo-thumb{
+  margin-bottom: 20px;
+}
+
 .masonry-university {
   -moz-column-count: 3;
 }
@@ -254,6 +258,10 @@ li.none-border{
 
 .univ-logo-thumb a.univ-name, a.student-association-name{
   text-align: center;
+}
+
+.univ-logo-thumb a.univ-name{
+  height: 50px;
 }
 
 a.student-association-name{
