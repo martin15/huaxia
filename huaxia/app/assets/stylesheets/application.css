@@ -736,6 +736,15 @@ a.accordion-toggle{
   #menu-nav ul li a:hover{
     background-color:#fff!important;
   }
+
+  .sub-menu-icon{
+    height: 20px;
+    max-width: 20px;
+    margin-right: 5px;
+  }
+  .list-univ-by-province ul > li > a, .list-univ-by-province ul > li > span{
+    font-size:12px;
+  }
   .category-gallery{
     padding: 15px;
   }

@@ -89,4 +89,8 @@ module ApplicationHelper
     [ "Tidak Punya","1", "2", "3", "4", "5", "6"]
   end
 
+  def hskk_list
+    [ "Tidak Punya","Basic", "Intermediate", "Advance"]
+  end
+
 end
