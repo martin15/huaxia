@@ -8,7 +8,7 @@ class Admin::CategoriesController < Admin::ApplicationController
       return
     end
     @categories = Category.where("category_type = '#{params[:type]}'").includes("galleries").
-                                paginate(:page => params[:page], :per_page => 12,
+                                paginate(:page => params[:page], :per_page => 99,
                                          :order => "created_at DESC" )
   end
 
