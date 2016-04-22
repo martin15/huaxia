@@ -113,8 +113,8 @@
                     </div>
                     <div class="form-group">
                       <%= f.label :passport_exipred_date, "Exp Paspor *", :class => "col-xs-12 col-sm-3 col-md-3 no-padding-left" %>
-                      <div class="col-xs-12 col-sm-9 col-md-9">
-                        <%= f.text_field :passport_exipred_date, :class => "form-control exp_date" %>
+                      <div class="col-xs-12 col-sm-9 col-md-9 form-inline">
+                        <div id="exp_passport_picker"></div>
                       </div>
                     </div>
                     <div class="form-group">
@@ -128,27 +128,27 @@
                     </div>
                     <div class="form-group">
                       <%= f.label :university_1, "Universitas 1 *", :class => "col-xs-12 col-sm-3 col-md-3 no-padding-left" %>
-                      <div class="col-xs-12 col-sm-9 col-md-4">
+                      <div class="col-xs-12 col-sm-4 col-md-4">
                         <% selected_1 = params[:registration_file].nil? ? nil : params[:registration_file][:university_1] %>
                         <%= f.select :university_1, grouped_options_for_select(University.university_list,
                                                       selected_1),
                                      {:include_blank => true}, {:class => "selectpicker form-control"} %>
                       </div>
-                      <%= f.label :major, "Jurusan*", :class => "col-xs-12 col-sm-3 col-md-1 no-padding-right no-padding-left" %>
-                      <div class="col-xs-12 col-sm-9 col-md-4">
+                      <%= f.label :major, "Jurusan*", :class => "col-xs-12 col-sm-2 col-md-1 no-padding-right no-padding-left" %>
+                      <div class="col-xs-12 col-sm-3 col-md-4">
                         <%= f.text_field :major, :class => "form-control" %>
                       </div>
                     </div>
                     <div class="form-group">
                       <%= f.label :university_2, "Universitas 2 *", :class => "col-xs-12 col-sm-3 col-md-3 no-padding-left" %>
-                      <div class="col-xs-12 col-sm-9 col-md-4">
+                      <div class="col-xs-12 col-sm-4 col-md-4">
                         <% selected_2 = params[:registration_file].nil? ? nil : params[:registration_file][:university_2] %>
                         <%= f.select :university_2, grouped_options_for_select(University.university_list,
                                                       selected_2),
                                       {:include_blank => true}, {:class => "selectpicker form-control"} %>
                       </div>
-                      <%= f.label :major_2, "Jurusan*", :class => "col-xs-12 col-sm-3 col-md-1 no-padding-right no-padding-left" %>
-                      <div class="col-xs-12 col-sm-9 col-md-4">
+                      <%= f.label :major_2, "Jurusan*", :class => "col-xs-12 col-sm-2 col-md-1 no-padding-right no-padding-left" %>
+                      <div class="col-xs-12 col-sm-3 col-md-4">
                         <%= f.text_field :major_2, :class => "form-control" %>
                       </div>
                     </div>
@@ -159,19 +159,27 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <%= f.label :hsk_level, "Level HSK *", :class => "col-xs-12 col-sm-3 col-md-3 no-padding-left" %>
-                      <div class="col-xs-12 col-sm-9 col-md-9">
+                      <%= f.label :hsk_level, "Level HSK", :class => "col-xs-12 col-sm-3 col-md-3 no-padding-left" %>
+                      <div class="col-xs-12 col-sm-4 col-md-4">
                         <% hsk_l = params[:registration_file].nil? ? nil : params[:registration_file][:hsk_level] %>
                         <%= f.select :hsk_level, options_for_select(hsk_list, hsk_l),
                                      {:include_blank => true}, {:class => "selectpicker form-control"} %>
                       </div>
+                      <%= f.label :hsk_score, "Nilai HSK", :class => "col-xs-12 col-sm-2 col-md-2 no-padding-right no-padding-left" %>
+                      <div class="col-xs-12 col-sm-3 col-md-3">
+                        <%= f.text_field :hsk_score, :class => "form-control" %>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <%= f.label :hskk_level, "Level HSKK *", :class => "col-xs-12 col-sm-3 col-md-3 no-padding-left" %>
-                      <div class="col-xs-12 col-sm-9 col-md-9">
+                      <%= f.label :hskk_level, "Level HSKK", :class => "col-xs-12 col-sm-3 col-md-3 no-padding-left" %>
+                      <div class="col-xs-12 col-sm-4 col-md-4">
                         <% hskk_l = params[:registration_file].nil? ? nil : params[:registration_file][:hskk_level] %>
-                        <%= f.select :hsk_level, options_for_select(hskk_list, hskk_l),
+                        <%= f.select :hskk_level, options_for_select(hskk_list, hskk_l),
                                      {:include_blank => true}, {:class => "selectpicker form-control"} %>
+                      </div>
+                      <%= f.label :hskk_score, "Nilai HSKK", :class => "col-xs-12 col-sm-2 col-md-2 no-padding-right no-padding-left" %>
+                      <div class="col-xs-12 col-sm-3 col-md-3">
+                        <%= f.text_field :hskk_score, :class => "form-control" %>
                       </div>
                     </div>
                     <div class="form-group">
@@ -304,6 +312,12 @@ $(window).load(function() {
     })
     $("#birthdayPicker2").birthdayPicker({
       monthFormat: "long",
+      sizeClass: "col-md-4 no-padding-lr form-control"
+    });
+    $("#exp_passport_picker").birthdayPicker({
+      monthFormat: "long",
+      minAge: 0,
+      maxYear: '<%= Date.today.year.to_i + 10 %>',
       sizeClass: "col-md-4 no-padding-lr form-control"
     });
     $('.exp_date').datepicker({

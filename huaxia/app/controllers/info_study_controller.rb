@@ -28,6 +28,7 @@ class InfoStudyController < ApplicationController
     end
     @list_child_info = info.child_info
     params[:registration_file][:birthday] = params[:birthdayPicker_birthDay]
+    params[:registration_file][:passport_exipred_date] = params[:exp_passport_picker_birthDay]
     @registration_file = RegistrationFile.new(params[:registration_file])
 
     if verify_recaptcha
