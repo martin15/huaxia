@@ -755,7 +755,8 @@ a.accordion-toggle{
   #menu-nav ul li a:hover{
     background-color:#fff!important;
   }
-
+  .grid-item { width: 100% }
+  .list-univ-by-province ul li ul.child li{margin-bottom:15px;}
   .sub-menu-icon{
     height: 20px;
     max-width: 20px;
