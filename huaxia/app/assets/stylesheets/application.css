@@ -320,6 +320,7 @@ a.student-association-name{
 .list-univ-by-province ul li ul.child{
   display: none;
   margin-top: 10px;
+  margin-left: 30px;
 }
 
 .list-univ-by-province ul li ul.child li{
