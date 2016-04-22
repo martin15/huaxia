@@ -6,7 +6,7 @@ class RegistrationFile < ActiveRecord::Base
                   :fc_legalisir_raport_transkip, :fc_legalisir__translate_raport_transkip,
                   :passport, :pas_foto, :medical_check_up, :study_plan, :surat_rekomendasi,
                   :hsk, :proposal_disertasi, :beasiswa, :major_2, :toefl, :hskk, :hskk_level,
-                  :hskk_score, :hsk_score
+                  :hskk_score, :hsk_score, :phone
 
   has_attached_file :attachment
 
