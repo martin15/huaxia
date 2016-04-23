@@ -39,11 +39,11 @@
             <%#*</div>%>
           <%#*</div>%>
 
-        <div class="col-xs-6 col-sm-6 col-md-6">
+        <div class="col-xs-6 col-sm-6 col-md-6 padding_for_univ">
           <div class="col-xs-12 col-sm-12 col-md-12 category-gallery">
             <%= link_to (image_tag category.icon_image.url(:big), :class => "fix-height img-responsive img-rounded"),
                           category_path(category.permalink) %>
-            <div class="title">
+            <div class="title <%= height_for_city(params[:type].humanize) %>">
               <%= link_to "#{category.title.humanize} (#{category.galleries.count})",
                           category_path(category.permalink) %>
             </div>

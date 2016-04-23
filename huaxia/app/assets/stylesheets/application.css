@@ -183,6 +183,9 @@ li.none-border{
   width: 100%;
   padding: 28px;
 }
+.category-gallery{
+  padding: 20px;
+}
 
 .no-margin-right{
   margin-right: 0!important;
@@ -672,6 +675,12 @@ a.accordion-toggle{
   border-bottom: 2px solid #f0e5d2;
 }
 
+input[type="radio"], input[type="checkbox"]{
+  margin-top: 1px;
+}
+
+
+
 
 .margin_l_40_r_20{
   margin-left: 40px!important;
@@ -756,6 +765,28 @@ a.accordion-toggle{
   #menu-nav ul li a:hover{
     background-color:#fff!important;
   }
+  .fix-height{
+    max-height:180px;
+  }
+  .category-gallery .title {
+    font-size: 11px;
+    height: 50px;
+    padding-top: 5px;
+    text-align: center;
+  }
+  .category-gallery .city_height {
+    height: 20px;
+  }
+  .category-gallery{
+    margin-bottom: 10px;
+  }
+  .padding_for_mobile{
+    padding-left: 10px!important;
+    padding-right: 5px!important;
+  }
+  .padding_for_univ{
+    padding: 0 5px 10px 5px!important;
+  }
   .grid-item { width: 100% }
   .list-univ-by-province ul li ul.child li{margin-bottom:15px;}
   .sub-menu-icon{
@@ -812,6 +843,21 @@ a.accordion-toggle{
   }
   #menu-nav .navbar-collapse {
     text-align: center;
+  }
+  .fix-height{
+    max-height:110px;
+  }
+  .category-gallery .title {
+    font-size: 12px;
+    height: 50px;
+    padding-top: 10px;
+    text-align: center;
+  }
+  .category-gallery .city_height {
+    height: 30px;
+  }
+  .category-gallery{
+    padding: 15px;
   }
   .small-center-image{
     height: 150px;
@@ -955,6 +1001,13 @@ a.accordion-toggle{
   .small-center-image{
     height: 175px;
     margin: 0 auto;
+  }
+  .fix-height{
+    max-height:180px;
+  }
+  .category-gallery .title {
+    font-size: 13px;
+    height: 55px;
   }
   .masonry-university {
     -moz-column-count: 3;
@@ -1102,7 +1155,7 @@ a.accordion-toggle{
     font-size: 16px;
   }
   .fix-height{
-    max-height:200px;
+    max-height:180px;
   }
   #guilin, #guangxi{
     left: 57%;

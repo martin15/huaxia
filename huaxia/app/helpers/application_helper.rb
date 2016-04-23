@@ -93,4 +93,8 @@ module ApplicationHelper
     [ "Tidak Punya","Basic", "Intermediate", "Advance"]
   end
 
+  def height_for_city(type)
+    return'city_height' if type.downcase == 'city'
+  end
+
 end

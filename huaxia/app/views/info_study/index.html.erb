@@ -121,7 +121,8 @@
                                                       selected_1),
                              {:prompt => "-"}, {:class => "selectpicker form-control"} %>
               </div>
-              <%= f.label :major, "Jurusan*", :class => "col-xs-12 col-sm-2 col-md-1 no-padding-right no-padding-left" %>
+              <%= f.label :major, "Jurusan*", :class => "col-xs-12 col-sm-2 col-md-1 no-padding-right 
+                                                         no-padding-left padding_for_mobile" %>
               <div class="col-xs-12 col-sm-3 col-md-4">
                 <%= f.text_field :major, :class => "form-control" %>
               </div>
@@ -134,7 +135,8 @@
                                                       selected_2),
                              {:prompt => "-"}, {:class => "selectpicker form-control"} %>
               </div>
-              <%= f.label :major_2, "Jurusan*", :class => "col-xs-12 col-sm-2 col-md-1 no-padding-right no-padding-left" %>
+              <%= f.label :major_2, "Jurusan*", :class => "col-xs-12 col-sm-2 col-md-1 no-padding-right 
+                                                           no-padding-left padding_for_mobile" %>
               <div class="col-xs-12 col-sm-3 col-md-4">
                 <%= f.text_field :major_2, :class => "form-control" %>
               </div>
@@ -152,7 +154,8 @@
                 <%= f.select :hsk_level, options_for_select(hsk_list, hsk_l),
                              {:prompt => "-"}, {:class => "selectpicker form-control"} %>
               </div>
-              <%= f.label :hsk_score, "Nilai HSK", :class => "col-xs-12 col-sm-2 col-md-2 no-padding-right no-padding-left" %>
+              <%= f.label :hsk_score, "Nilai HSK", :class => "col-xs-12 col-sm-2 col-md-2 no-padding-right 
+                                                              no-padding-left padding_for_mobile" %>
               <div class="col-xs-12 col-sm-3 col-md-3">
                 <%= f.text_field :hsk_score, :class => "form-control" %>
               </div>
