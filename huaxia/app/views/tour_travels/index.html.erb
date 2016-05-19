@@ -1,7 +1,7 @@
 <div class="col-md-12 content">
-  <% if session[:user_id].nil? %>
-  <h3>Mohon maaf...Konten sedang diperbaharui....</h3>
-  <% else %>
+  <%# if session[:user_id].nil? %>
+  <%#*<h3>Mohon maaf...Konten sedang diperbaharui....</h3>%>
+  <%# else %>
   <h2><%#= @child_info.title.upcase %></h2>
   <div class="visible-xs hidden-sm hidden-md hidden-lg">
     <% @list_child_info.each_with_index do |child_info, x| %>
@@ -33,7 +33,7 @@
       <%= raw @child_info.content %>
     <% end %>
   </div>
-  <% end %>
+  <%# end %>
 
 </div>
 
