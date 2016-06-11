@@ -7,7 +7,7 @@ Huaxia::Application.routes.draw do
   get "about_us/:child_info" => "about_us#index", :as => "about_us_child_info"
   #resources :student_associations, :only => [:index]
   resources :tour_travels, :only => [:index]
-  get "tour_travels/:child_info" => "tour_travels#index", :as => "tour_travel_child_info"
+  get "tour_travels/:child_info" => "tour_travels#index", :as => "tour_travel"
   get "tour_travels/:child_info/:airline" => "tour_travels#airline_detail", :as => "tour_travel_airline_detail"
   post "tour_travels/tiket-pesawat/search_result" => "tour_travels#search_result", :as => "search_result"
 
@@ -55,6 +55,7 @@ Huaxia::Application.routes.draw do
     get "registration_files/download_registration_forms" => "registration_files#download_registration_forms",
         :as => "download_registration_forms"
     resources :student_associations
+    resources :tour_travels
     resources :universities do
       resources :university_details
     end
@@ -99,6 +100,13 @@ Huaxia::Application.routes.draw do
     get "informations/:id/child_informations/:child_id/edit" => "informations#edit", :as => "edit_child_informations"
     put "informations/:id/child_informations/:child_id" => "informations#update", :as => "child_information"
     delete "informations/:id/child_informations/:child_id" => "informations#destroy", :as => "child_information"
+
+    get "tour_travels/:id/child_tour_travels" => "tour_travels#index", :as => "child_tour_travels"
+    post "tour_travels/:id/child_tour_travels" => "tour_travels#create", :as => "child_tour_travels"
+    get "tour_travels/:id/child_tour_travels/new" => "tour_travels#new", :as => "new_child_tour_travels"
+    get "tour_travels/:id/child_tour_travels/:child_id/edit" => "tour_travels#edit", :as => "edit_child_tour_travels"
+    put "tour_travels/:id/child_tour_travels/:child_id" => "tour_travels#update", :as => "child_tour_travel"
+    delete "tour_travels/:id/child_tour_travels/:child_id" => "tour_travels#destroy", :as => "child_tour_travel"
 
 
   end

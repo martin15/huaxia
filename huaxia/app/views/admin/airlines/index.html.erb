@@ -8,6 +8,7 @@
         <tr>
           <th>#</th>
           <th>Name</th>
+          <th>Logo</th>
           <th>&nbsp;</th>
         </tr>
       </thead>
@@ -16,6 +17,7 @@
           <tr>
             <th scope="row"><%= @no+x+1 %></th>
             <td><%= airline.name %></td>
+            <td><%= image_tag airline.logo.url(:small) %></td>
             <td>
               <%= link_to "Edit", edit_admin_airline_path(airline), :class => "btn btn-success" %>
               <%= link_to "Delete", admin_airline_path(airline.id ), :method => :delete,

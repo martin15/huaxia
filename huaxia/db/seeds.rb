@@ -61,7 +61,21 @@ summer_winter_camp = Category.find_or_create_by_title(:title => "summer_winter_c
 puts summer_winter_camp.inspect
 
 
-
+tour_and_travel = Information.find_by_permalink("tour-and-travel")
+child_tour_and_travels = tour_and_travel.child_info
+child_tour_and_travels.each do |child_tour_and_travel|
+  puts TourTravel.find_by_permalink(child_tour_and_travel.permalink).inspect
+  puts "-----"
+  if TourTravel.find_by_permalink(child_tour_and_travel.permalink).nil?
+    tour_travel = TourTravel.new
+    tour_travel.title = child_tour_and_travel.title
+    tour_travel.content = child_tour_and_travel.content
+    tour_travel.order_no = child_tour_and_travel.order_no
+    tour_travel.menu_icon = child_tour_and_travel.sub_menu_icon
+    tour_travel.save
+    puts tour_travel.inspect
+  end
+end
 
 bahan_ajar_tk = BookCategory.find_or_create_by_name(:name => "Bahan Ajar TK")
 puts bahan_ajar_tk

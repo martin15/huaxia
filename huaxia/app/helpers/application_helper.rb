@@ -63,6 +63,16 @@ module ApplicationHelper
     end
   end
 
+  def display_icon_and_text_for_tour_travel(child_info)
+    str = ""
+    if child_info.menu_icon.exists?
+      str = "<span class='icon-side-menu'>
+              #{image_tag child_info.menu_icon.url(:icon), :class => "sub-menu-icon"}
+             </span>"
+    end
+    str += "<span class='text-side-menu'>#{child_info.title.humanize}</span>"
+  end
+
   def display_icon_for_gallery(image)
     str = "<span class='icon-side-menu'>
               #{image_tag "#{image.gsub(/\s/,'_').downcase}.png", :class => "sub-menu-icon"}

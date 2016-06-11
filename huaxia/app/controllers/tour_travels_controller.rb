@@ -3,20 +3,19 @@ class TourTravelsController < ApplicationController
 
   def index
     if params[:child_info].nil?
-      @child_info = @tour_and_travel.child_info.first
+      @tour_travel = TourTravel.order("order_no").first
     else
+      @tour_travel = TourTravel.find_by_permalink(params[:child_info])
       if params[:child_info] == "tiket-pesawat"
-        @child_info = @tour_and_travel.child_info.find_by_permalink(params[:child_info])
         @airlines = Airline.order("name")
       else
-        @child_info = @tour_and_travel.child_info.find_by_permalink(params[:child_info])
-        if @child_info.nil?
-          redirect_to info_path('tour_travels')
+        if @tour_travel.nil?
+          redirect_to tour_travel_path
           return
         end
       end
     end
-    @list_child_info = @tour_and_travel.child_info
+    @tour_travels = TourTravel.parent_tour_travel
   end
 
   def airline_detail

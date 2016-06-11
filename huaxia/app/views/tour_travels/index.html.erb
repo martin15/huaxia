@@ -2,26 +2,29 @@
   <%# if session[:user_id].nil? %>
   <%#*<h3>Mohon maaf...Konten sedang diperbaharui....</h3>%>
   <%# else %>
-  <h2><%#= @child_info.title.upcase %></h2>
+  <h2>TOUR AND TRAVEL</h2>
   <div class="visible-xs hidden-sm hidden-md hidden-lg">
-    <% @list_child_info.each_with_index do |child_info, x| %>
-      <% if child_info.permalink == @child_info.permalink %>
+    <% @tour_travels.each_with_index do |child_info, x| %>
+      <% if child_info.permalink == @tour_travel.permalink %>
         <span class="active"><%= child_info.title.humanize %></span>
       <% else %>
         <%= link_to child_info.title.humanize,
-                    tour_travel_child_info_path(child_info.permalink) %>
+                    tour_travel_path(child_info.permalink) %>
       <% end %>
-      <%= " |" unless @list_child_info.size == x+1 %>
+      <%= "&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;" unless @tour_travels.size == x+1 %>
     <% end %><br /><br /><br />
   </div>
   <div class="hidden-xs col-sm-3 col-md-3">
-    <% @list_child_info.each do |child_info| %>
-      <div class="col-md-12 padding_t_b_5">
-        <% if child_info.permalink == @child_info.permalink %>
-          <span class="active"><%= child_info.title.humanize %></span><br />
+    <% @tour_travels.each do |child_info| %>
+      <div class="col-xs-12 col-sm-12 col-md-12 padding_t_b_5 margin_b_10 no_p_lr">
+        <% if child_info.permalink == @tour_travel.permalink %>
+          <span class="active">
+            <span class="icon-side-menu"><%= raw(display_icon(child_info.menu_icon)) %></span>
+            <span class="text-side-menu"><%= child_info.title.humanize %></span>
+          </span><br />
         <% else %>
-          <%= link_to child_info.title.humanize,
-                      tour_travel_child_info_path(child_info.permalink) %><br />
+          <%= link_to raw(display_icon_and_text_for_tour_travel(child_info)),
+                      tour_travel_path(child_info.permalink) %><br />
         <% end %>
       </div>
     <% end %>
@@ -30,7 +33,28 @@
     <% if !@airlines.blank? && params[:child_info] == "tiket-pesawat" %>
       <%= render :partial => "airlines", :locals => { :airlines => @airlines} %>
     <% else %>
-      <%= raw @child_info.content %>
+      <% if @tour_travel.child_info.blank? %>
+        <%= raw @tour_travel.content %>
+      <% else %>
+        <div class="panel-group" id="accordion">
+          <% @tour_travel.child_info.each_with_index do |info, x| %>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <%= link_to raw("#{display_icon(info.menu_icon)}#{info.title.humanize}"),
+                              "#collapse-#{x+1}", :class => "#{accordion_with_image(info.menu_icon)}",
+                              :data => {:toggle => "collapse", :parent => "#accordion"} %>
+                </h4>
+              </div>
+              <div id="collapse-<%= x+1 %>" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <%= raw info.content %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <%# end %>

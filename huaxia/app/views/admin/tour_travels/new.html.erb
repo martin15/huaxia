@@ -1,0 +1,18 @@
+<div class="col-md-12 content">
+  <h2>New Tour Travel</h2>
+  <div class="col-md-12">
+    <%= form_for([:admin, @tour_travel],
+                  :url => (params[:id].nil? ? admin_tour_travels_path : admin_child_tour_travels_path(params[:id])),
+                  :html => { :multipart => true,  :class => "form-horizontal"}) do |f| %>
+      <%= f.error_messages %>
+      <%= render :partial => 'form', :locals => { :f => f} %>
+      <div class="form-group">
+        <div class="col-sm-2">&nbsp;</div>
+        <div class="col-sm-10">
+          <%= f.submit :class => "btn btn-success" %>
+          <%= link_to 'Back', admin_tour_travels_path, :class => "btn btn-info" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="col-md-12 content">
+  <h2>Tour Travels</h2>
+  <div class="col-md-12">
+    <p><%= raw msg_flash(flash) %></p>
+    <p>
+      <%= link_to "Add new tour_travel", new_admin_tour_travel_path %>
+    </p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Icon</th>
+          <th>Order</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tour_travels.each_with_index do |tour_travel, x| %>
+          <tr>
+            <th scope="row"><%= @no+x+1 %></th>
+            <td><%= tour_travel.title %></td>
+            <td><%= image_tag tour_travel.menu_icon.url(:icon) %></td>
+            <td><%= tour_travel.order_no %></td>
+            <td>
+              <%= link_to "Edit", edit_admin_tour_travel_path(tour_travel.permalink), :class => "btn btn-success" %>
+              <%= link_to "Delete", admin_tour_travel_path(tour_travel.permalink ), :method => :delete,
+                                    :confirm => "Are you sure?", :class => "btn btn-warning" %>
+              <%= link_to "Child Tour Travel", admin_tour_travel_path(tour_travel.permalink ), :class => "btn btn-info" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="admin-row">
+      <%= will_paginate @tour_travels, :link_separator => " | ",
+                                 :previous_label => "&laquo; previous",
+                                 :next_label => "next &raquo;" %>
+
+    </div>
+  </div>
+</div>
