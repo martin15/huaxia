@@ -11,7 +11,7 @@
         <%= link_to child_info.title.humanize,
                     tour_travel_path(child_info.permalink) %>
       <% end %>
-      <%= "&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;" unless @tour_travels.size == x+1 %>
+      <%= raw "&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;" unless @tour_travels.size == x+1 %>
     <% end %><br /><br /><br />
   </div>
   <div class="hidden-xs col-sm-3 col-md-3">
