@@ -9,7 +9,7 @@
         <span class="active"><%= child_info.title.humanize %></span>
       <% else %>
         <%= link_to child_info.title.humanize,
-                    tour_travel_path(child_info.permalink) %>
+                    tour_travel_path(child_info.permalink), :class => "line-height-sub-menu" %>
       <% end %>
       <%= raw "&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;" unless @tour_travels.size == x+1 %>
     <% end %><br /><br /><br />
