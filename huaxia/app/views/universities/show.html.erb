@@ -18,7 +18,13 @@
                                   :onclick => "display_sub_menu('#{temp_province}');" %>
               <ul class="child" id="<%= temp_province %>">
                 <% universities.each do |univ| %>
-                  <li><%= link_to univ.name %></li>
+                  <li>
+                    <% if @university.name == univ.name %>
+                      <span class="active"><%= univ.name %></span>
+                    <% else %>
+                      <%= link_to univ.name, university_path(univ.city, univ.permalink) %>
+                    <% end %>
+                  </li>
                 <% end %>
               </ul>
             </li>

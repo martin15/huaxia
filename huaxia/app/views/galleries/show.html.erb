@@ -14,7 +14,7 @@
 </script>
 <div class="visible-xs hidden-sm hidden-md hidden-lg margin_l_r_20">
   <% Category.list_type.each_with_index do |category, x| %>
-    <% if category[0].humanize == @category.category_type.humanize %>
+    <% if category[0].humanize == @category.try(:category_type).try(:humanize) %>
       <span class="active"><%= category[0] %></span>
     <% else %>
       <%= link_to category[0], categories_path(category[1]) %>
