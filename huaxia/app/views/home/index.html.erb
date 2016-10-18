@@ -95,7 +95,7 @@
             <p><%= city %></p>
             <ul>
               <% univs.each do |univ| %>
-                <li><%= link_to univ.name, university_path(province, univ.permalink) %></li>
+                <li><%= link_to univ.name, university_path(city, univ.permalink) %></li>
               <% end %>
             </ul>
           <% end  %>
