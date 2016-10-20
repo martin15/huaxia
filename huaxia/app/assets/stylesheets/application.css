@@ -634,6 +634,16 @@ a.accordion-toggle{
   border-bottom-right-radius: 5px;
 }
 
+#yunnan {
+  height: 10%;
+  left: 42%;
+  top: 79.5%;
+  width: 11%;
+  border-top-left-radius: 75px;
+  border-bottom-left-radius: 75px;
+  border-bottom-right-radius: 5px;
+}
+
 .small_font{
   font-size: 9px;
   font-style: italic;

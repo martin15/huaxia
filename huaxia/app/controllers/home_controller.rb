@@ -18,7 +18,7 @@ class HomeController < ApplicationController
     @list_univs = University.where("province in ('Guangxi', 'Hainan', 'Hunan',
                                                  'Hubei', 'Chongqing', 'Jiangsu',
                                                  'Beijing', 'Taiwan', 'Shanghai',
-                                                 'Guizhou', 'Shijiazhuang', 'Shandong')").
+                                                 'Guizhou', 'Shijiazhuang', 'Shandong', 'yunnan')").
                              group_by{ |h| h.province }
     @programs = Feature.where("display_at_home = true").order("title")
   end
