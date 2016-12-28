@@ -9,7 +9,7 @@ Huaxia::Application.configure do
   config.action_controller.perform_caching = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = true
+  config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
@@ -68,15 +68,25 @@ Huaxia::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:80' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
+#  config.action_mailer.smtp_settings = {
+#    :authentication => :plain,
+#    :address => "smtp.mailgun.org",
+#    :port => 587,
+#    :domain => "sandbox1457.mailgun.org",
+#    :user_name => "postmaster@sandbox1457.mailgun.org",
+#    :password => "9yv7w5v115s2",
+#    :openssl_verify_mode  => 'none',
+#    :enable_starttls_auto => false
+#  }
+  config.mailer_sender = '"no-to-replay" <no-reply@huaxia-icec.com>'
   config.action_mailer.smtp_settings = {
-    :authentication => :plain,
-    :address => "smtp.mailgun.org",
-    :port => 587,
-    :domain => "sandbox1457.mailgun.org",
-    :user_name => "postmaster@sandbox1457.mailgun.org",
-    :password => "9yv7w5v115s2",
-    :openssl_verify_mode  => 'none',
-    :enable_starttls_auto => false
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => "huaxia-icec.com",
+    :user_name            => "notifier.email.global@gmail.com",
+    :password             => "1qazse4rfv",
+    :authentication       => :plain,
+    :enable_starttls_auto => true
   }
 
   # Log the query plan for queries taking more than this (works
