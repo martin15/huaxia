@@ -1,4 +1,14 @@
 <div class="col-md-12 content">
+  <% flash.each do |key, value| %>
+    <% unless value.blank? %>
+      <div class="alert alert-<%= flash_type(key) %> alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <%= value %>
+      </div>
+    <% end %>
+  <% end %>
   <h2><%#= params[:type].humanize.upcase %> GALLERIES</h2>
   <div class="visible-xs hidden-sm hidden-md hidden-lg">
     <% Category.list_type.each_with_index do |category, x| %>

@@ -2,11 +2,11 @@ class GalleriesController < ApplicationController
 
   def index
     params[:page] = params[:page].to_i == 0 ? 1 : params[:page]
-    @categories =Category.where("category_type = '#{params[:type]}'")
-    if @categories.nil?
-      redirect_to root_path
-      return
+    unless ['university', 'city', 'huaxia_program'].include?(params[:type])
+      flash[:error] = "Cannot find gallery with type '#{params[:type].titleize}'"
+      redirect_to categories_path('university')
     end
+    @categories =Category.where("category_type = '#{params[:type]}'")
     @categories = @categories.paginate(:page => params[:page], :per_page => 30,
                                          :order => "created_at DESC" )
   end
