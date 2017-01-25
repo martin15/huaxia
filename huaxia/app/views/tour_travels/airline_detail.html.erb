@@ -4,7 +4,7 @@
   <div class="col-xs-12 col-sm-9 col-md-9">
     <%= render :partial => "search" %>
     <div class="row tour-travel-back-link">
-      <%= link_to "List Tiket Pesawat", tour_travel_child_info_path("tiket-pesawat") %>
+      <%= link_to "List Tiket Pesawat", tour_travel_path("tiket-pesawat") %>
     </div>
     <% @airline.routes.each do |route| %>
       <div class="row margin_b_30 padding_b_20 border_bottom">
@@ -36,7 +36,7 @@
       </div>
     <% end %>
     <div class="row tour-travel-back-link">
-      <%= link_to "List Tiket Pesawat", tour_travel_child_info_path("tiket-pesawat") %>
+      <%= link_to "List Tiket Pesawat", tour_travel_path("tiket-pesawat") %>
     </div>
   </div>
 </div>

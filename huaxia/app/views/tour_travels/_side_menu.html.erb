@@ -2,10 +2,10 @@
   <% @list_child_info.each_with_index do |child_info, x| %>
     <% if child_info.permalink == @child_info.permalink %>
       <span class="active"><%= link_to child_info.title.humanize,
-                  tour_travel_child_info_path(child_info.permalink) %></span>
+                  tour_travel_path(child_info.permalink) %></span>
     <% else %>
       <%= link_to child_info.title.humanize,
-                  tour_travel_child_info_path(child_info.permalink) %>
+                  tour_travel_path(child_info.permalink) %>
     <% end %>
     <%= " |" unless @list_child_info.size == x+1 %>
   <% end %><br /><br /><br />
@@ -15,10 +15,10 @@
     <div class="col-md-12 padding_t_b_5">
       <% if child_info.permalink == @child_info.permalink %>
         <span class="active"><%= link_to child_info.title.humanize,
-                  tour_travel_child_info_path(child_info.permalink) %></span><br />
+                  tour_travel_path(child_info.permalink) %></span><br />
       <% else %>
         <%= link_to child_info.title.humanize,
-                    tour_travel_child_info_path(child_info.permalink) %><br />
+                    tour_travel_path(child_info.permalink) %><br />
       <% end %>
     </div>
   <% end %>
